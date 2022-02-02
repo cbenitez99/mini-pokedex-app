@@ -1,7 +1,12 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+puts "Seeding data **************"
+user = User.create(username: "Cristian", password_digest: "1234")
+trainer = Trainer.create(name: "Cris", party_count: 1, user_id: user.id)
+pokemon = Pokemon.create(
+    name: "Bulbasaur", 
+    types: "Grass", 
+    url: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png", 
+    trainer_id: trainer.id
+)
+puts "Data seeded...."
+
+
