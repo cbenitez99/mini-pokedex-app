@@ -1,6 +1,6 @@
 # Mini Pokedex App!
 
-This app is intended for all those Pokemon fan/90's kids out there! You'll get to see pokemon and save your own pokemon to your party! A Pokémon can only know between one and four moves at a time. Add/Delete "moves" from your pokemond! This will continue to be in development until further notice!  
+This app is intended for all those Pokemon fan/90's kids out there! You'll get to see pokemon and save your own pokemon to your party! A Pokémon can only know between one and four moves at a time. Add/remove pokemon from your party! This will continue to be in development until further notice!  
 
 ## Getting Started with Create React App
 
