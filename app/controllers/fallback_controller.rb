@@ -4,6 +4,6 @@ class FallbackController < ActionController::Base
 
   def index
     # React app index page
-    render json: 'pokemond data supposed to be here'
+    render json: 'Check your route '
   end
 end
