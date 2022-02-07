@@ -1,9 +1,12 @@
+User.destroy_all
+Trainer.destroy_all
+Pokemon.destroy_all
 puts "Seeding data **************"
-user = User.create(username: "Cristian", password_digest: "1234")
-user2 = User.create(username: "Alex", password_digest: "54321")
+user = User.create(username: "Cristian", password_digest: "coder123")
+# user2 = User.create(username: "Alex", password_digest: "54321")
 
 trainer1 = Trainer.create(name: "Cris", party_count: 0, user_id: user.id)
-trainer2 = Trainer.create(name: "Abs", party_count: 0, user_id: user2.id)
+trainer2 = Trainer.create(name: "Abs", party_count: 0, user_id: 2)
 
 pokemon1 = Pokemon.create(
     name: "Bulbasaur", 
