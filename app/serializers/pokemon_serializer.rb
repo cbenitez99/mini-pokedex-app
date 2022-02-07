@@ -1,4 +1,4 @@
 class PokemonSerializer < ActiveModel::Serializer
   attributes :id, :name, :types, :url
-  has_many :trainers
+  belongs_to :trainer
 end

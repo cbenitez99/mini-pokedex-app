@@ -7,7 +7,6 @@ function SignupForm({setUser}) {
         password: "",
     })
 
-
     const handleChange = (e) => {
         setFormData(prev => {
             return {

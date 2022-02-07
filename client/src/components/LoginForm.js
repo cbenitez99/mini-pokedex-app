@@ -1,11 +1,12 @@
 import React, {useState} from 'react'
+import { useNavigate } from 'react-router-dom';
 
 function LoginForm({setUser}) {
     const [formData, setFormData] = useState({
         username: "",
         password: ""
     })
-
+    let navigate = useNavigate()
     const handleChange = (e) => {
         setFormData(prev => {
             return {
@@ -14,7 +15,6 @@ function LoginForm({setUser}) {
             }
         })
     }   
-
     const handleSubmit = (e) => {
         e.preventDefault()
         let params = {
@@ -32,15 +32,14 @@ function LoginForm({setUser}) {
             if(resp.ok){
                 resp.json()
                 .then((json) => {
-                  console.log(json)
+                  setUser(json)
+                  navigate("/trainers")
                 })
             } else {
-                alert("check backend")
-                // alert("Please check your login info!")
+                console.log(resp)
             }
         })
     };
-
     return (
         <div className="text-white">
             <h1>Login</h1>

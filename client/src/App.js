@@ -10,7 +10,7 @@ import Home from "./components/Home";
 
 import Navbar from "./components/Navbar";
 function App() {
-  const [user, setUser] = useState({})
+  const [user, setUser] = useState(null)
   return (
     <div>
       <Navbar user={user}/>

@@ -1,4 +1,4 @@
 class Trainer < ApplicationRecord
-    has_many :pokemon
+    has_many :pokemons
     belongs_to :user
 end
