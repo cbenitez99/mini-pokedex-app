@@ -1,10 +1,11 @@
 import { Routes, Route } from "react-router-dom";
-import {useState, useEffect} from "react"
+import {useState} from "react"
 import PokemonContainer from "./components/PokemonContainer";
 import AddPokemonForm from "./components/AddPokemonForm";
 import TrainersContainer from "./components/TrainersContainer";
 import PokemonEditForm from "./components/PokemonEditForm";
 import LoginForm from "./components/LoginForm";
+import SignupForm from "./components/SignupForm";
 import Home from "./components/Home";
 
 import Navbar from "./components/Navbar";
@@ -20,6 +21,7 @@ function App() {
             <Route exact path="/trainers" element={<TrainersContainer/>}></Route>
             <Route exact path="/pokemons" element={<PokemonContainer/>}></Route>
             <Route exact path="/login" element={<LoginForm setUser={setUser}/>}></Route>
+            <Route exact path="/signup" element={<SignupForm setUser={setUser}/>}></Route>
             <Route exact path="/" element={<Home/>} ></Route>
           </Routes>
       </main>

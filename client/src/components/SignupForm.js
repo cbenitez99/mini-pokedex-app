@@ -1,10 +1,12 @@
 import React, {useState} from 'react'
-
-function LoginForm({setUser}) {
+// import { useNavigate } from 'react-router-dom';
+function SignupForm({setUser}) {
+    // let navigate = useNavigate()
     const [formData, setFormData] = useState({
         username: "",
-        password: ""
+        password: "",
     })
+
 
     const handleChange = (e) => {
         setFormData(prev => {
@@ -20,7 +22,7 @@ function LoginForm({setUser}) {
         let params = {
           ...formData  
         }
-        fetch("/login", {
+        fetch("/users", {
             method: "POST",
             headers: {
                 "Accept": "application/json",
@@ -32,26 +34,27 @@ function LoginForm({setUser}) {
             if(resp.ok){
                 resp.json()
                 .then((json) => {
-                  console.log(json)
+                    console.log(json)
+                    // setUser(json)
+                    // navigate(`/users/${json.id}`)
                 })
             } else {
                 alert("check backend")
-                // alert("Please check your login info!")
             }
         })
-    };
+    }
 
     return (
         <div className="text-white">
-            <h1>Login</h1>
+            <h1>SignUp</h1>
             <form onSubmit={handleSubmit}>
-                <label htmlFor="username">Username:</label>
+                <label htmlFor="username">Create Username:</label>
                 <input onChange={handleChange} type="text" name="username" value={formData.username}/>
-                <label htmlFor="password">Password:</label>
+                <label htmlFor="password">Create Password:</label>
                 <input onChange={handleChange} type="password" name="password" value={formData.password}/>
-                <button type="submit">Log in</button>
+                <button type="submit">Sign Up</button>
             </form>
         </div>
     )
 }
-export default LoginForm;
+export default SignupForm;
