@@ -24,7 +24,7 @@ export default function Navbar({user}) {
                   })
             }}>Logout</a></li>
             <li><a href="/signup">Sign-Up</a></li>
-            <li><a href="/pokemons">Pokedex</a></li>
+            <li><a href="/pokemons">Your Pokemon</a></li>
           </ul>
         </div>
       </nav>
