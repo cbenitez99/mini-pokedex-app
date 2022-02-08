@@ -2,7 +2,6 @@ import axios from "axios"
 import "../App.css"
 import React, {useState} from "react"
 const AddPokemonForm = () => {
-
     const [pokemon, setPokemon] = useState("pikachu");
     const [pokemonData, setPokemonData] = useState([]);
     const [pokemonType, setPokemonType] = useState("");
@@ -20,13 +19,13 @@ const AddPokemonForm = () => {
           const url = `https://pokeapi.co/api/v2/pokemon/${pokemon}`;
           const res = await axios.get(url);
           toArray.push(res.data);
-          setPokemonType(res.data.types[0].type.name);
+          setPokemonType(res.data.types[0].type.name.toUpperCase());
           setPokemonData(toArray);
         } catch (e) {
           console.log(e);
         }
     };
-    // console.log(pokemonData);
+    console.log(pokemonData);
 
     return (
         <div className="App">
@@ -35,7 +34,7 @@ const AddPokemonForm = () => {
                     <input
                     type="text"
                     onChange={handleChange}
-                    placeholder="enter pokemon name"
+                    placeholder="Find Pokemon"
                     />
                 </label>
             </form>
@@ -45,6 +44,12 @@ const AddPokemonForm = () => {
                 <img src={data.sprites["front_default"]} alt="poke-sprite"/>
                 <div className="divTable">
                     <div className="divTableBody">
+
+                        <div className="divTableRow">
+                            <div className="divTableCell">Entry</div>
+                            <div className="divTableCell">#{data.id}</div>
+                        </div>
+
                         <div className="divTableRow">
                             <div className="divTableCell">Type</div>
                             <div className="divTableCell">{pokemonType}</div>
@@ -66,10 +71,6 @@ const AddPokemonForm = () => {
                           </div>
                       </div>
 
-                      <div className="divTableRow">
-                          <div className="divTableCell">Number of Battles</div>
-                          <div className="divTableCell">{data.game_indices.length}</div>
-                      </div>
                     </div>
                 </div>
             </div>
