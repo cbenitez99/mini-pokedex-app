@@ -5,6 +5,7 @@ const AddPokemonForm = () => {
     const [pokemon, setPokemon] = useState("pikachu");
     const [pokemonData, setPokemonData] = useState([]);
     const [pokemonType, setPokemonType] = useState("");
+    const [caughtPokemon, setCaughtPokemon] = useState([])
 
     const handleChange = (e) => {
         setPokemon(e.target.value.toLowerCase());
@@ -25,7 +26,11 @@ const AddPokemonForm = () => {
           console.log(e);
         }
     };
-    console.log(pokemonData);
+
+    const handleClick = (e) => {
+        setCaughtPokemon(e.target.value)
+        console.log(caughtPokemon)
+    };
 
     return (
         <div className="App">
@@ -40,7 +45,8 @@ const AddPokemonForm = () => {
             </form>
         {pokemonData.map((data) => {
         return (
-            <div className="container">
+            <div key={data.id}className="container">
+                <button onClick={handleClick} className="catch-button">Catch!</button>
                 <img src={data.sprites["front_default"]} alt="poke-sprite"/>
                 <div className="divTable">
                     <div className="divTableBody">

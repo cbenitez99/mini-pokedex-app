@@ -1,14 +1,19 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 
 
 export default function Navbar({user}) {
   let navigate = useNavigate()
-  return ( //conditional !!user.id prop
+  return ( 
     <div>
-      <nav>
+     <nav>
         <div className="nav-wrapper">
-          <a href="/" className="brand-logo right">Home</a>
+          {/* <a href="/" className="brand-logo right">Home</a> */}
+          <NavLink to="/" className="brand-logo right">Home</NavLink>
+          <NavLink to="/trainers" className="left hide-on-med-and-down">Profile</NavLink>
+          <NavLink to="/pokemons/new">Find Pokemon</NavLink>
+
+
           <ul id="nav-mobile" className="left hide-on-med-and-down">
             <li><a href="/login">Log-In</a></li>
             <li><a href="/delete" onClick={(e) => {
@@ -28,6 +33,38 @@ export default function Navbar({user}) {
           </ul>
         </div>
       </nav>
-    </div> 
+  </div> 
   );
 }
+
+ 
+
+  // {!user ?
+  //   <div className="nav-wrapper">
+  //     {/* <a href="/" className="brand-logo right">Home</a> */}
+  //     <li><NavLink to="/" className="brand-logo right">Home</NavLink></li>
+  //     <ul id="nav-mobile" className="left hide-on-med-and-down">
+  //     <li>
+  //       <a href="/delete" onClick={(e) => {
+  //         e.preventDefault()
+  //         fetch('/logout', {
+  //           method: "DELETE",
+  //           headers: {
+  //             "Accept": "application/json",
+  //             "Content-Type": "application/json"
+  //           }
+  //           }).then(resp => {
+  //             navigate("/")
+  //           })
+  //       }}>Logout
+  //       </a>
+  //     </li>
+  //     <li><NavLink to="/pokemons">Your Pokemon</NavLink></li>
+  //     </ul>
+  //   </div>
+  //   :
+  //   <div>
+  //       <li><NavLink to="/signup" >Signup</NavLink></li>
+  //       <li><NavLink to="/login">Log-In</NavLink></li>
+  //   </div>
+  // }

@@ -6,6 +6,7 @@ function SignupForm({setUser}) {
         username: "",
         password: "",
     })
+    const [errors, setErrors] = useState([])
 
     const handleChange = (e) => {
         setFormData(prev => {
@@ -34,11 +35,14 @@ function SignupForm({setUser}) {
                 resp.json()
                 .then((json) => {
                     console.log(json)
-                    // setUser(json)
+                    setUser(json)
                     // navigate(`/users/${json.id}`)
                 })
             } else {
-                alert("check backend")
+                resp.json()
+                .then((json) => {
+                    setErrors(json.errors)
+                })
             }
         })
     }
@@ -53,6 +57,8 @@ function SignupForm({setUser}) {
                 <input onChange={handleChange} type="password" name="password" value={formData.password}/>
                 <button type="submit">Sign Up</button>
             </form>
+            <br/>
+            <p style={{color: "red"}}>{errors}</p>
         </div>
     )
 }

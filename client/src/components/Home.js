@@ -1,5 +1,5 @@
 import React from 'react';
 
 export default function Home() {
-  return <div>WELCOME TO THE MINI POKEDEX</div>;
+  return <div><h1>WELCOME TO THE MINI POKEDEX</h1></div>;
 }
