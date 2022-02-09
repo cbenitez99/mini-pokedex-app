@@ -5,7 +5,7 @@ const AddPokemonForm = () => {
     const [pokemon, setPokemon] = useState("pikachu");
     const [pokemonData, setPokemonData] = useState([]);
     const [pokemonType, setPokemonType] = useState("");
-    const [caughtPokemon, setCaughtPokemon] = useState([])
+    // const [caughtPokemon, setCaughtPokemon] = useState([])
 
     const handleChange = (e) => {
         setPokemon(e.target.value.toLowerCase());
@@ -28,9 +28,18 @@ const AddPokemonForm = () => {
     };
 
     const handleClick = (e) => {
-        setCaughtPokemon(e.target.value)
-        console.log(caughtPokemon)
-    };
+        e.preventDefault()
+        // fetch("/pokemons", {
+        //     method: "POST",
+        //     headers: {
+        //         "Content-Type": "application/json"
+        //     },
+        //     body: JSON.stringify()
+        // })
+        // setCaughtPokemon(pokemonData)
+        let mappedData = pokemonData.map((pokemon) => pokemon.name)
+        alert( `You caught ${mappedData}!`)
+    }
 
     return (
         <div className="App">
@@ -50,6 +59,11 @@ const AddPokemonForm = () => {
                 <img src={data.sprites["front_default"]} alt="poke-sprite"/>
                 <div className="divTable">
                     <div className="divTableBody">
+
+                        <div className="divTableRow">
+                            <div className="divTableCell">Name</div>
+                            <div className="divTableCell">{data.name.toUpperCase()}</div>
+                        </div>
 
                         <div className="divTableRow">
                             <div className="divTableCell">Entry</div>
@@ -73,7 +87,7 @@ const AddPokemonForm = () => {
                           <div className="divTableCell">Weight</div>
                           <div className="divTableCell">
                               {" "}
-                              {Math.round(data.weight / 4.3)} lbs
+                              {Math.round(data.weight / 4.3)} LBS
                           </div>
                       </div>
 
