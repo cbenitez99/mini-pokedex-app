@@ -1,10 +1,12 @@
 import axios from "axios"
 import "../App.css"
 import React, {useState} from "react"
-const AddPokemonForm = () => {
+import { useNavigate } from "react-router-dom"
+const AddPokemonForm = ({user}) => {
     const [pokemon, setPokemon] = useState("pikachu");
     const [pokemonData, setPokemonData] = useState([]);
     const [pokemonType, setPokemonType] = useState("");
+    let navigate = useNavigate();
     // const [caughtPokemon, setCaughtPokemon] = useState([])
 
     const handleChange = (e) => {
@@ -29,16 +31,9 @@ const AddPokemonForm = () => {
 
     const handleClick = (e) => {
         e.preventDefault()
-        // fetch("/pokemons", {
-        //     method: "POST",
-        //     headers: {
-        //         "Content-Type": "application/json"
-        //     },
-        //     body: JSON.stringify()
-        // })
-        // setCaughtPokemon(pokemonData)
         let mappedData = pokemonData.map((pokemon) => pokemon.name)
         alert( `You caught ${mappedData}!`)
+        navigate(`/users/${user.id}`)
     }
 
     return (
@@ -55,7 +50,7 @@ const AddPokemonForm = () => {
         {pokemonData.map((data) => {
         return (
             <div key={data.id}className="container">
-                <button onClick={handleClick} className="catch-button">Catch!</button>
+                <button onClick={handleClick}>Add to Party!</button>
                 <img src={data.sprites["front_default"]} alt="poke-sprite"/>
                 <div className="divTable">
                     <div className="divTableBody">

@@ -2,34 +2,41 @@ import React from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 
 
-export default function Navbar({user}) {
+export default function Navbar({user, setUser}) {
   let navigate = useNavigate()
   return ( 
     <div>
      <nav>
         <div className="nav-wrapper">
-          {/* <a href="/" className="brand-logo right">Home</a> */}
           <NavLink to="/" className="brand-logo right">Home</NavLink>
-          <NavLink to="/trainers" className="left hide-on-med-and-down">Profile</NavLink>
-          <NavLink to="/pokemons/new">Find Pokemon</NavLink>
-
-
+          {/* <NavLink to={`/users/${user.id}`} className="left hide-on-med-and-down">Profile</NavLink> */}
           <ul id="nav-mobile" className="left hide-on-med-and-down">
-            <li><a href="/login">Log-In</a></li>
-            <li><a href="/delete" onClick={(e) => {
-                e.preventDefault()
+          {!!user.id ? 
+            <div className="nav-wrapper">
+            <li><NavLink to={`/users/${user.id}`}>Trainer Profile</NavLink></li>
+            <li><NavLink to="/pokemons/new">Find Pokemon</NavLink></li>
+
+             <li><a href="/" onClick={(e) => {
+                // e.preventDefault()
                 fetch('/logout', {
                   method: "DELETE",
                   headers: {
                     "Accept": "application/json",
                     "Content-Type": "application/json"
                   }
-                  }).then(resp => {
-                    navigate("/")
-                  })
+                }).then(resp => {
+                  setUser({})
+                  navigate("/")
+                })
             }}>Logout</a></li>
-            <li><a href="/signup">Sign-Up</a></li>
-            <li><a href="/pokemons">Your Pokemon</a></li>
+
+            </div>
+            :
+            <div>
+              <li><NavLink to="/signup" >Signup</NavLink></li>
+              <li><NavLink to="/login" >Login</NavLink></li>
+          </div>
+          }
           </ul>
         </div>
       </nav>

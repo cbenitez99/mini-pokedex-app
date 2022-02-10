@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 function SignupForm({setUser}) {
-    // let navigate = useNavigate()
+    let navigate = useNavigate()
     const [formData, setFormData] = useState({
         username: "",
         password: "",
@@ -36,7 +36,7 @@ function SignupForm({setUser}) {
                 .then((json) => {
                     console.log(json)
                     setUser(json)
-                    // navigate(`/users/${json.id}`)
+                    navigate(`/users/${json.id}`)
                 })
             } else {
                 resp.json()

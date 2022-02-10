@@ -1,11 +1,7 @@
-import React from 'react';
+import React from 'react'
 
-export default function PokemonCard({pokemonData}) {
+export default function PokemonCard() {
   return (
-    <div>
-        <h4> Name: {pokemonData.name}</h4>
-        <p> Type: {pokemonData.types}</p>
-        <img alt='Pokemon' src={pokemonData.url}/>
-    </div>
-  );
+    <div>PokemonCard</div>
+  )
 }

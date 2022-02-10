@@ -6,7 +6,9 @@ const LoginForm = ({setUser}) => {
         username: "",
         password: ""
     })
+    const [errors, setErrors] = useState([])
     let navigate = useNavigate()
+
     const handleChange = (e) => {
         setFormData(prev => {
             return {
@@ -14,7 +16,8 @@ const LoginForm = ({setUser}) => {
                 [e.target.name]: e.target.value
             }
         })
-    }   
+    };   
+ 
     const handleSubmit = (e) => {
         e.preventDefault()
         let params = {
@@ -32,14 +35,18 @@ const LoginForm = ({setUser}) => {
             if(resp.ok){
                 resp.json()
                 .then((json) => {
-                  setUser(json)
-                  navigate("/trainers")
+                    console.log(json)
+                    setUser(json)
+                    navigate(`/users/${json.id}`)
                 })
             } else {
-                console.log(resp)
+                resp.json()
+                .then((json) => {
+                    setErrors(json.errors)
+                })
             }
         })
-    };
+    }
     return (
         <div className="text-white">
             <h1>Login</h1>
@@ -50,6 +57,8 @@ const LoginForm = ({setUser}) => {
                 <input onChange={handleChange} type="password" name="password" value={formData.password}/>
                 <button type="submit">Log in</button>
             </form>
+            <br/>
+            <p style={{color: "red"}}>{errors}</p>
         </div>
     )
 }
