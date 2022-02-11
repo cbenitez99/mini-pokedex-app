@@ -1,12 +1,14 @@
 import React from 'react'
 import {Routes, Route} from "react-router-dom"
-import TrainerCard from '../components/TrainerCard'
-export default function UsersContainer({user, caughtPokemon}) {
+import TrainerProfile from '../components/TrainerProfile'
+const UsersContainer = ({user, caughtPokemon}) => {
     return (
         <div>
             <Routes>
-                <Route path=":id" element={<TrainerCard user={user} caughtPokemon={caughtPokemon}/>}/>
+                <Route path=":id" element={<TrainerProfile user={user} caughtPokemon={caughtPokemon}/>}/>
             </Routes>
         </div>
     )
 }
+
+export default UsersContainer;

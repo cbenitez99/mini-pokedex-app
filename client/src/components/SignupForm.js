@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import { useNavigate } from 'react-router-dom';
-function SignupForm({setUser}) {
+const SignupForm = ({setUser}) => {
     let navigate = useNavigate()
     const [formData, setFormData] = useState({
         username: "",
@@ -58,7 +58,7 @@ function SignupForm({setUser}) {
                 <button type="submit">Sign Up</button>
             </form>
             <br/>
-            <p style={{color: "red"}}>{errors}</p>
+            <p style={{color: "red"}}>{errors.map((error) => error)}</p>
         </div>
     )
 }

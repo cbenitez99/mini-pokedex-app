@@ -45,7 +45,6 @@ const App = () => {
         setPokemonType(res.data.types[0].type.name.toUpperCase());
         setPokemonData(toArray);
       } catch (e) {
-        console.log(e)
         alert("Pokemon does not exist!");
       }
   };
@@ -64,7 +63,7 @@ const App = () => {
         <Routes>
           <Route exact path="/pokemons/new" element={
           <FindPokemon user={user} pokemonData={pokemonData} pokemonType={pokemonType} handleChange={handleChange} handleSubmit={handleSubmit} handleClick={handleClick}/>}/>
-          <Route exact path="/pokemons" element={<PokemonContainer pokemonData={pokemonData}/>}></Route>
+          <Route exact path="/pokemons" element={<PokemonContainer caughtPokemon={caughtPokemon} pokemonData={pokemonData}/>}></Route>
           <Route exact path="/login" element={<LoginForm setUser={setUser}/>}></Route>
           <Route exact path="/signup" element={<SignupForm setUser={setUser}/>}></Route>
           <Route exact path="/" element={<Home/>} ></Route>

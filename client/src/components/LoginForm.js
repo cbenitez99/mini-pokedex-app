@@ -11,11 +11,8 @@ const LoginForm = ({setUser}) => {
 
     const handleChange = (e) => {
         setFormData(prev => {
-            return {
-                ...prev, 
-                [e.target.name]: e.target.value
-            }
-        })
+            return { ...prev, [e.target.name]: e.target.value }
+        });
     };   
  
     const handleSubmit = (e) => {
