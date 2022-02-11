@@ -1,15 +1,8 @@
-import axios from "axios"
 import "../App.css"
-import React, {useState} from "react"
-import { useNavigate } from "react-router-dom"
-const FindPokemon = ({user, pokemonData, pokemonType, handleChange, handleSubmit}) => {
-    let navigate = useNavigate();
-    const handleClick = (e) => {
-        e.preventDefault()
-        let mappedData = pokemonData.map((pokemon) => pokemon.name)
-        alert( `You caught ${mappedData}!`)
-        navigate(`/users/${user.id}`)
-    }
+import React from "react"
+
+const FindPokemon = ({pokemonData, pokemonType, handleChange, handleSubmit, handleClick}) => {
+    
     return (
         <div className="App">
             <form onSubmit={handleSubmit}>

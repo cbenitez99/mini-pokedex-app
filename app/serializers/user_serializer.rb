@@ -1,4 +1,4 @@
 class UserSerializer < ActiveModel::Serializer
   attributes :id, :username, :password_digest
-  has_one :trainers
+  has_many :pokemons
 end

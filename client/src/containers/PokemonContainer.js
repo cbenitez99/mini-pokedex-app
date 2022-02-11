@@ -1,12 +1,19 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 
-export default function PokemonContainer() {
+
+const PokemonContainer = ({pokemonData}) => {
     // useEffect(() => {
     //     fetch("/pokemons")
     //     .then((resp) => (resp.json()))
     //     .then(data => console.log(data))
     // }, [])
+    // let mappedData = pokemonData.map((pokemon) => pokemon.name)
+    // alert( `You caught ${mappedData}!`)
   return (
-    <div>List owned pokemon here!</div>
+      <div>
+        {console.log(pokemonData)}
+      </div>
   )
 }
+
+export default PokemonContainer;
