@@ -1,4 +1,4 @@
-import {useEffect, useState} from "react"
+import { useState} from "react"
 import { Routes, Route, useNavigate } from "react-router-dom";
 import FindPokemon from "./components/FindPokemon";
 import LoginForm from "./components/LoginForm";
@@ -14,17 +14,17 @@ const App = () => {
   const [pokemon, setPokemon] = useState("pikachu");
   const [pokemonData, setPokemonData] = useState([]);
   const [pokemonType, setPokemonType] = useState("");
-  const [caughtPokemon, setCaughtPokemon] = useState([]);
+  // const [caughtPokemon, setCaughtPokemon] = useState([]);
 
   let navigate = useNavigate();
 
-  useEffect(()=>{
-    fetch("https://pokeapi.co/api/v2/pokemon")
-    .then((resp)=> (resp.json()))
-    .then((data) => {
-      setCaughtPokemon(data.results)
-    })
-  },[user, pokemon])
+  // useEffect(()=>{
+  //   fetch("https://pokeapi.co/api/v2/pokemon")
+  //   .then((resp)=> (resp.json()))
+  //   .then((data) => {
+  //     setCaughtPokemon(data.results)
+  //   })
+  // },[user, pokemon.name])
 
  //////Recieve call from FindPokemon.js
   const handleChange = (e) => {
@@ -55,19 +55,25 @@ const App = () => {
     alert( `You caught ${mappedData}!`)
     navigate(`/users/${user.id}`)
   }
-/////////
+/////////caughtPokemon={caughtPokemon}
   return (
     <div>
       <Navbar user={user} setUser={setUser}/>
       <main>
         <Routes>
-          <Route exact path="/pokemons/new" element={
-          <FindPokemon user={user} pokemonData={pokemonData} pokemonType={pokemonType} handleChange={handleChange} handleSubmit={handleSubmit} handleClick={handleClick}/>}/>
-          <Route exact path="/pokemons" element={<PokemonContainer caughtPokemon={caughtPokemon} pokemonData={pokemonData}/>}></Route>
+          <Route exact path="/find-pokemon" element={ 
+            <FindPokemon user={user} 
+            pokemonData={pokemonData} 
+            pokemonType={pokemonType} 
+            handleChange={handleChange} 
+            handleSubmit={handleSubmit} 
+            handleClick={handleClick}/>}>
+          </Route>
+          <Route exact path="/pokemons" element={<PokemonContainer pokemonData={pokemonData}/>}></Route>
           <Route exact path="/login" element={<LoginForm setUser={setUser}/>}></Route>
           <Route exact path="/signup" element={<SignupForm setUser={setUser}/>}></Route>
           <Route exact path="/" element={<Home/>} ></Route>
-          <Route exact path="users/*" element={<UsersContainer user={user} caughtPokemon={caughtPokemon}/>}/>
+          <Route exact path="users/*" element={<UsersContainer user={user}/>}/>
         </Routes>
       </main>
     </div>

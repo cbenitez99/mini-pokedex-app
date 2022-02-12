@@ -2,7 +2,7 @@ puts "Seeding data **************"
 user = User.create(username: "Cristian", password: "coder123")
 # user2 = User.create(username: "Alex", password_digest: "54321")
 
-trainer1 = Trainer.create(name: "Cris", party_count: 2, user_id: user.id)
+trainer1 = Trainer.create(name: "Cris", party_count: 0, user_id: user.id)
 # trainer2 = Trainer.create(name: "Abs", party_count: 0, user_id: 2)
 
 pokemon1 = Pokemon.create(
@@ -23,6 +23,16 @@ pokemon3 = Pokemon.create(
     url: "https://www.pngkit.com/png/detail/568-5684955_venusaur-venusaur-sprite.png", 
     trainer_id: trainer1.id
 )
+# resp = RestClient.get("https://pokeapi.co/api/v2/pokemon")
+# pokemonData = JSON.parse(resp)["results"]
+# byebug
+# pokemonData.each do |poke_hash|
+#     Pokemon.create!(
+#         name: poke_hash["name"],
+#         url: poke_hash["url"]
+#     );
+# end
+
 puts "Data seeded...."
 
 

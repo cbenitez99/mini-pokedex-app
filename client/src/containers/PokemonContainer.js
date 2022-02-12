@@ -1,17 +1,16 @@
 import React from 'react'
 
 
-const PokemonContainer = ({caughtPokemon}) => {
+const PokemonContainer = ({pokemonData}) => {
     // useEffect(() => {
     //     fetch("/pokemons")
     //     .then((resp) => (resp.json()))
     //     .then(data => console.log(data))
     // }, [])
-    let mappedData = caughtPokemon.map((pokemon) => pokemon.name)
     // alert( `You caught ${mappedData}!`)
   return (
       <div>
-        {console.log(mappedData)}
+        {console.log(pokemonData)}
       </div>
   )
 }
