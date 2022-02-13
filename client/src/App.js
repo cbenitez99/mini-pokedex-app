@@ -19,7 +19,7 @@ const App = () => {
   let navigate = useNavigate();
 
   // useEffect(()=>{
-  //   fetch("https://pokeapi.co/api/v2/pokemon")
+    // fetch("https://pokeapi.co/api/v2/pokemon")
   //   .then((resp)=> (resp.json()))
   //   .then((data) => {
   //     setCaughtPokemon(data.results)
@@ -73,7 +73,11 @@ const App = () => {
           <Route exact path="/login" element={<LoginForm setUser={setUser}/>}></Route>
           <Route exact path="/signup" element={<SignupForm setUser={setUser}/>}></Route>
           <Route exact path="/" element={<Home/>} ></Route>
-          <Route exact path="users/*" element={<UsersContainer user={user}/>}/>
+          <Route exact path="users/*" element={<UsersContainer pokemonData={pokemonData} 
+            pokemonType={pokemonType} 
+            handleChange={handleChange} 
+            handleSubmit={handleSubmit} 
+            handleClick={handleClick} user={user}/>}/>
         </Routes>
       </main>
     </div>
