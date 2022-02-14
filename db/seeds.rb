@@ -1,3 +1,4 @@
+require "rest-client"
 puts "Seeding data **************"
 user = User.create(username: "Cristian", password: "coder123")
 # user2 = User.create(username: "Alex", password_digest: "54321")
