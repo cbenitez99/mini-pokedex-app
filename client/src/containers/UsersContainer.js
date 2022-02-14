@@ -1,19 +1,12 @@
 import React from 'react'
 import {Routes, Route} from "react-router-dom"
 import TrainerProfile from '../components/TrainerProfile'
-const UsersContainer = ({user, pokemonData, pokemonType, handleSubmit, handleChange, handleClick}) => {
+const UsersContainer = ({user, caughtPokemon}) => {
     return (
         <div>
             <Routes>
                 <Route path=":id" element={
-                <TrainerProfile 
-                pokemonData={pokemonData} 
-                pokemonType={pokemonType} 
-                handleChange={handleChange} 
-                handleSubmit={handleSubmit} 
-                handleClick={handleClick} 
-                user={user}/>
-                }/>
+                <TrainerProfile user={user} caughtPokemon={caughtPokemon}/>}/>
             </Routes>
         </div>
     )
