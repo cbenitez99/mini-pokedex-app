@@ -11,7 +11,7 @@ import axios from "axios";
 
 const App = () => {
   const [user, setUser] = useState({});
-  const [pokemon, setPokemon] = useState("pikachu");
+  const [pokemon, setPokemon] = useState("");
   const [pokemonData, setPokemonData] = useState([]);
   const [pokemonType, setPokemonType] = useState("");
   // const [caughtPokemon, setCaughtPokemon] = useState([]);

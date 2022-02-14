@@ -27,7 +27,7 @@ const TrainerProfile = ({user, pokemonData, pokemonType, handleChange, handleCli
             </form>
         {pokemonData.map((data) => {
         return (
-            <div key={data.id}className="container">
+            <div key={data.name}className="container">
                 <button onClick={handleClick}>Add to Party!</button>
                 <img src={data.sprites["front_default"]} alt="poke-sprite"/>
                 <div className="divTable">

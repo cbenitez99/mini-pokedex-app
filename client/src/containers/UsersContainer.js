@@ -5,11 +5,15 @@ const UsersContainer = ({user, pokemonData, pokemonType, handleSubmit, handleCha
     return (
         <div>
             <Routes>
-                <Route path=":id" element={<TrainerProfile pokemonData={pokemonData} 
-            pokemonType={pokemonType} 
-            handleChange={handleChange} 
-            handleSubmit={handleSubmit} 
-            handleClick={handleClick} user={user}/>}/>
+                <Route path=":id" element={
+                <TrainerProfile 
+                pokemonData={pokemonData} 
+                pokemonType={pokemonType} 
+                handleChange={handleChange} 
+                handleSubmit={handleSubmit} 
+                handleClick={handleClick} 
+                user={user}/>
+                }/>
             </Routes>
         </div>
     )
