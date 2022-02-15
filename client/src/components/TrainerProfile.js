@@ -1,4 +1,5 @@
 import React from 'react';
+import PokemonCard from './PokemonCard';
 
 const TrainerProfile = ({user, caughtPokemon}) => {
     
@@ -8,8 +9,8 @@ const TrainerProfile = ({user, caughtPokemon}) => {
             <hr/>
             <ul>
                 <li>LIST ASSOCIATED POKEMON</li>
-                {console.log(caughtPokemon[0])}     
-                <p>{caughtPokemon[0]}</p>           
+                {console.log(caughtPokemon)}     
+                <PokemonCard caughtPokemon={caughtPokemon}/>
             </ul>
         </div>
     );

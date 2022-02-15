@@ -1,14 +1,11 @@
-// import React from 'react'
+import React from 'react'
 
-// const PokemonCard = ({pokemonName, pokemonData}) => {
-//   return (
-//     <div>
-//       {pokemonData.map((pokemon) =>
-//         <div key={pokemon.id}>
-//           {pokemonName}
-//         </div>)}
-//     </div>
-//   )
-// }
+const PokemonCard = ({caughtPokemon}) => {
+  return (
+    <div>
+        {caughtPokemon}
+    </div>
+  );
+}
 
-// export default PokemonCard;
+export default PokemonCard;
