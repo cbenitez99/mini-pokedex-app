@@ -1,11 +1,10 @@
 import { useState } from "react"
 import { Routes, Route, useNavigate } from "react-router-dom";
-import FindPokemon from "./components/FindPokemon";
 import LoginForm from "./components/LoginForm";
 import SignupForm from "./components/SignupForm";
 import Home from "./components/Home";
 import Navbar from "./components/Navbar";
-// import PokemonContainer from "./containers/PokemonContainer";
+import PokemonContainer from "./containers/PokemonContainer";
 import UsersContainer from "./containers/UsersContainer";
 import axios from "axios";
 
@@ -52,15 +51,11 @@ const App = () => {
       <Navbar user={user} setUser={setUser}/>
       <main>
         <Routes>
-          <Route exact path="/find-pokemon" element={ 
-            <FindPokemon user={user} 
-            pokemonData={pokemonData} 
+          <Route exact path="/find-pokemon" element={<PokemonContainer pokemonData={pokemonData} 
             pokemonType={pokemonType} 
             handleChange={handleChange} 
             handleSubmit={handleSubmit} 
-            handleClick={handleClick}/>}>
-          </Route>
-          {/* <Route exact path="/pokemons" element={<PokemonContainer pokemonData={pokemonData}/>}></Route> */}
+            handleClick={handleClick}/>}></Route>
           <Route exact path="/login" element={<LoginForm setUser={setUser}/>}></Route>
           <Route exact path="/signup" element={<SignupForm setUser={setUser}/>}></Route>
           <Route exact path="/" element={<Home/>} ></Route>

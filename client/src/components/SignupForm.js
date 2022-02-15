@@ -58,7 +58,7 @@ const SignupForm = ({setUser}) => {
                 <button type="submit">Sign Up</button>
             </form>
             <br/>
-            <p style={{color: "red"}}>{errors.map((error) => error)}</p>
+            <p style={{color: "red"}}>{errors.join(", and ")}</p>
         </div>
     )
 }

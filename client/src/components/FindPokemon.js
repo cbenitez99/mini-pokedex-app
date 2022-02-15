@@ -10,14 +10,14 @@ const FindPokemon = ({pokemonData, pokemonType, handleChange, handleSubmit, hand
                     <input
                     type="text"
                     onChange={handleChange}
-                    placeholder="Find Pokemon"
+                    placeholder="Find Pokemon by Name or Entry #:"
                     />
                 </label>
             </form>
         {pokemonData.map((data) => {
         return (
             <div key={data.id}className="container">
-                <button onClick={handleClick}>Add to Party!</button>
+                {/* <button onClick={handleClick}>Add to Party!</button> */}
                 <img src={data.sprites["front_default"]} alt="poke-sprite"/>
                 <div className="divTable">
                     <div className="divTableBody">
