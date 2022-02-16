@@ -34,7 +34,7 @@ const LoginForm = ({setUser}) => {
                 .then((json) => {
                     // console.log(json)
                     setUser(json)
-                    navigate(`/users/${json.id}`)
+                    navigate(`/`)
                 })
             } else {
                 resp.json()

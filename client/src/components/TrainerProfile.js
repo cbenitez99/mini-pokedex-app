@@ -16,7 +16,7 @@ const TrainerProfile = ({user}) => {
     } else {
         return (
             <div>
-                <h4>Please Log-In or Sign-Up First</h4>
+                <h3>Please Log-In or Sign-Up First</h3>
             </div>
         );
     }

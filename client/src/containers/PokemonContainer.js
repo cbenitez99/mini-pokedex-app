@@ -35,7 +35,6 @@ const PokemonContainer = ({user, pokemonData, pokemonType, handleChange, handleS
             if(resp.ok){
                 resp.json()
                 .then((json) => {
-                    // console.log(json)
                     navigate(`/users/${json.id}`)
                 })
             } else {

@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { Routes, Route, useNavigate } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import LoginForm from "./components/LoginForm";
 import SignupForm from "./components/SignupForm";
 import Home from "./components/Home";
@@ -13,9 +13,7 @@ const App = () => {
   const [pokemon, setPokemon] = useState("");
   const [pokemonData, setPokemonData] = useState([]);
   const [pokemonType, setPokemonType] = useState("");
-  const [caughtPokemon, setCaughtPokemon] = useState([]);
   const toArray = [];
-  let navigate = useNavigate();
 
  //////Recieve call from FindPokemon.js
   const handleChange = (e) => {
@@ -39,13 +37,6 @@ const App = () => {
       }
   };
 
-  const handleClick = (e) => {
-    e.preventDefault()
-    let mappedData = pokemonData.map((pokemon) => pokemon.name)
-    setCaughtPokemon(mappedData)
-    alert( `You caught ${mappedData}!`)
-    navigate(`/users/${user.id}`)
-  }
   return (
     <div>
       <Navbar user={user} setUser={setUser}/>
@@ -55,11 +46,11 @@ const App = () => {
             pokemonType={pokemonType} 
             handleChange={handleChange} 
             handleSubmit={handleSubmit} 
-            handleClick={handleClick}/>}></Route>
+           />}></Route>
           <Route exact path="/login" element={<LoginForm setUser={setUser}/>}></Route>
           <Route exact path="/signup" element={<SignupForm setUser={setUser}/>}></Route>
-          <Route exact path="/" element={<Home/>} ></Route>
-          <Route exact path="users/*" element={<UsersContainer user={user} caughtPokemon={caughtPokemon}/>}/>
+          <Route exact path="/" element={<Home user={user}/>} ></Route>
+          <Route exact path="users/*" element={<UsersContainer user={user}/>}/>
         </Routes>
       </main>
     </div>

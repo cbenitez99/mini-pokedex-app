@@ -1,7 +1,6 @@
 import React from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 
-
 const Navbar = ({user, setUser}) => {
   let navigate = useNavigate()
   return ( 
@@ -9,7 +8,6 @@ const Navbar = ({user, setUser}) => {
      <nav>
         <div className="nav-wrapper">
           <NavLink to="/" className="brand-logo right">Home</NavLink>
-          {/* <NavLink to={`/users/${user.id}`} className="left hide-on-med-and-down">Profile</NavLink> */}
           <ul id="nav-mobile" className="left hide-on-med-and-down">
           {!!user.id ? 
             <div className="nav-wrapper">
@@ -17,7 +15,7 @@ const Navbar = ({user, setUser}) => {
             <li><NavLink to="/find-pokemon">Find Pokemon</NavLink></li>
 
              <li><a href="/" onClick={(e) => {
-                // e.preventDefault()
+                e.preventDefault()
                 fetch('/logout', {
                   method: "DELETE",
                   headers: {

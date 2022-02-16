@@ -9,7 +9,7 @@ class PokemonsController < ApplicationController
     end
 
     def show
-        pokemon = Pokemon.find_by(id: params[:id])
+        pokemon = find_pokemon
         if pokemon
             render json: pokemon, status: :ok
         else
@@ -26,7 +26,21 @@ class PokemonsController < ApplicationController
         end
     end
 
+    def destroy
+        pokemon = find_pokemon
+        if pokemon
+            pokemon.destroy
+            head :no_content
+        else
+            render json: {error: "Pokemon not found"}
+        end
+    end
+
     private
+
+    def find_pokemon
+        Pokemon.find_by(id: params[:id])
+    end
     
     def pokemon_params
         params.require(:pokemon).permit(:user_id, :name, :types, :url)
