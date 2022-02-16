@@ -2,18 +2,18 @@ class PokemonsController < ApplicationController
     def index
         all_pokemon = Pokemon.all
         if all_pokemon
-            render json: all_pokemon
+            render json: all_pokemon, status: :ok
         else
-            render json: {error: ["No Pokemon to show."]}
+            render json: {error: ["No Pokemon to show."]}, status: :not_found
         end
     end
 
     def show
         pokemon = Pokemon.find_by(id: params[:id])
         if pokemon
-            render json: pokemon
+            render json: pokemon, status: :ok
         else
-            render json: {error: ["No pokemon to show"]}
+            render json: {error: ["No pokemon to show"]}, status: :not_found
         end
     end
 
@@ -29,6 +29,6 @@ class PokemonsController < ApplicationController
     private
     
     def pokemon_params
-        params.permit(:name, :types, :url, :trainer_id)
+        params.require(:pokemon).permit(:user_id, :name, :types, :url)
     end
 end
