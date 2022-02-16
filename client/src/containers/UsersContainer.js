@@ -5,8 +5,7 @@ const UsersContainer = ({user, caughtPokemon}) => {
     return (
         <div>
             <Routes>
-                <Route path=":id" element={
-                <TrainerProfile user={user} caughtPokemon={caughtPokemon}/>}/>
+                <Route path=":id" element={<TrainerProfile user={user} caughtPokemon={caughtPokemon}/>}/>
             </Routes>
         </div>
     )

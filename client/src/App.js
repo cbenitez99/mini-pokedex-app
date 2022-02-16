@@ -51,7 +51,7 @@ const App = () => {
       <Navbar user={user} setUser={setUser}/>
       <main>
         <Routes>
-          <Route exact path="/find-pokemon" element={<PokemonContainer pokemonData={pokemonData} 
+          <Route exact path="/find-pokemon" element={<PokemonContainer user={user} pokemonData={pokemonData} 
             pokemonType={pokemonType} 
             handleChange={handleChange} 
             handleSubmit={handleSubmit} 

@@ -1,13 +1,16 @@
 import React, {useState} from 'react';
 import FindPokemon from '../components/FindPokemon';
+import { useNavigate } from 'react-router-dom';
 
-const PokemonContainer = ({pokemonData, pokemonType, handleChange, handleSubmit}) => {
+const PokemonContainer = ({user, pokemonData, pokemonType, handleChange, handleSubmit}) => {
     const [errors, setErrors] = useState([])
     const [formData, setFormData] = useState({
         name: "",
         types: "",
-        url: ""
+        url: "",
+        user_id: user.id
     });
+    let navigate = useNavigate();
     const handleAddChange = (e) => {
         setFormData(prev => {
             return { ...prev, 
@@ -32,7 +35,8 @@ const PokemonContainer = ({pokemonData, pokemonType, handleChange, handleSubmit}
             if(resp.ok){
                 resp.json()
                 .then((json) => {
-                    console.log(json)
+                    // console.log(json)
+                    navigate(`/users/${json.id}`)
                 })
             } else {
                 resp.json()
@@ -52,7 +56,7 @@ const PokemonContainer = ({pokemonData, pokemonType, handleChange, handleSubmit}
                 <label htmlFor="Pokemon Name">Name:</label>
                 <input onChange={handleAddChange} type="text" name="name" value={formData.name}/>
                 <label htmlFor="Pokemon Type">Type:</label>
-                <input onChange={handleAddChange} type="text" name="type" value={formData.types}/>
+                <input onChange={handleAddChange} type="text" name="types" value={formData.types}/>
                 <label htmlFor="Sprite">Image Url:</label>
                 <input onChange={handleAddChange} type="text" name="url" value={formData.url}/>
                 <button type="submit">catch</button>
