@@ -4,7 +4,7 @@ class CreatePokemons < ActiveRecord::Migration[6.1]
       t.string :name
       t.string :types
       t.string :url
-      t.integer :trainer_id
+      t.integer :user_id
 
       t.timestamps
     end
