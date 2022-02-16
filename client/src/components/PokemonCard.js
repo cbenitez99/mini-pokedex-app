@@ -10,19 +10,6 @@ const PokemonCard = ({user}) => {
     .then(data => setUserPokemon(data))
   }, [])
   
-  // const handleClick = (e) => {
-  //   e.preventDefault()
-  //   fetch(`/pokemons`, {
-  //     method: "DELETE",
-  //     headers: {
-  //       "Accept": "application/json",
-  //       "Content-Type": "application/json"
-  //     }
-  //   }).then(resp => {
-  //     console.log(resp)
-  //   })
-  // }
-
   return (
     <div>
         {userPokemon.map((pokemon) => (
