@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from 'react'
-// import { useNavigate, useParams } from 'react-router-dom';
 
 const PokemonCard = () => {
   const [userPokemon, setUserPokemon] = useState([]);
@@ -8,8 +7,7 @@ const PokemonCard = () => {
     .then((resp) => (resp.json()))
     .then(data => setUserPokemon(data))
   }, [])
-  // let navigate = useNavigate();
-  // const {id} = useParams();
+
   return (
     <div>
         {userPokemon.map((pokemon) => (
@@ -18,7 +16,7 @@ const PokemonCard = () => {
               <h5>Type: {pokemon.types}</h5>
               <img src={pokemon.url} alt="pokemon-img"/>
               <button onClick={(e) => {
-                // e.preventDefault()
+                e.preventDefault()
                 fetch(`/pokemons/${pokemon.id}`, {
                   method: "DELETE",
                   headers: {
