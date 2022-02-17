@@ -3,7 +3,7 @@ import {Routes, Route} from "react-router-dom"
 import TrainerProfile from '../components/TrainerProfile'
 const UsersContainer = ({user}) => {
     return (
-        <div>
+        <div className='trainer'>
             <Routes>
                 <Route path=":id" element={<TrainerProfile user={user}/>}/>
             </Routes>

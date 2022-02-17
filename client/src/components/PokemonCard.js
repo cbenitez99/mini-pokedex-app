@@ -2,11 +2,13 @@ import React from 'react'
 
 const PokemonCard = ({userPokemon}) => {
   return (
-    <div id='pokemon-card'>
+    <div className='pokemon-container'>
         {userPokemon.map((pokemon) => (
-          <div key={pokemon.id}>
+          <div className='pokemon-card' key={pokemon.id}>
             <h5>Name: {pokemon.name}</h5>
             <h5>Type: {pokemon.types}</h5>
+            
+            <img src={pokemon.url} alt="pokemon-img"/>
             <button onClick={(e) => {
             e.preventDefault()
             fetch(`/pokemons/${pokemon.id}`, {
@@ -18,7 +20,6 @@ const PokemonCard = ({userPokemon}) => {
             alert(`Bye-bye ${pokemon.name}! `)
             })
             }}>Release</button>
-            <img src={pokemon.url} alt="pokemon-img"/>
           </div>
         ))}
     </div>

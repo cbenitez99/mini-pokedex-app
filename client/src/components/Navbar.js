@@ -7,7 +7,7 @@ const Navbar = ({user, setUser}) => {
     <div>
      <nav>
         <div>
-          <ul>
+          <ul className='nav-bar'>
           {!!user.id ? 
             <div>
               <NavLink to="/">Home</NavLink>

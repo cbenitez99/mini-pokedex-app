@@ -16,7 +16,7 @@ const FindPokemon = ({pokemonData, pokemonType, handleChange, handleSubmit, hand
         </form>
         {pokemonData.map((data) => {
         return (
-            <div key={data.id}className="container">
+            <div key={data.id} className="container">
                 <img src={data.sprites["front_default"]} alt="poke-sprite"/>
                 <div className="divTable">
                 <div className="divTableBody">

@@ -27,7 +27,7 @@ const TrainerProfile = ({user}) => {
 
     if (!!user.id) {
         return (
-            <div className='trainer-profile'>
+            <div className='trainer'>
                 <h5>{user.username}'s Party: </h5>
                 <hr/>
                 <PokemonCard userPokemon={userPokemon} handleClick={handleClick}/>
@@ -35,7 +35,7 @@ const TrainerProfile = ({user}) => {
         );
     } else {
         return (
-            <div>
+            <div className='trainer'>
                 <h3>Please Log-In or Sign-Up First</h3>
             </div>
         );

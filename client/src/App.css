@@ -1,7 +1,7 @@
   body {
     background-image: url("https://i.pinimg.com/originals/26/b5/55/26b5551ba10f013a335e91b98f530d51.png");
     background-size: cover; 
-    background-repeat: repeat-x;
+    background-repeat: repeat-y;
     font-family: 'Comfortaa', cursive;;
   }
   .divTable {
@@ -53,17 +53,17 @@
   }
   
   img {
-    height: 14rem;
+    height: 8rem;
   }
    
   input {
     box-sizing: border-box;
     text-align: center;
     font-size: 2rem;
-    display: block;
+    display: list-item;
     margin: auto;
-    
   } 
+
   form {
     text-align: center;
     background-color: rgb(255, 0, 0);
@@ -74,14 +74,38 @@
   /* .singup-form {
     text-align: center;
   }
+  */
 
   .navlinks {
-    padding: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
   }
-  .trainer-profile {
-    align-content: center;
+
+  .nav-bar{
+   text-align: left;
   }
-  .addForm {
+
+  .trainer {
+    text-align: center;
+  }
+  /* .addForm {
     
-  }*/
+  } */
+
+  .pokemon-container {
+    display: block;
+    flex-wrap: nowrap;
+    margin: auto;
+    padding: 5%;
+    align-content: center;    
+  }
+
+  .pokemon-card{
+    background-color: rgb(255, 0, 0);
+    border: solid black;
+    opacity: 80%;
+
+  }
+
+  
   
