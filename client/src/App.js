@@ -13,8 +13,6 @@ const App = () => {
   const [pokemon, setPokemon] = useState("");
   const [pokemonData, setPokemonData] = useState([]);
   const [pokemonType, setPokemonType] = useState("");
-  const toArray = [];
-
  //////Recieve call from FindPokemon.js
   const handleChange = (e) => {
       setPokemon(e.target.value.toLowerCase());
@@ -27,6 +25,7 @@ const App = () => {
 
   const getPokemon = async () => {
       try {
+        const toArray = [];
         const url = `https://pokeapi.co/api/v2/pokemon/${pokemon}`;
         const res = await axios.get(url);
         toArray.push(res.data);

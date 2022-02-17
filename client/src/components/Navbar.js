@@ -6,34 +6,38 @@ const Navbar = ({user, setUser}) => {
   return ( 
     <div>
      <nav>
-        <div className="nav-wrapper">
-          <NavLink to="/" className="brand-logo right">Home</NavLink>
-          <ul id="nav-mobile" className="left hide-on-med-and-down">
+        <div>
+          <ul>
           {!!user.id ? 
-            <div className="nav-wrapper">
-            <li><NavLink to={`/users/${user.id}`}>Trainer Profile</NavLink></li>
-            <li><NavLink to="/find-pokemon">Find Pokemon</NavLink></li>
-
-             <li><a href="/" onClick={(e) => {
-                e.preventDefault()
-                fetch('/logout', {
-                  method: "DELETE",
-                  headers: {
-                    "Accept": "application/json",
-                    "Content-Type": "application/json"
-                  }
+            <div>
+              <NavLink to="/">Home</NavLink>
+              {" "}
+              <NavLink className="navlinks" to="/" onClick={(e) => {
+              e.preventDefault()
+              fetch('/logout', {
+                method: "DELETE",
+                headers: {
+                  "Accept": "application/json",
+                  "Content-Type": "application/json"
+                }
                 }).then(resp => {
                   setUser({})
                   navigate("/")
                 })
-            }}>Logout</a></li>
-
+              } }>Logout</NavLink>
+              {" "}
+              <NavLink to={`/users/${user.id}`}>Trainer Profile</NavLink>
+              {" "}
+              <NavLink className="navlinks" to="/find-pokemon">Find Pokemon</NavLink>            
             </div>
             :
-            <div>
-              <li><NavLink to="/signup" >Signup</NavLink></li>
-              <li><NavLink to="/login" >Login</NavLink></li>
-          </div>
+            <div className='nav-bar'>
+              <NavLink to="/">Home</NavLink>
+              {" "}
+              <NavLink to="/signup" >Signup</NavLink>
+              {" "}
+              <NavLink to="/login" >Login</NavLink>
+            </div>
           }
           </ul>
         </div>

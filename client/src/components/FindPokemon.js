@@ -4,8 +4,8 @@ import React from "react"
 const FindPokemon = ({pokemonData, pokemonType, handleChange, handleSubmit, handleClick}) => {
     
     return (
-        <div className="App">
-        <form onSubmit={handleSubmit}>
+        <div>
+        <form className="search-form" onSubmit={handleSubmit}>
             <label>
                 <input
                 type="text"
@@ -17,7 +17,6 @@ const FindPokemon = ({pokemonData, pokemonType, handleChange, handleSubmit, hand
         {pokemonData.map((data) => {
         return (
             <div key={data.id}className="container">
-                {/* <button onClick={handleClick}>Add to Party!</button> */}
                 <img src={data.sprites["front_default"]} alt="poke-sprite"/>
                 <div className="divTable">
                 <div className="divTableBody">

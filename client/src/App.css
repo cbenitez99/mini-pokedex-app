@@ -1,11 +1,9 @@
-.App {
-    text-align: center;
-  }
   body {
     background-image: url("https://i.pinimg.com/originals/26/b5/55/26b5551ba10f013a335e91b98f530d51.png");
-    background-size: 100%;
+    background-size: cover; 
+    background-repeat: repeat-x;
+    font-family: 'Comfortaa', cursive;;
   }
-  
   .divTable {
     display: table;
     max-width: 20em;
@@ -50,15 +48,40 @@
     background-color: whitesmoke;
     justify-content: center;
   }
+  .home-page {
+    text-align: center;
+  }
   
   img {
-    height: 16em;
+    height: 14rem;
   }
-  
+   
   input {
     box-sizing: border-box;
+    text-align: center;
     font-size: 2rem;
-    padding: 1rem;
     display: block;
-    margin: 2rem auto;
+    margin: auto;
+    
+  } 
+  form {
+    text-align: center;
+    background-color: rgb(255, 0, 0);
+    opacity: 80%;
+    padding: 20px;
   }
+
+  /* .singup-form {
+    text-align: center;
+  }
+
+  .navlinks {
+    padding: 10px;
+  }
+  .trainer-profile {
+    align-content: center;
+  }
+  .addForm {
+    
+  }*/
+  

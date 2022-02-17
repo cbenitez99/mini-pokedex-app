@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import FindPokemon from '../components/FindPokemon';
 import { useNavigate } from 'react-router-dom';
 
-const PokemonContainer = ({user, pokemonData, pokemonType, handleChange, handleSubmit}) => {
+function PokemonContainer ({user, pokemonData, pokemonType, handleChange, handleSubmit}) {
     const [errors, setErrors] = useState([])
     const [formData, setFormData] = useState({
         name: "",
@@ -45,12 +45,10 @@ const PokemonContainer = ({user, pokemonData, pokemonType, handleChange, handleS
             }
         })
     }
+
     return (
-        <div className="text-black">
+        <div className="add-form">
             <FindPokemon pokemonData={pokemonData} pokemonType={pokemonType} handleChange={handleChange} handleSubmit={handleSubmit}/>
-            <br/>
-            <br/>
-            <br/>
             <form onSubmit={handleAddSubmit}>
                 <label htmlFor="Pokemon Name">Name:</label>
                 <input onChange={handleAddChange} type="text" name="name" value={formData.name}/>
@@ -58,7 +56,7 @@ const PokemonContainer = ({user, pokemonData, pokemonType, handleChange, handleS
                 <input onChange={handleAddChange} type="text" name="types" value={formData.types}/>
                 <label htmlFor="Sprite">Image Url:</label>
                 <input onChange={handleAddChange} type="text" name="url" value={formData.url}/>
-                <button type="submit">catch</button>
+                <button type="submit">Capture</button>
             </form>
             <p style={{color: "red"}}>{errors.join(",  ")}</p>
         </div>

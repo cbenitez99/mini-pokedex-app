@@ -48,8 +48,8 @@ const SignupForm = ({setUser}) => {
     }
 
     return (
-        <div className="text-white">
-            <h1>SignUp</h1>
+        <div className="signup-form">
+            <h1 className='signup-form'>SignUp</h1>
             <form onSubmit={handleSubmit}>
                 <label htmlFor="username">Create Username:</label>
                 <input onChange={handleChange} type="text" name="username" value={formData.username}/>
