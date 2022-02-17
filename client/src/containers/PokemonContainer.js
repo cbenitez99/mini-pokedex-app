@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import FindPokemon from '../components/FindPokemon';
 import { useNavigate } from 'react-router-dom';
 
-function PokemonContainer ({user, pokemonData, pokemonType, handleChange, handleSubmit}) {
+function PokemonContainer ({user}) {
     const [errors, setErrors] = useState([])
     const [formData, setFormData] = useState({
         name: "",
@@ -47,18 +47,22 @@ function PokemonContainer ({user, pokemonData, pokemonType, handleChange, handle
     }
 
     return (
-        <div className="add-form">
-            <FindPokemon pokemonData={pokemonData} pokemonType={pokemonType} handleChange={handleChange} handleSubmit={handleSubmit}/>
+        <div className="add-pokemon-form">
+            <FindPokemon />
             <form onSubmit={handleAddSubmit}>
-                <label htmlFor="Pokemon Name">Name:</label>
-                <input onChange={handleAddChange} type="text" name="name" value={formData.name}/>
-                <label htmlFor="Pokemon Type">Type:</label>
-                <input onChange={handleAddChange} type="text" name="types" value={formData.types}/>
-                <label htmlFor="Sprite">Image Url:</label>
-                <input onChange={handleAddChange} type="text" name="url" value={formData.url}/>
+                <br/>
+                <br/>
+                <br/>
+            <p>Fill with correct data to capture!</p>
+                <label htmlFor="Pokemon Name">Pokemon Name:</label>
+                <input onChange={handleAddChange} type="text" placeholder="name" name="name" value={formData.name}/>
+                <label htmlFor="Pokemon Type">Pokemon Type:</label>
+                <input onChange={handleAddChange} type="text" name="types" placeholder='type' value={formData.types}/>
+                <label htmlFor="Sprite">Photo: <br/> (hint: right click pokemon image, <br/> then copy image address!):</label>
+                <input onChange={handleAddChange} type="text" placeholder="img address" name="url" value={formData.url}/>
                 <button type="submit">Capture</button>
+                <p style={{color: "black"}}>{errors.join(",  ")}</p>
             </form>
-            <p style={{color: "red"}}>{errors.join(",  ")}</p>
         </div>
     );
 }

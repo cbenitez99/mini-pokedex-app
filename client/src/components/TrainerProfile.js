@@ -9,28 +9,13 @@ const TrainerProfile = ({user}) => {
         .then(data => setUserPokemon(data))
     }, [])
 
-    let mappedPokemon = userPokemon.map((pokemon)=> (pokemon.id))
-
-    const handleClick = (e) => {
-        e.preventDefault()
-        fetch(`/pokemons/${mappedPokemon}`, {
-          method: "DELETE",
-          headers: {
-            "Accept": "application/json",
-            "Content-Type": "application/json"
-          }
-        }).then(resp => {
-            console.log(mappedPokemon)
-        //   alert(`Bye-bye ${pokemon.name}! `)
-        })
-    }
-
+    
     if (!!user.id) {
         return (
             <div className='trainer'>
                 <h5>{user.username}'s Party: </h5>
                 <hr/>
-                <PokemonCard userPokemon={userPokemon} handleClick={handleClick}/>
+                <PokemonCard userPokemon={userPokemon} user={user}/>
             </div>
         );
     } else {

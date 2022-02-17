@@ -53,7 +53,7 @@
   }
   
   img {
-    height: 8rem;
+    height: 10rem;
   }
    
   input {
@@ -87,24 +87,27 @@
 
   .trainer {
     text-align: center;
+    font-size: large;
   }
-  /* .addForm {
-    
-  } */
 
   .pokemon-container {
-    display: block;
-    flex-wrap: nowrap;
+    display: flex;
+    flex-wrap: wrap;
     margin: auto;
-    padding: 5%;
-    align-content: center;    
+    align-content: center; 
   }
 
-  .pokemon-card{
-    background-color: rgb(255, 0, 0);
-    border: solid black;
-    opacity: 80%;
+  .pokemon-card:hover {
+    background-color: red;
+    text-decoration: wavy;
+    transform: scale(1.1); 
+    opacity: 100%;
+  }
 
+  .pokemon-card {
+    background-color: whitesmoke;
+    border: solid black;
+    opacity: 100%;
   }
 
   

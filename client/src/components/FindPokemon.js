@@ -1,17 +1,42 @@
 import "../App.css"
-import React from "react"
+import React, {useState}from "react"
+import axios from "axios";
 
-const FindPokemon = ({pokemonData, pokemonType, handleChange, handleSubmit, handleClick}) => {
+
+const FindPokemon = () => {
+
+    const [pokemon, setPokemon] = useState("");
+    const [pokemonData, setPokemonData] = useState([]);
+    const [pokemonType, setPokemonType] = useState("");
+    //////Recieve call from FindPokemon.js
+    const handleChange = (e) => {
+        setPokemon(e.target.value.toLowerCase());
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        getPokemon();
+    };
+
+    const getPokemon = async () => {
+        try {
+            const toArray = [];
+            const url = `https://pokeapi.co/api/v2/pokemon/${pokemon}`;
+            const res = await axios.get(url);
+            toArray.push(res.data);
+            setPokemonType(res.data.types[0].type.name.toUpperCase());
+            setPokemonData(toArray)
+        } catch (e) {
+            alert("Pokemon does not exist!");
+        }
+    };
     
     return (
         <div>
         <form className="search-form" onSubmit={handleSubmit}>
+            <p>Find a Pokemon by name or it's National Pokedex number!</p>
             <label>
-                <input
-                type="text"
-                onChange={handleChange}
-                placeholder="Find Pokemon by Name or Entry #:"
-                />
+                <input type="text" placeholder="Name/ID" onChange={handleChange}/>
             </label>
         </form>
         {pokemonData.map((data) => {
