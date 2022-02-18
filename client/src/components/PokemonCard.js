@@ -1,9 +1,6 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom';
 
-const PokemonCard = ({user, userPokemon}) => {
-  let navigate = useNavigate();
-
+const PokemonCard = ({userPokemon, handleDelete}) => {
   return (
     <div className='pokemon-container'>
         {userPokemon.map((pokemon) => (
@@ -12,23 +9,7 @@ const PokemonCard = ({user, userPokemon}) => {
             <h5>Type: {pokemon.types}</h5>
             
             <img src={pokemon.url} alt="pokemon-img"/>
-            <button className='release-bttn' onClick={(e) => {
-            e.preventDefault()
-            fetch(`/pokemons/${pokemon.id}`, {
-            method: "DELETE",
-            headers: {
-              "Content-Type": "application/json"
-            }
-            }).then(resp => {
-              if(resp.ok){
-                alert(`Bye-bye ${pokemon.name}! `)
-                navigate("/find-pokemon")
-              } else {
-                alert(`${pokemon.name} will follow you forever!`)
-              }
-           
-            })
-            }}>Release</button>
+            <button className='release-bttn' onClick={() => handleDelete(pokemon.id)}>Release</button>
           </div>
         ))}
     </div>
