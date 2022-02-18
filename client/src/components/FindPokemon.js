@@ -33,10 +33,10 @@ const FindPokemon = () => {
     
     return (
         <div>
-        <form className="search-form" onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit}>
             <p>Find a Pokemon by name or it's National Pokedex number!</p>
             <label>
-                <input type="text" placeholder="Name/ID" onChange={handleChange}/>
+                <input type="text" placeholder="Enter Pokemon Name/ID" onChange={handleChange}/>
             </label>
         </form>
         {pokemonData.map((data) => {

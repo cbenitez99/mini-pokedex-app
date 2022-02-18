@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 const PokemonCard = ({user, userPokemon}) => {
   let navigate = useNavigate();
+
   return (
     <div className='pokemon-container'>
         {userPokemon.map((pokemon) => (
@@ -19,8 +20,13 @@ const PokemonCard = ({user, userPokemon}) => {
               "Content-Type": "application/json"
             }
             }).then(resp => {
-            alert(`Bye-bye ${pokemon.name}! `)
-            navigate(`/users/${user.id}`)
+              if(resp.ok){
+                alert(`Bye-bye ${pokemon.name}! `)
+                navigate("/find-pokemon")
+              } else {
+                alert(`${pokemon.name} will follow you forever!`)
+              }
+           
             })
             }}>Release</button>
           </div>

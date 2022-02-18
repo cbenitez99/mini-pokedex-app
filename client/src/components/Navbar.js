@@ -7,11 +7,12 @@ const Navbar = ({user, setUser}) => {
     <div>
      <nav>
         <div>
-          <ul className='nav-bar'>
+          <ul>
           {!!user.id ? 
-            <div>
-              <NavLink to="/">Home</NavLink>
-              {" "}
+            <div className='navlink-container-login'>
+              <NavLink className="navlinks" to="/">Home</NavLink>
+              <NavLink className="navlinks" to={`/users/${user.id}`}>Trainer Profile</NavLink>
+              <NavLink className="navlinks" to="/find-pokemon">Find Pokemon</NavLink>    
               <NavLink className="navlinks" to="/" onClick={(e) => {
               e.preventDefault()
               fetch('/logout', {
@@ -25,18 +26,14 @@ const Navbar = ({user, setUser}) => {
                   navigate("/")
                 })
               } }>Logout</NavLink>
-              {" "}
-              <NavLink to={`/users/${user.id}`}>Trainer Profile</NavLink>
-              {" "}
-              <NavLink className="navlinks" to="/find-pokemon">Find Pokemon</NavLink>            
             </div>
             :
             <div className='nav-bar'>
-              <NavLink to="/">Home</NavLink>
+              <NavLink className="navlinks" to="/">Home</NavLink>
               {" "}
-              <NavLink to="/signup" >Signup</NavLink>
+              <NavLink to="/signup" className="navlinks">Signup</NavLink>
               {" "}
-              <NavLink to="/login" >Login</NavLink>
+              <NavLink to="/login" className="navlinks">Login</NavLink>
             </div>
           }
           </ul>

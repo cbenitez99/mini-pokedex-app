@@ -48,7 +48,7 @@
   .divTableCell:nth-child(odd) {
     background-color: gainsboro;
   }
-  
+
   .container {
     display: flex;
     opacity: 0.9;
@@ -58,12 +58,26 @@
 
   .home-page {
     text-align: center;
+    background: cover;
   }
-  
+
+  .home-page-logout{
+    text-align: center;
+    background: cover;
+  }
+
+  p {
+    font-size: larger;
+  }
+
   img {
-    height: 10rem;
+    height: 13rem;
   }
-   
+
+  button {
+    border-radius: 15px;
+  }
+
   input {
     box-sizing: border-box;
     text-align: center;
@@ -72,21 +86,17 @@
     margin: auto;
   } 
 
+  label, ::placeholder{
+    opacity: 100%;
+    font-size: large;
+  }
+
   form {
     text-align: center;
     background-color: rgb(255, 0, 0);
     opacity: 80%;
-    padding: 20px;
-  }
-
-  .navlinks {
-    padding-left: 10px;
-    padding-right: 10px;
-  }
-
-  .nav-bar{
-   text-align: left;
-  }
+    padding: 30px;
+  } 
 
   .trainer {
     text-align: center;
@@ -105,8 +115,54 @@
     opacity: 100%;
   }
 
-  .pokemon-card {
+  .pokemon-card{
     background-color: whitesmoke;
     border: solid black;
     opacity: 100%;
+    border-radius:5px;
+  }
+
+  .login-container {
+    text-align: center;
+    width: 50%;
+    margin-left: 25%;
+  }
+
+  .signup-form { 
+    text-align: center;
+    width: 50%;
+    margin-left: 25%;
+    align-content: center;
+
+  }
+
+  .login-form {
+    align-content: center;
+  }
+
+  .navlinks {
+    padding-left: 10px;
+    padding-right: 10px;
+    text-decoration: none;
+    color: black;
+  }
+
+  .navlinks:hover {
+      text-decoration: underline;
+  }
+
+  .navlink-container-login{
+    background-color: rgb(255, 0, 0);
+    opacity: 80%;
+    padding:10px;
+    width: 32%;
+  }
+  .navlink-container{
+    opacity: 80%;
+    padding:10px;
+    width: 32%;
+  }
+
+  ul {
+    padding-top: 50px;
   }

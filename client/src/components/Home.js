@@ -10,8 +10,8 @@ const Home = ({user}) => {
     );
   } else {
     return (
-      <div className='home-page'>
-        <h4>Please Log-In or Sign-Up First</h4>
+      <div className='home-page-logout'>
+        <h1>Please Log-In or Sign-Up First</h1>
       </div>
     );
   }

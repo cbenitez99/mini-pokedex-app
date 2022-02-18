@@ -44,15 +44,16 @@ const LoginForm = ({setUser}) => {
         })
     }
     return (
-        <div className="text-white">
+        <div className="login-container">
             <h1>Login</h1>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} className="login-form">
                 <label htmlFor="username">Username:</label>
                 <input onChange={handleChange} type="text" name="username" value={formData.username}/>
                 <label htmlFor="password">Password:</label>
                 <input onChange={handleChange} type="password" name="password" value={formData.password}/>
                 <button type="submit">Log in</button>
             </form>
+            <p>Dont have an account? <a href='/signup'>Sign-Up!</a></p>
             <br/>
             <p style={{color: "red"}}>{errors}</p>
         </div>

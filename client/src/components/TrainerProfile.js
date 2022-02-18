@@ -15,7 +15,7 @@ const TrainerProfile = ({user}) => {
             <div className='trainer'>
                 <h1>{user.username}'s Party: </h1>
                 <hr/>
-                <PokemonCard userPokemon={userPokemon} user={user}/>
+                <PokemonCard userPokemon={userPokemon}/>
             </div>
         );
     } else {

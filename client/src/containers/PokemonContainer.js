@@ -47,18 +47,16 @@ function PokemonContainer ({user}) {
     }
 
     return (
-        <div className="add-pokemon-form">
+        <div>
             <FindPokemon />
             <form onSubmit={handleAddSubmit}>
+            <p>Fill with search results to capture!</p>
+                <input onChange={handleAddChange} type="text" placeholder="Enter Pokemon Name" name="name" value={formData.name}/>
                 <br/>
+                <input onChange={handleAddChange} type="text" name="types" placeholder='Enter Pokemon Type' value={formData.types}/>
+                <br/>(hint: right click pokemon image,<br/>then copy image address!)<br/>
+                <input onChange={handleAddChange} type="text" placeholder="Image Link" name="url" value={formData.url}/>
                 <br/>
-            <p>Fill with correct data to capture!</p>
-                <label htmlFor="Pokemon Name"><strong>Pokemon Name:</strong></label>
-                <input onChange={handleAddChange} type="text" placeholder="name" name="name" value={formData.name}/>
-                <label htmlFor="Pokemon Type">Pokemon Type:</label>
-                <input onChange={handleAddChange} type="text" name="types" placeholder='type' value={formData.types}/>
-                <label htmlFor="Sprite">Photo: <br/> (hint: right click pokemon image, <br/> then copy image address!):</label>
-                <input onChange={handleAddChange} type="text" placeholder="img address" name="url" value={formData.url}/>
                 <button type="submit">Capture</button>
                 <p style={{color: "black"}}>{errors.join(",  ")}</p>
             </form>

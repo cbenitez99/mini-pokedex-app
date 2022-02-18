@@ -49,7 +49,7 @@ const SignupForm = ({setUser}) => {
 
     return (
         <div className="signup-form">
-            <h1 className='signup-form'>SignUp</h1>
+            <h1>SignUp</h1>
             <form onSubmit={handleSubmit}>
                 <label htmlFor="username">Create Username:</label>
                 <input onChange={handleChange} type="text" name="username" value={formData.username}/>
@@ -57,6 +57,7 @@ const SignupForm = ({setUser}) => {
                 <input onChange={handleChange} type="password" name="password" value={formData.password}/>
                 <button type="submit">Sign Up</button>
             </form>
+            <p>Already have an account? <a href='/login'>Log-In!</a></p>
             <br/>
             <p style={{color: "red"}}>{errors.join(", and ")}</p>
         </div>
