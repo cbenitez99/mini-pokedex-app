@@ -52,9 +52,8 @@ function PokemonContainer ({user}) {
             <form onSubmit={handleAddSubmit}>
                 <br/>
                 <br/>
-                <br/>
             <p>Fill with correct data to capture!</p>
-                <label htmlFor="Pokemon Name">Pokemon Name:</label>
+                <label htmlFor="Pokemon Name"><strong>Pokemon Name:</strong></label>
                 <input onChange={handleAddChange} type="text" placeholder="name" name="name" value={formData.name}/>
                 <label htmlFor="Pokemon Type">Pokemon Type:</label>
                 <input onChange={handleAddChange} type="text" name="types" placeholder='type' value={formData.types}/>

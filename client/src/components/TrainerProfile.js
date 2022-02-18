@@ -13,7 +13,7 @@ const TrainerProfile = ({user}) => {
     if (!!user.id) {
         return (
             <div className='trainer'>
-                <h5>{user.username}'s Party: </h5>
+                <h1>{user.username}'s Party: </h1>
                 <hr/>
                 <PokemonCard userPokemon={userPokemon} user={user}/>
             </div>
