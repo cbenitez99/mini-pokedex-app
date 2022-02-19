@@ -8,7 +8,7 @@ const FindPokemon = () => {
     const [pokemon, setPokemon] = useState("");
     const [pokemonData, setPokemonData] = useState([]);
     const [pokemonType, setPokemonType] = useState("");
-    //////Recieve call from FindPokemon.js
+    
     const handleChange = (e) => {
         setPokemon(e.target.value.toLowerCase());
     };
@@ -32,7 +32,7 @@ const FindPokemon = () => {
     };
     
     return (
-        <div>
+        <div className="poke-search">
         <form onSubmit={handleSubmit}>
             <p>Find a Pokemon by name or it's National Pokedex number!</p>
             <label>

@@ -11,6 +11,8 @@ const TrainerProfile = ({user}) => {
         .then((resp) => (resp.json()))
         .then(data => setUserPokemon(data))
     }, [])
+    
+    let pokemonName = userPokemon.map((pokemon) => (pokemon.name))
 
     function handleDelete(id) {
         const removedPokemon = userPokemon.filter((pokemon) => pokemon.id !== id)
@@ -20,11 +22,10 @@ const TrainerProfile = ({user}) => {
           headers: {"Content-Type":"application/json"}
         }).then(resp => {
             if(resp.ok){
-                console.log(resp)
-              alert(`Bye-bye, ${removedPokemon.name}!`)  
+              alert(`Bye-bye, ${pokemonName}!`)  
               navigate(`/users/${user.id}`)
             } else {
-              alert(`${removedPokemon.name} will follow you forever!`)
+              alert(`${pokemonName.name} will follow you forever!`)
             }
         })
     };

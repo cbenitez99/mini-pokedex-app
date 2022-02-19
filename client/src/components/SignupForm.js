@@ -34,9 +34,8 @@ const SignupForm = ({setUser}) => {
             if(resp.ok){
                 resp.json()
                 .then((json) => {
-                    console.log(json)
                     setUser(json)
-                    navigate(`/users/${json.id}`)
+                    navigate(`/`)
                 })
             } else {
                 resp.json()
@@ -48,18 +47,18 @@ const SignupForm = ({setUser}) => {
     }
 
     return (
-        <div className="signup-form">
+        <div className='signup-container'>
             <h1>SignUp</h1>
-            <form onSubmit={handleSubmit}>
+            <form className="signup-form" onSubmit={handleSubmit}>
                 <label htmlFor="username">Create Username:</label>
                 <input onChange={handleChange} type="text" name="username" value={formData.username}/>
                 <label htmlFor="password">Create Password:</label>
                 <input onChange={handleChange} type="password" name="password" value={formData.password}/>
-                <button type="submit">Sign Up</button>
+                <br/>
+                <button type="submit">Sign-Up</button>
+                <p style={{color: "black"}}> {errors.join(", and ")}</p>
             </form>
             <p>Already have an account? <a href='/login'>Log-In!</a></p>
-            <br/>
-            <p style={{color: "red"}}>{errors.join(", and ")}</p>
         </div>
     )
 }

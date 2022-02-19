@@ -57,6 +57,7 @@
   }
 
   .home-page {
+    padding-top: 15%;
     text-align: center;
     background: cover;
   }
@@ -110,7 +111,7 @@
 
   .pokemon-card:hover {
     background-color: red;
-    transform: scale(1.1); 
+    transform: scale(1.06); 
     border: solid black;
     opacity: 100%;
   }
@@ -128,30 +129,30 @@
     margin-left: 25%;
   }
 
-  .signup-form { 
-    text-align: center;
-    width: 50%;
-    margin-left: 25%;
-    align-content: center;
-
-  }
-
   .login-form {
     align-content: center;
   }
 
+  .signup-container { 
+    text-align: center;
+    width: 50%;
+    margin-left: 25%;
+  }
+
+  .signup-form {
+    align-content: center;
+  }
+
   .navlinks {
-    padding-left: 10px;
-    padding-right: 10px;
-    text-decoration: none;
     color: black;
+    text-decoration: none;
   }
 
   .navlinks:hover {
       text-decoration: underline;
   }
 
-  .navlink-container-login{
+  /* .navlink-container-login{
     background-color: rgb(255, 0, 0);
     opacity: 80%;
     padding:10px;
@@ -161,7 +162,7 @@
     opacity: 80%;
     padding:10px;
     width: 32%;
-  }
+  } */
 
   ul {
     padding-top: 50px;
