@@ -7,10 +7,10 @@ const TrainerProfile = ({user}) => {
     let navigate = useNavigate();
 
     useEffect(() => {
-        fetch(`/pokemons`)
+        if (!!user.id) fetch(`/users/${user.id}`)
         .then((resp) => (resp.json()))
-        .then(data => setUserPokemon(data))
-    }, [])
+        .then(userData => setUserPokemon(userData.pokemons))
+    }, [user.id])
     
     let pokemonName = userPokemon.map((pokemon) => (pokemon.name))
 
