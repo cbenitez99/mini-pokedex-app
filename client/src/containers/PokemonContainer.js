@@ -49,7 +49,7 @@ function PokemonContainer ({user}) {
     return (
         <div>
             <FindPokemon />
-            <form onSubmit={handleAddSubmit}>
+            <form className="pokemon-form" onSubmit={handleAddSubmit}>
             <p>Fill with search results to capture!</p>
                 <input onChange={handleAddChange} type="text" placeholder="Enter Pokemon Name" name="name" value={formData.name}/>
                 <br/>

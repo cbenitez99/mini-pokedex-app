@@ -6,11 +6,11 @@ const Navbar = ({user, setUser}) => {
   return ( 
       <div>
         {!!user.id ? 
-          <div className='nav-bar'>
+          <div className='navbar-container'>
             <NavLink className="navlinks" to="/">Home</NavLink>
             <NavLink className="navlinks" to={`/users/${user.id}`}>Trainer Profile</NavLink>
             <NavLink className="navlinks" to="/find-pokemon">Find Pokemon</NavLink>    
-            <NavLink className="navlinks" to="/" onClick={(e) => {
+            <NavLink className="navlinks" to="/" style={{color: "black"}} onClick={(e) => {
             e.preventDefault()
             fetch('/logout', {
               method: "DELETE",
@@ -25,7 +25,7 @@ const Navbar = ({user, setUser}) => {
             } }>Logout</NavLink>
           </div>
           :
-          <div className='nav-bar'>
+          <div className='navbar-container-two'>
             <NavLink className="navlinks" to="/">Home</NavLink>
             <NavLink className="navlinks" to="/signup">Signup</NavLink>
             <NavLink className="navlinks" to="/login">Login</NavLink>

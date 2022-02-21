@@ -44,23 +44,22 @@ const LoginForm = ({setUser}) => {
         })
     }
     return (
-        <div className="login-container">
-            <h1>Login</h1>
-            <form onSubmit={handleSubmit} className="login-form">
-                <label htmlFor="username">Username:</label>
-                <input onChange={handleChange} type="text" name="username" value={formData.username}/>
-                <label htmlFor="password">Password:</label>
-                <input onChange={handleChange} type="password" name="password" value={formData.password}/>
+        <div className='login-page'>
+            <div className="login-container">
+                <h1>Login</h1>
+                <form onSubmit={handleSubmit} className="login-form">
+                    <label htmlFor="username">Username:</label>
+                    <input onChange={handleChange} type="text" name="username" value={formData.username}/>
+                    <label htmlFor="password">Password:</label>
+                    <input onChange={handleChange} type="password" name="password" value={formData.password}/>
+                    <br/>
+                    <button type="submit">Log in</button>
+                    <p style={{color: "black"}}>{errors}</p>
+                    <p>Dont have an account? <a href='/signup'>Sign-Up!</a></p>
+                    <p><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'>Forgot Password?</a></p>
+                </form>
                 <br/>
-                <button type="submit">Log in</button>
-                <p style={{color: "black"}}>{errors}</p>
-                <p>Dont have an account? <a href='/signup'>Sign-Up!</a></p>
-                <p><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'>Forgot Password?</a></p>
-            </form>
-            <br/>
-
-            
-
+            </div>
         </div>
     )
 }

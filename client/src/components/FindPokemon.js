@@ -32,8 +32,8 @@ const FindPokemon = () => {
     };
     
     return (
-        <div className="poke-search">
-        <form onSubmit={handleSubmit}>
+    <div>
+        <form className="pokemon-form" onSubmit={handleSubmit}>
             <p>Find a Pokemon by name or it's National Pokedex number!</p>
             <label>
                 <input type="text" placeholder="Enter Pokemon Name/ID" onChange={handleChange}/>
@@ -80,7 +80,7 @@ const FindPokemon = () => {
             </div>
         );
         })}
-        </div>
+    </div>
     );
 }
 export default FindPokemon;

@@ -15,7 +15,7 @@ const TrainerProfile = ({user}) => {
     let pokemonName = userPokemon.map((pokemon) => (pokemon.name))
 
     function handleDelete(id) {
-        const removedPokemon = userPokemon.filter((pokemon) => pokemon.id !== id)
+        let removedPokemon = userPokemon.filter((pokemon) => pokemon.id !== id)
         setUserPokemon(removedPokemon)
         fetch(`/pokemons/${id}`, {
           method: "DELETE",
@@ -25,7 +25,7 @@ const TrainerProfile = ({user}) => {
               alert(`Bye-bye, ${pokemonName}!`)  
               navigate(`/users/${user.id}`)
             } else {
-              alert(`${pokemonName.name} will follow you forever!`)
+              alert(`${pokemonName} will follow you forever!`)
             }
         })
     };

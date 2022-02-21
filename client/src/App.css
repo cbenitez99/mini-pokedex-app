@@ -1,7 +1,6 @@
   body {
     background-image: url("https://i.pinimg.com/originals/26/b5/55/26b5551ba10f013a335e91b98f530d51.png");
-    background-size: cover; 
-    background-repeat: repeat-y;
+    background: cover; 
     font-family: 'Comfortaa', cursive;;
   }
 
@@ -56,17 +55,6 @@
     justify-content: center;
   }
 
-  .home-page {
-    padding-top: 15%;
-    text-align: center;
-    background: cover;
-  }
-
-  .home-page-logout{
-    text-align: center;
-    background: cover;
-  }
-
   p {
     font-size: larger;
   }
@@ -93,6 +81,12 @@
   }
 
   form {
+    text-align: center;
+    background-color: rgb(255, 0, 0);
+    padding: 30px;
+  } 
+
+  .pokemon-form {
     text-align: center;
     background-color: rgb(255, 0, 0);
     opacity: 80%;
@@ -129,6 +123,10 @@
     margin-left: 25%;
   }
 
+  .pokedex {
+    padding-top: 30px;
+  }
+
   .login-form {
     align-content: center;
   }
@@ -137,33 +135,78 @@
     text-align: center;
     width: 50%;
     margin-left: 25%;
+    
   }
 
   .signup-form {
     align-content: center;
   }
 
-  .navlinks {
-    color: black;
-    text-decoration: none;
+  .login-page {
+    background-color: white;
+    opacity: 80%;
+    padding:10px;
+    border: solid black;
   }
+
+  .signup-page {
+    background-color: white;
+    opacity: 80%;
+    padding:10px;
+    border: solid black;
+  }
+
+  .home-page {
+    text-align: center;
+    margin: auto;
+    padding: 250px;
+    background-color: whitesmoke;
+    opacity: 80%;
+    border: solid black;
+  }
+
+  .home-page-logout{
+    text-align: center;
+    padding: 250px;
+    background-color: whitesmoke;
+    opacity: 80%;
+    border: solid black;
+  }
+
+  .navbar-container {
+    background-color: white;
+    border: solid black;
+    border-bottom: 1px;
+    opacity: 80%;
+    padding:10px;
+    width: 32%;
+  }
+
+  .navbar-container-two {
+    background-color: white;
+    opacity: 80%;
+    padding:10px;
+    width: 16%;
+    border: solid black;
+    border-bottom: 1px;
+  }
+
+  .navlinks {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    padding:10px;
+    width: 32%;
+  }
+
+  .navlinks.active {
+    color: red;
+    text-decoration: none;
+    padding:10px;
+    width: 32%;
+  }
+
 
   .navlinks:hover {
-      text-decoration: underline;
+      text-decoration: underline red;
   }
 
-  /* .navlink-container-login{
-    background-color: rgb(255, 0, 0);
-    opacity: 80%;
-    padding:10px;
-    width: 32%;
-  }
-  .navlink-container{
-    opacity: 80%;
-    padding:10px;
-    width: 32%;
-  } */
-
-  ul {
-    padding-top: 50px;
-  }

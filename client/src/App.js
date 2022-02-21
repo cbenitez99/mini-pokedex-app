@@ -13,7 +13,7 @@ const App = () => {
   
 
   return (
-    <div>
+    <div className="pokedex">
       <Navbar user={user} setUser={setUser}/>
       <main>
         <Routes>
