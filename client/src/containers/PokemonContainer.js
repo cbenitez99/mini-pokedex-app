@@ -47,7 +47,7 @@ function PokemonContainer ({user}) {
     }
 
     return (
-        <div>
+        <div className='find-pokemon-page'>
             <FindPokemon />
             <form className="pokemon-form" onSubmit={handleAddSubmit}>
             <p>Fill with search results to capture!</p>
