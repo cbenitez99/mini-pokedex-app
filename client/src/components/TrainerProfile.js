@@ -3,8 +3,8 @@ import PokemonCard from './PokemonCard';
 import { useNavigate } from 'react-router-dom';
 
 const TrainerProfile = ({user}) => {
-    const [userPokemon, setUserPokemon] = useState([]);
     let navigate = useNavigate();
+    const [userPokemon, setUserPokemon] = useState([]);
 
     useEffect(() => {
         if (!!user.id) fetch(`/users/${user.id}`)
@@ -12,7 +12,6 @@ const TrainerProfile = ({user}) => {
         .then(userData => setUserPokemon(userData.pokemons))
     }, [user.id])
     
-    let pokemonName = userPokemon.map((pokemon) => (pokemon.name))
 
     function handleDelete(id) {
         let removedPokemon = userPokemon.filter((pokemon) => pokemon.id !== id)
@@ -22,10 +21,10 @@ const TrainerProfile = ({user}) => {
           headers: {"Content-Type":"application/json"}
         }).then(resp => {
             if(resp.ok){
-              alert(`Bye-bye, ${pokemonName}!`)  
+              alert(`Stay safe out there!`)  
               navigate(`/users/${user.id}`)
             } else {
-              alert(`${pokemonName} will follow you forever!`)
+              alert(`Nah, it will follow you forever!`)
             }
         })
     };

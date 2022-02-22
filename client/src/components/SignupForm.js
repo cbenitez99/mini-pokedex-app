@@ -5,8 +5,8 @@ const SignupForm = ({setUser}) => {
     const [formData, setFormData] = useState({
         username: "",
         password: "",
-    })
-    const [errors, setErrors] = useState([])
+    });
+    const [errors, setErrors] = useState([]);
 
     const handleChange = (e) => {
         setFormData(prev => {
@@ -14,8 +14,8 @@ const SignupForm = ({setUser}) => {
                 ...prev, 
                 [e.target.name]: e.target.value
             }
-        })
-    }   
+        });
+    };
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -41,10 +41,10 @@ const SignupForm = ({setUser}) => {
                 resp.json()
                 .then((json) => {
                     setErrors(json.errors)
-                })
+                });
             }
-        })
-    }
+        });
+    };
 
     return (
         <div className='signup-page'>
