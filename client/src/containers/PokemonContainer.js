@@ -3,7 +3,7 @@ import FindPokemon from '../components/FindPokemon';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
-function PokemonContainer ({user}) {
+function PokemonContainer ({user, getPokemonMoves}) {
     let navigate = useNavigate();
     const [pokemon, setPokemon] = useState("");
     const [pokemonData, setPokemonData] = useState([]);
@@ -23,6 +23,7 @@ function PokemonContainer ({user}) {
             const res = await axios.get(url);
             toArray.push(res.data);
             setPokemonType(res.data.types[0].type.name.toUpperCase());
+            getPokemonMoves(res.data.moves)
             setPokemonData(toArray)
         } catch (e) {
             alert("Pokemon does not exist!");

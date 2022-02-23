@@ -24,6 +24,8 @@ pokemon3 = Pokemon.create(
     url: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/3.png", 
     user_id: user.id
 )
+
+Move.create(name: "Grass Knot", pokemon_id: pokemon1.id)
 # resp = RestClient.get("https://pokeapi.co/api/v2/pokemon")
 # pokemonData = JSON.parse(resp)["results"]
 # byebug
