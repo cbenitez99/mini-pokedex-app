@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import PokemonCard from './PokemonCard';
 import { useNavigate } from 'react-router-dom';
 
-const TrainerProfile = ({user, pokemonMoves}) => {
+const TrainerProfile = ({user}) => {
     let navigate = useNavigate();
     const [userPokemon, setUserPokemon] = useState([]);
 
@@ -20,10 +20,10 @@ const TrainerProfile = ({user, pokemonMoves}) => {
           headers: {"Content-Type":"application/json"}
         }).then(resp => {
             if(resp.ok){
-              alert(`Stay safe out there!`)  
+              alert(`Bye-bye!`)  
               navigate(`/users/${user.id}`)
             } else {
-              alert(`Nah, it will follow you forever!`)
+              alert(`Oh no! It'll follow you forever!`)
             }
         })
     };
@@ -33,7 +33,7 @@ const TrainerProfile = ({user, pokemonMoves}) => {
             <div className='trainer'>
                 <h1>{user.username}'s Party: </h1>
                 <hr/>
-                <PokemonCard userPokemon={userPokemon} handleDelete={handleDelete} pokemonMoves={pokemonMoves}/>
+                <PokemonCard userPokemon={userPokemon} handleDelete={handleDelete}/>
             </div>
         );
     } else {

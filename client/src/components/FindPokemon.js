@@ -1,10 +1,78 @@
 import "../App.css"
-import React from "react"
+import React, {useState} from "react"
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
-const FindPokemon = ({getPokemon, setPokemon, pokemonData, pokemonType}) => {
+const FindPokemon = ({user}) => {
+
+    let navigate = useNavigate();
+    const [currentPokemon, setCurrentPokemon] = useState("");
+    const [pokemonData, setPokemonData] = useState([]);
+    const [pokemonName, setPokemonName] = useState("")
+    const [pokemonType, setPokemonType] = useState("");
+    const [pokemonUrl, setPokemonUrl] = useState("");
+    const [errors, setErrors] = useState([]);
+    const [formData, setFormData] = useState({
+        name: pokemonName,
+        types: pokemonType,
+        url: pokemonUrl,
+        user_id: user.id
+    });
+
+    const getPokemon = async () => {
+        try {
+            const toArray = [];
+            const url = `https://pokeapi.co/api/v2/pokemon/${currentPokemon}`;
+            const res = await axios.get(url);
+            setPokemonName(res.data.name.toUpperCase());
+            setPokemonType(res.data.types.map((type)=>type.type.name.toUpperCase()).join(" / "))
+            setPokemonUrl(res.data.sprites["front_default"])
+            toArray.push(res.data);
+            setPokemonData(toArray)
+
+        } catch (e) {
+            alert("Pokemon does not exist!");
+        }
+    };
+
+
+    // const handleAddChange = (e) => {
+    //     setFormData(prev => {
+    //         return { ...prev, 
+    //             [e.target.name]: e.target.value
+    //         }
+    //     })
+    // };   
+
+    const handleCapture = (e) => {
+        e.preventDefault()
+        setFormData({name: pokemonName, types: pokemonType, url: pokemonUrl, user_id: user.id})
+
+        fetch("/pokemons", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(formData)
+        })
+        .then(resp => {
+            if(resp.ok){
+                resp.json()
+                .then((json) => {
+                    alert("Nice Catch!")
+                    navigate(`/users/${user.id}`)
+                })
+            } else {
+                resp.json()
+                .then((json) => {
+                    setErrors(json.errors)
+                });
+            }
+        });
+    };
     
     const handleChange = (e) => {
-        setPokemon(e.target.value.toLowerCase());
+        setCurrentPokemon(e.target.value.toLowerCase());
     };
 
     const handleSubmit = (e) => {
@@ -67,6 +135,10 @@ const FindPokemon = ({getPokemon, setPokemon, pokemonData, pokemonType}) => {
             </div>
         );
         })}
+                            <p style={{color: "black"}}>{errors}</p>
+
+                            <button onClick={handleCapture}>Capture</button>
+
     </div>
     );
 }

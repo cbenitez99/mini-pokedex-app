@@ -11,7 +11,8 @@ const Home = ({user}) => {
   } else {
     return (
       <div className='home-page-logout'>
-        <h1>Please Log-In or Sign-Up First</h1>
+        <h1>Welcome to the Mini Pokedex!</h1>
+        <h3>Please Log-In or Sign-Up First</h3>
       </div>
     );
   }

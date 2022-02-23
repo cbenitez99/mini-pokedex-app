@@ -22,7 +22,7 @@ class PokemonsController < ApplicationController
         if pokemon.save
             render json: pokemon, status: :created
         else
-            render json: {errors: pokemon.errors.full_messages}, status: :unprocessable_entity
+            render json: {errors: ["IT BROKE FREE! QUICK TRY AGAIN!"]}, status: :unprocessable_entity
         end
     end
 
