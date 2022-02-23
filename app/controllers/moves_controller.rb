@@ -33,6 +33,6 @@ class MovesController < ApplicationController
     end
     
     def move_params
-        params.require(:moves).permit(:name, :pokemon_id)
+        params.permit(:user, :name, :pokemon_id)
     end
 end
