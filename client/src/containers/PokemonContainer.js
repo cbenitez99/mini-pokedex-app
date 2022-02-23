@@ -8,6 +8,7 @@ function PokemonContainer ({user, getPokemonMoves}) {
     const [pokemon, setPokemon] = useState("");
     const [pokemonData, setPokemonData] = useState([]);
     const [pokemonType, setPokemonType] = useState("");
+    const [pokemonMoves, setPokemonMoves] = useState([]);
     const [errors, setErrors] = useState([]);
     const [formData, setFormData] = useState({
         name: "",
@@ -15,20 +16,27 @@ function PokemonContainer ({user, getPokemonMoves}) {
         url: "",
         user_id: user.id
     });
-    
+
+    const setMoves = (moves) => {
+        moves.map((move) => move.move.name)
+        setPokemonMoves(moves)
+        console.log(pokemonMoves)
+    }
+
     const getPokemon = async () => {
         try {
             const toArray = [];
             const url = `https://pokeapi.co/api/v2/pokemon/${pokemon}`;
             const res = await axios.get(url);
             toArray.push(res.data);
+            setMoves(res.data.moves)
             setPokemonType(res.data.types[0].type.name.toUpperCase());
-            getPokemonMoves(res.data.moves)
             setPokemonData(toArray)
         } catch (e) {
             alert("Pokemon does not exist!");
         }
     };
+
 
     const handleAddChange = (e) => {
         setFormData(prev => {

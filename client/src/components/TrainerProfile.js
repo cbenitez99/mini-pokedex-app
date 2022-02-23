@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import PokemonCard from './PokemonCard';
 import { useNavigate } from 'react-router-dom';
 
-const TrainerProfile = ({user}) => {
+const TrainerProfile = ({user, pokemonMoves}) => {
     let navigate = useNavigate();
     const [userPokemon, setUserPokemon] = useState([]);
 
@@ -12,7 +12,6 @@ const TrainerProfile = ({user}) => {
         .then(userData => setUserPokemon(userData.pokemons))
     }, [user.id])
     
-
     function handleDelete(id) {
         let removedPokemon = userPokemon.filter((pokemon) => pokemon.id !== id)
         setUserPokemon(removedPokemon)
@@ -34,7 +33,7 @@ const TrainerProfile = ({user}) => {
             <div className='trainer'>
                 <h1>{user.username}'s Party: </h1>
                 <hr/>
-                <PokemonCard userPokemon={userPokemon} handleDelete={handleDelete}/>
+                <PokemonCard userPokemon={userPokemon} handleDelete={handleDelete} pokemonMoves={pokemonMoves}/>
             </div>
         );
     } else {

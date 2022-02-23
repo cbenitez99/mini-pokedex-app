@@ -26,19 +26,25 @@ const FindPokemon = ({getPokemon, setPokemon, pokemonData, pokemonType}) => {
                 <img src={data.sprites["front_default"]} alt="poke-sprite"/>
                 <div className="divTable">
                 <div className="divTableBody">
+
+                    <div className="divTableRow">
+                        <div className="divTableCell">ID</div>
+                        <div className="divTableCell">{data.id}</div>
+                    </div>
+
                     <div className="divTableRow">
                         <div className="divTableCell">Name</div>
                         <div className="divTableCell">{data.name.toUpperCase()}</div>
                     </div>
-
-                    <div className="divTableRow">
-                        <div className="divTableCell">Entry</div>
-                        <div className="divTableCell">#{data.id}</div>
-                    </div>
-
+                    
                     <div className="divTableRow">
                         <div className="divTableCell">Type</div>
                         <div className="divTableCell">{pokemonType}</div>
+                    </div>
+
+                    <div className="divTableRow">
+                        <div className="divTableCell">HP</div>
+                        <div className="divTableCell">❤️{data.stats[0].base_stat}</div>
                     </div>
 
                     <div className="divTableRow">
