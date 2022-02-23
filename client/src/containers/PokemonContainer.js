@@ -4,6 +4,10 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 function PokemonContainer ({user}) {
+    let navigate = useNavigate();
+    const [pokemon, setPokemon] = useState("");
+    const [pokemonData, setPokemonData] = useState([]);
+    const [pokemonType, setPokemonType] = useState("");
     const [errors, setErrors] = useState([]);
     const [formData, setFormData] = useState({
         name: "",
@@ -11,12 +15,7 @@ function PokemonContainer ({user}) {
         url: "",
         user_id: user.id
     });
-
-    const [pokemon, setPokemon] = useState("");
-    const [pokemonData, setPokemonData] = useState([]);
-    const [pokemonType, setPokemonType] = useState("");
-    let navigate = useNavigate();
-
+    
     const getPokemon = async () => {
         try {
             const toArray = [];
