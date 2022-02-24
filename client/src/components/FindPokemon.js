@@ -31,29 +31,27 @@ const FindPokemon = ({user}) => {
             setPokemonData(toArray)
 
         } catch (e) {
-            alert("Pokemon does not exist!");
+            console.log("Pokemon does not exist!");
         }
-    };
-
-
-    // const handleAddChange = (e) => {
-    //     setFormData(prev => {
-    //         return { ...prev, 
-    //             [e.target.name]: e.target.value
-    //         }
-    //     })
-    // };   
+    };  
 
     const handleCapture = (e) => {
         e.preventDefault()
-        setFormData({name: pokemonName, types: pokemonType, url: pokemonUrl, user_id: user.id})
-
+        setFormData({
+            name: pokemonName, 
+            types: pokemonType, 
+            url: pokemonUrl, 
+            user_id: user.id
+        })
+        let params = {
+            ...formData
+        }
         fetch("/pokemons", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(formData)
+            body: JSON.stringify(params)
         })
         .then(resp => {
             if(resp.ok){
@@ -81,8 +79,8 @@ const FindPokemon = ({user}) => {
     };
 
     return (
-    <div>
-        <form className="pokemon-form" onSubmit={handleSubmit}>
+    <div className="pokemon-form">
+        <form  onSubmit={handleSubmit}>
             <p>Find a Pokemon by name or it's National Pokedex number!</p>
             <label>
                 <input type="text" placeholder="Find Pokemon by: Name/ID" onChange={handleChange}/>
@@ -94,6 +92,7 @@ const FindPokemon = ({user}) => {
                 <img src={data.sprites["front_default"]} alt="poke-sprite"/>
                 <div className="divTable">
                 <div className="divTableBody">
+                <p style={{color: "red"}}>{errors}</p>
 
                     <div className="divTableRow">
                         <div className="divTableCell">ID</div>
@@ -130,15 +129,15 @@ const FindPokemon = ({user}) => {
                             {Math.round(data.weight / 4.3)} LBS
                         </div>
                     </div>
+            
                     </div>
+                    <img src={data.sprites["back_default"]} alt="poke-sprite"/>
                 </div>
             </div>
         );
         })}
-                            <p style={{color: "black"}}>{errors}</p>
-
-                            <button onClick={handleCapture}>Capture</button>
-
+        <br/>
+      <button className="capture-bttn" onClick={handleCapture}>Capture</button>
     </div>
     );
 }

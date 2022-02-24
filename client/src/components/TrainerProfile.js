@@ -20,7 +20,7 @@ const TrainerProfile = ({user}) => {
           headers: {"Content-Type":"application/json"}
         }).then(resp => {
             if(resp.ok){
-              alert(`Bye-bye!`)  
+              console.log(`Bye-bye!`)  
               navigate(`/users/${user.id}`)
             } else {
               alert(`Oh no! It'll follow you forever!`)
@@ -31,9 +31,10 @@ const TrainerProfile = ({user}) => {
     if (!!user.id) {
         return (
             <div className='trainer'>
-                <h1>{user.username}'s Party: </h1>
-                <hr/>
-                <PokemonCard userPokemon={userPokemon} handleDelete={handleDelete}/>
+                <div className='trainer-content'>
+                    <h1>{user.username}'s Party: </h1>
+                    <PokemonCard userPokemon={userPokemon} handleDelete={handleDelete} user={user}/>
+                </div>  
             </div>
         );
     } else {

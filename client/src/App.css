@@ -50,7 +50,6 @@
 
   .container {
     display: flex;
-    opacity: 0.9;
     background-color: whitesmoke;
     justify-content: center;
     padding: 10px;
@@ -65,10 +64,6 @@
     height: 13rem;
   }
 
-  button {
-    border-radius: 15px;
-  }
-
   input {
     box-sizing: border-box;
     text-align: center;
@@ -78,7 +73,6 @@
   } 
 
   label, ::placeholder{
-    opacity: 100%;
     font-size: large;
   }
 
@@ -91,38 +85,44 @@
   .pokemon-form {
     text-align: center;
     background-color: rgb(255, 0, 0);
-    /* opacity: 80%; */
     padding: 30px;
+    border: solid;
   } 
 
   .trainer {
     text-align: center;
     font-size: large;
+    border: solid;
+    background-color: whitesmoke;
+
   }
 
   .pokemon-container {
     display: flex;
     flex-wrap: wrap;
+    border: solid;
+    border-radius: 30px;
+  }
+
+  .pokemon-card{
+    text-align: center;
+    background-color: gray;
+    border-radius: 360px;
+    margin: auto;
   }
 
   .pokemon-card:hover {
     background-color: red;
-    transform: scale(1.06); 
-    border: solid black;
-    opacity: 100%;
-  }
-
-  .pokemon-card{
-    background-color: whitesmoke;
-    border: solid black;
-    opacity: 100%;
-    border-radius:5px;
   }
 
   .login-container {
     text-align: center;
     width: 50%;
     margin-left: 25%;
+  }
+
+  .capture-bttn {
+    color: black;
   }
 
   .pokedex {
@@ -146,14 +146,12 @@
 
   .login-page {
     background-color: white;
-    opacity: 80%;
     padding:10px;
     border: solid black;
   }
 
   .signup-page {
     background-color: white;
-    opacity: 80%;
     padding:10px;
     border: solid black;
   }
@@ -178,19 +176,17 @@
   .navbar-container {
     background-color: white;
     border: solid black;
-    border-bottom: 1px;
-    opacity: 80%;
+    border-bottom: none;
     padding:10px;
     width: 32%;
   }
 
   .navbar-container-two {
     background-color: white;
-    opacity: 80%;
     padding:10px;
     width: 16%;
     border: solid black;
-    border-bottom: 1px;
+    border-bottom: none;
   }
 
   .navlinks {
@@ -202,21 +198,10 @@
 
   .navlinks.active {
     color: red;
-    text-decoration: none;
-    padding:10px;
-    width: 32%;
   }
-
 
   .navlinks:hover {
       text-decoration: underline red;
   }
 
-  .find-pokemon-page{
-    /* width: 50%; */
-    background-color: gray;
-    /* margin: auto; */
-    /* padding:30px; */
-    border: solid black;
-  }
-
+  

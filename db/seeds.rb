@@ -1,10 +1,12 @@
+User.destroy_all
+Pokemon.destroy_all
 puts "Seeding data **************"
 
 puts "Creating default profiles..."
 
-user = User.create(username: "aaa", password: "aaa")
-user2 = User.create(username: "bbb", password_digest: "bbb")
-user3 = User.create(username: "ccc", password_digest: "ccc")
+user = User.create!(username: "aaa", password: "aaaa")
+user2 = User.create!(username: "bbb", password: "bbbb")
+user3 = User.create!(username: "ccc", password: "cccc")
 
 puts "Grabbing starter pokemon!"
 
