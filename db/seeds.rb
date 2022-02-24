@@ -1,10 +1,12 @@
-# require "rest-client"
 puts "Seeding data **************"
-user = User.create(username: "Cristian", password: "coder123")
-# user2 = User.create(username: "Alex", password_digest: "54321")
 
-# trainer1 = Trainer.create(name: "Cris", party_count: 0, user_id: user.id)
-# trainer2 = Trainer.create(name: "Abs", party_count: 0, user_id: 2)
+puts "Creating default profiles..."
+
+user = User.create(username: "aaa", password: "aaa")
+user2 = User.create(username: "bbb", password_digest: "bbb")
+user3 = User.create(username: "ccc", password_digest: "ccc")
+
+puts "Grabbing starter pokemon!"
 
 pokemon1 = Pokemon.create(
     name: "Bulbasaur", 
@@ -13,28 +15,23 @@ pokemon1 = Pokemon.create(
     user_id: user.id
 )
 pokemon2 = Pokemon.create(
-    name: "Ivysaur", 
-    types: "Grass", 
-    url: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/2.png", 
-    user_id: user.id
+    name: "Charmander", 
+    types: "Fire", 
+    url: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png", 
+    user_id: user2.id
 )
 pokemon3 = Pokemon.create(
-    name: "Venusaur", 
-    types: "Grass", 
-    url: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/3.png", 
-    user_id: user.id
+    name: "Squirtle", 
+    types: "Water", 
+    url: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png", 
+    user_id: user3.id
 )
+puts "Teaching starter pokemon moves!"
 
 Move.create(name: "Grass Knot", pokemon_id: pokemon1.id)
-# resp = RestClient.get("https://pokeapi.co/api/v2/pokemon")
-# pokemonData = JSON.parse(resp)["results"]
-# byebug
-# pokemonData.each do |poke_hash|
-#     Pokemon.create!(
-#         name: poke_hash["name"],
-#         url: poke_hash["url"]
-#     );
-# end
+Move.create(name: "Flame Wheel", pokemon_id: pokemon2.id)
+Move.create(name: "Bubble", pokemon_id: pokemon3.id)
+
 
 puts "Data seeded...."
 
