@@ -32,7 +32,7 @@ const TrainerProfile = ({user}) => {
         return (
             <div className='trainer'>
                 <div className='trainer-content'>
-                    <h1>{user.username}'s Party: </h1>
+                    <h1 className='user-name'>{user.username}'s Party: </h1>
                     <PokemonCard userPokemon={userPokemon} handleDelete={handleDelete} user={user}/>
                 </div>  
             </div>

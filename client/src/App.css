@@ -1,15 +1,13 @@
   body {
     background-image: url("https://i.pinimg.com/originals/26/b5/55/26b5551ba10f013a335e91b98f530d51.png");
-    background: cover; 
-    font-family: 'Comfortaa', cursive;;
+    font-family: 'Comfortaa', cursive;
+    background-repeat: no-repeat;
   }
 
   .divTable {
-    display: table;
-    max-width: 20em;
-    float: right;
     display: flex;
-    align-items: center;
+    float: left;
+    justify-content: center;
   }
 
   .divTableRow {
@@ -49,9 +47,7 @@
   }
 
   .container {
-    display: flex;
-    background-color: whitesmoke;
-    justify-content: center;
+    background-color: rgb(176, 255, 255);
     padding: 10px;
     border: solid black;
   }
@@ -83,10 +79,14 @@
   } 
 
   .pokemon-form {
-    text-align: center;
+    display: flex;
     background-color: rgb(255, 0, 0);
     padding: 30px;
     border: solid;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-content: space-around;
   } 
 
   .trainer {
@@ -94,21 +94,39 @@
     font-size: large;
     border: solid;
     background-color: whitesmoke;
+  }
 
+  .trainer-content {
+    background-color: red;
+    /* margin-bottom: 10px; */
+    padding: 20px;
   }
 
   .pokemon-container {
     display: flex;
     flex-wrap: wrap;
+    background-color: rgb(176, 255, 255);
     border: solid;
     border-radius: 30px;
+    margin: 15px;
+  }
+
+  .user-name{
+    margin-top: 30px;
+  }
+
+  .pokemon-name{
+    margin-top: 30px;
+  }
+  .pokemon-img{
+   
   }
 
   .pokemon-card{
     text-align: center;
-    background-color: gray;
+    background-color: whitesmoke;
     border-radius: 360px;
-    margin: auto;
+    margin: 10px;
   }
 
   .pokemon-card:hover {
@@ -121,8 +139,8 @@
     margin-left: 25%;
   }
 
-  .capture-bttn {
-    color: black;
+  .capture-button {
+    background-color: black;
   }
 
   .pokedex {

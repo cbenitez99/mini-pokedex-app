@@ -131,7 +131,6 @@ const FindPokemon = ({user}) => {
                     </div>
             
                     </div>
-                    <img src={data.sprites["back_default"]} alt="poke-sprite"/>
                 </div>
             </div>
         );
