@@ -5,11 +5,14 @@ import { useNavigate } from 'react-router-dom';
 const TrainerProfile = ({user}) => {
     let navigate = useNavigate();
     const [userPokemon, setUserPokemon] = useState([]);
-
+    // const [moves, setMoves] = useState([]);
     useEffect(() => {
         if (!!user.id) fetch(`/users/${user.id}`)
         .then((resp) => (resp.json()))
-        .then(userData => setUserPokemon(userData.pokemons))
+        .then(userData => {
+            setUserPokemon(userData.pokemons)
+            // setMoves(userData.moves)
+        })
     }, [user.id])
     
     function handleDelete(id) {

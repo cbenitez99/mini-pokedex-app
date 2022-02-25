@@ -136,7 +136,7 @@ const FindPokemon = ({user}) => {
         );
         })}
         <br/>
-      <button className="capture-bttn" onClick={handleCapture}>Capture</button>
+      <button className="capture-button" onClick={handleCapture}>Capture</button>
     </div>
     );
 }

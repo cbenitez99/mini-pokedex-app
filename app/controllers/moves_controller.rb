@@ -26,7 +26,15 @@ class MovesController < ApplicationController
         end
     end
 
+    def update
+     
+    end
+
     private
+
+    def move_params
+        params.require(:user).permit(:name, :pokemon_id)
+    end
 
     def find_move
         Move.find_by(id: params[:id])

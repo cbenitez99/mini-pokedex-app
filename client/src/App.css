@@ -58,6 +58,7 @@
 
   img {
     height: 13rem;
+    padding-left: 6rem;
   }
 
   input {
@@ -83,7 +84,7 @@
     background-color: rgb(255, 0, 0);
     padding: 30px;
     border: solid;
-    flex-direction: column-reverse;
+    flex-direction: column;
     justify-content: space-between;
     flex-wrap: wrap;
     align-content: space-around;
@@ -93,7 +94,6 @@
     text-align: center;
     font-size: large;
     border: solid;
-    background-color: whitesmoke;
   }
 
   .trainer-content {
@@ -111,6 +111,10 @@
     margin: 15px;
   }
 
+  .info-container {
+    background-color: rgb(176, 255, 255);
+  }
+
   .user-name{
     margin-top: 30px;
   }
@@ -118,9 +122,10 @@
   .pokemon-name{
     margin-top: 30px;
   }
-  /* .pokemon-img{
-   
-  } */
+  .pokemon-img{
+    height: 13rem;
+    padding-left: 7rem;
+  }
 
   .pokemon-card{
     text-align: center;
@@ -140,7 +145,7 @@
   }
 
   .capture-button {
-    background-color: black;
+    color: -internal-light-dark(white, black);
   }
 
   .pokedex {
