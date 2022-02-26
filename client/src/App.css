@@ -48,18 +48,14 @@
 
   .container {
     background-color: rgb(176, 255, 255);
+    align-items: center;
     padding: 10px;
-    border: solid black;
+    border: solid, black,20px;
   }
 
   p {
     font-size: larger;
   }
-
-  /* img {
-    height: 13rem;
-    padding-left: 6rem;
-  } */
 
   input {
     box-sizing: border-box;
@@ -310,8 +306,6 @@
 
   } */
 
-  
-
   .pokedex {
     padding-top: 30px;
   }
@@ -390,5 +384,3 @@
   .navlinks:hover {
       text-decoration: underline red;
   }
-
-  
