@@ -56,7 +56,7 @@ const SignupForm = ({setUser}) => {
                     <label htmlFor="password">Create Password:</label>
                     <input onChange={handleChange} type="password" name="password" value={formData.password}/>
                     <br/>
-                    <button type="submit">Sign-Up</button>
+                    <button type="submit" className='signup-button'>Sign-Up</button>
                     <p style={{color: "black"}}> {errors.join(", and ")}</p>
                 </form>
                 <p>Already have an account? <a href='/login'>Log-In!</a></p>

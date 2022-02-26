@@ -89,7 +89,7 @@ const FindPokemon = ({user}) => {
         {pokemonData.map((data) => {
         return (
             <div key={data.id} className="container">
-                <img src={data.sprites["front_default"]} alt="poke-sprite"/>
+                <img className="sprite" src={data.sprites["front_default"]} alt="poke-sprite"/>
                 <div className="divTable">
                 <div className="divTableBody">
                 <p style={{color: "red"}}>{errors}</p>
@@ -136,7 +136,13 @@ const FindPokemon = ({user}) => {
         );
         })}
         <br/>
-      <button className="capture-button" onClick={handleCapture}>Capture</button>
+        <button className="button-82-pushable" onClick={handleCapture}>
+            <span className="button-82-shadow"></span>
+            <span className="button-82-edge"></span>
+            <span className="button-82-front text">
+                Capture
+            </span>
+        </button>
     </div>
     );
 }

@@ -53,7 +53,7 @@ const LoginForm = ({setUser}) => {
                     <label htmlFor="password">Password:</label>
                     <input onChange={handleChange} type="password" name="password" value={formData.password}/>
                     <br/>
-                    <button type="submit">Log in</button>
+                    <button type="submit" className='login-button'>Log in</button>
                     <p style={{color: "black"}}>{errors}</p>
                     <p>Dont have an account? <a href='/signup'>Sign-Up!</a></p>
                     <p><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'>Forgot Password?</a></p>
