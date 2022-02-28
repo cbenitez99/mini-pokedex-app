@@ -49,8 +49,7 @@
   .container {
     background-color: rgb(176, 255, 255);
     align-items: center;
-    padding: 10px;
-    border: solid, black,20px;
+    border: solid;
   }
 
   p {
@@ -72,7 +71,7 @@
   form {
     text-align: center;
     background-color: rgb(255, 0, 0);
-    padding: 30px;
+    padding: 10px;
   } 
 
   .pokemon-form {
@@ -84,12 +83,19 @@
     justify-content: space-between;
     flex-wrap: wrap;
     align-content: space-around;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    border-top-right-radius: 50px;
   } 
 
   .trainer {
     text-align: center;
     font-size: large;
     border: solid;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-top-right-radius: 20px;
+    overflow: hidden;
   }
 
   .trainer-content {
@@ -112,6 +118,11 @@
 
   .user-name{
     margin-top: 30px;
+  }
+
+  .direct-profile:hover {
+    text-decoration: underline red;
+    cursor: pointer;
   }
 
   .pokemon-name{
@@ -243,59 +254,60 @@
   outline: none;
 }
   .release-button{
-      background-color: #222;
-      border-style: none;
-      box-sizing: border-box;
-      color: #fff;
-      cursor: pointer;
-      display: inline-block;
-      font-family: 'Comfortaa', cursive;
-      font-size: 16px;
-      font-weight: 700;
-      line-height: 1.5;
-      margin: 0;
-      max-width: none;
-      min-height: 44px;
-      min-width: 10px;
-      outline: none;
-      overflow: hidden;
-      padding: 9px 20px 8px;
-      position: relative;
-      text-align: center;
-      text-transform: none;
-      user-select: none;
-      -webkit-user-select: none;
-      touch-action: manipulation;
-      width: 75%;
-      padding-bottom: 3px;
-    }
+    background-color: #222;
+    border-style: none;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: 'Comfortaa', cursive;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.5;
+    margin: 0;
+    max-width: none;
+    min-height: 44px;
+    min-width: 10px;
+    outline: none;
+    overflow: hidden;
+    padding: 9px 20px 8px;
+    position: relative;
+    text-align: center;
+    text-transform: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: 100%;
+    padding-bottom: 3px;
+  }
     
 
   .stats-button {
     background-color: #222;
-      border-style: none;
-      box-sizing: border-box;
-      color: #fff;
-      cursor: pointer;
-      display: inline-block;
-      font-family: 'Comfortaa', cursive;
-      font-size: 16px;
-      font-weight: 700;
-      line-height: 1.5;
-      margin: 0;
-      max-width: none;
-      min-height: 44px;
-      min-width: 10px;
-      outline: none;
-      overflow: hidden;
-      padding: 9px 20px 8px;
-      position: relative;
-      text-align: center;
-      text-transform: none;
-      user-select: none;
-      -webkit-user-select: none;
-      touch-action: manipulation;
-      width: 100%;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: 'Comfortaa', cursive;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.5;
+    margin: 0;
+    max-width: none;
+    min-height: 44px;
+    min-width: 10px;
+    outline: none;
+    overflow: hidden;
+    padding: 9px 20px 8px;
+    position: relative;
+    text-align: center;
+    text-transform: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: 100%;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
   }
 
   /* .login-button{
@@ -329,29 +341,38 @@
     background-color: white;
     padding:10px;
     border: solid black;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-top-right-radius: 20px;
   }
 
   .signup-page {
     background-color: white;
-    padding:10px;
     border: solid black;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-top-right-radius: 20px;
   }
 
   .home-page {
     text-align: center;
     margin: auto;
-    padding: 250px;
+    padding: 150px;
     background-color: whitesmoke;
-    opacity: 80%;
     border: solid black;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-top-right-radius: 20px;
   }
 
   .home-page-logout{
     text-align: center;
-    padding: 250px;
+    padding: 150px;
     background-color: whitesmoke;
-    opacity: 80%;
     border: solid black;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-top-right-radius: 20px;
   }
 
   .navbar-container {

@@ -31,7 +31,7 @@ const FindPokemon = ({user}) => {
             setPokemonData(toArray)
 
         } catch (e) {
-            console.log("Pokemon does not exist!");
+            console.log("Invalid Name/ID");
         }
     };  
 
@@ -89,8 +89,8 @@ const FindPokemon = ({user}) => {
         {pokemonData.map((data) => {
         return (
             <div key={data.id} className="container">
-                <img className="sprite" src={data.sprites["front_default"]} alt="poke-sprite"/>
                 <div className="divTable">
+                <img className="sprite" src={data.sprites["front_default"]} alt="poke-sprite"/>
                 <div className="divTableBody">
                 <p style={{color: "red"}}>{errors}</p>
 
