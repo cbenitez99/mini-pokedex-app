@@ -50,6 +50,7 @@
     background-color: rgb(176, 255, 255);
     align-items: center;
     border: solid;
+    border-width: thick;
   }
 
   p {
@@ -109,7 +110,7 @@
     background-color: rgb(176, 255, 255);
     border: solid;
     border-radius: 30px;
-    margin: 15px;
+    margin: auto;
   }
 
   .info-container {
@@ -130,6 +131,7 @@
   }
   .sprite {
     height: 190px;
+    padding-left: 50px;
     justify-content: center;
   }
 
@@ -140,8 +142,8 @@
     margin: 9px;
   }
 
-  .pokemon-card:hover {
-    background-color: red;
+  .pokemon-card {
+    background-image: linear-gradient(white, yellow);
     margin: 9px;
   }
 
@@ -280,6 +282,34 @@
     width: 100%;
     padding-bottom: 3px;
   }
+
+  .release-button:hover{
+    background-color: red;
+    border-style: none;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: 'Comfortaa', cursive;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.5;
+    margin: 0;
+    max-width: none;
+    min-height: 44px;
+    min-width: 10px;
+    outline: none;
+    overflow: hidden;
+    padding: 9px 20px 8px;
+    position: relative;
+    text-align: center;
+    text-transform: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: 100%;
+    padding-bottom: 3px;
+  }
     
 
   .stats-button {
@@ -309,15 +339,38 @@
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
   }
-
-  /* .login-button{
-
+  .stats-button:hover {
+    background-color: goldenrod;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: 'Comfortaa', cursive;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.5;
+    margin: 0;
+    max-width: none;
+    min-height: 44px;
+    min-width: 10px;
+    outline: none;
+    overflow: hidden;
+    padding: 9px 20px 8px;
+    position: relative;
+    text-align: center;
+    text-transform: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: 100%;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
   }
 
-  .signup-button{
-
-  } */
-
+  .party-sprites {
+    height: 100px;
+  }
+  
   .pokedex {
     padding-top: 30px;
   }

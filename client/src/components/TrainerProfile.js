@@ -37,7 +37,8 @@ const TrainerProfile = ({user}) => {
                 <div className='trainer-content'>
                     <h1 className='user-name'>{user.username}'s Party: </h1>
                     <PokemonCard userPokemon={userPokemon} handleDelete={handleDelete} user={user}/>
-                    <h3>'Release' or see 'More Info' about your Pokemon!</h3>
+                    <h3>Select <em>Release</em> to remove pokemon from party.</h3>
+                    <h3>Select <em>More Info</em> to see more about that Pokemon.</h3>
 
                 </div>  
             </div>
