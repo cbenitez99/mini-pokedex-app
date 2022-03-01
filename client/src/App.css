@@ -114,7 +114,9 @@
   }
 
   .info-container {
-    background-color: rgb(176, 255, 255);
+    align-content: center;
+    background-color: rgb(216, 216, 216);
+    border: solid;
   }
 
   .user-name{

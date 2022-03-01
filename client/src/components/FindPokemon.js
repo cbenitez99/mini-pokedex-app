@@ -15,7 +15,7 @@ const FindPokemon = ({user}) => {
     const [formData, setFormData] = useState({
         name: pokemonName,
         types: pokemonType,
-        url: pokemonUrl,
+        image: pokemonUrl,
         user_id: user.id
     });
 
@@ -40,7 +40,7 @@ const FindPokemon = ({user}) => {
         setFormData({
             name: pokemonName, 
             types: pokemonType, 
-            url: pokemonUrl, 
+            image: pokemonUrl, 
             user_id: user.id
         })
         let params = {

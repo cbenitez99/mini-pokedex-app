@@ -20,10 +20,9 @@ const PokemonInfo = ({user}) => {
 
     return (
         <div className="info-container" key={id}>
-            <h1>{pokemonData.types}</h1> 
-            <img src={pokemonData.url} alt={`No pic of ${pokemonData.name}!`}/> 
             <h1>{pokemonData.name}</h1>
-            <p>commit often!</p>     
+            <h1>{pokemonData.types}</h1> 
+            <img src={pokemonData.image} alt={`No pic of ${pokemonData.name}!`}/> 
         </div>        
     );
 }
