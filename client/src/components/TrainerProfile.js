@@ -28,7 +28,24 @@ const TrainerProfile = ({user}) => {
         })
     };
 
-    if (!!user.id) {
+    const handleClick = () => {
+        navigate(`/find-pokemon`)
+    }
+
+    if (user.pokemons.length <= 0) {
+        return (
+            <div className='trainer'>
+                <div className='trainer-content'>
+                    <h3 className='user-name'>You have no Pokemon, {user.username}!
+                        <div className="direct-profile" onClick={handleClick} style={{color: "purple", fontSize: 40}}>                    <br/>
+                        Find Pokemon!
+                        </div> 
+                    </h3>
+                    <PokemonCard userPokemon={userPokemon} handleDelete={handleDelete} user={user}/>
+                </div>  
+            </div>
+        );
+    } else {
         return (
             <div className='trainer'>
                 <div className='trainer-content'>
@@ -37,12 +54,6 @@ const TrainerProfile = ({user}) => {
                     <h3>Click <em>Release</em> to remove Pokemon from party.</h3>
                     <h3>Click <em>More Info</em> to see more about that Pokemon.</h3>
                 </div>  
-            </div>
-        );
-    } else {
-        return (
-            <div className='trainer'>
-                <h3>Please Log-In or Sign-Up First</h3>
             </div>
         );
     }
