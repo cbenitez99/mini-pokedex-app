@@ -1,22 +1,17 @@
 import React, {useEffect, useState} from 'react'
 import { useParams } from 'react-router-dom';
 
-const PokemonInfo = ({user}) => {
+const PokemonInfo = ({user, moves}) => {
     const {id} = useParams();
 
     const [pokemonData, setPokemonData] = useState([]);
     useEffect(() => {
-        try {
         fetch(`/pokemons/${id}`)
         .then((resp) => (resp.json()))
         .then(data => {
             setPokemonData(data)
         })
-        } catch (e){
-            console.log(e)
-        }
     }, [user.id, id])
-
 
     return (
         <div className="info-container" key={id}>

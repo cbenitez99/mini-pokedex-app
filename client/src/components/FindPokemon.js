@@ -1,48 +1,39 @@
 import "../App.css"
 import React, {useState} from "react"
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+// import axios from "axios";
 
-const FindPokemon = ({user}) => {
+const FindPokemon = ({user, moves, handleSubmit, handleChange, formData, pokemonData}) => {
+    const [errors, setErrors] = useState([]);
 
     let navigate = useNavigate();
-    const [currentPokemon, setCurrentPokemon] = useState("");
-    const [pokemonData, setPokemonData] = useState([]);
-    const [pokemonName, setPokemonName] = useState("")
-    const [pokemonType, setPokemonType] = useState("");
-    const [pokemonUrl, setPokemonUrl] = useState("");
-    const [errors, setErrors] = useState([]);
-    const [formData, setFormData] = useState({
-        name: pokemonName,
-        types: pokemonType,
-        image: pokemonUrl,
-        user_id: user.id
-    });
+    // const [currentPokemon, setCurrentPokemon] = useState("");
+    // const [pokemonData, setPokemonData] = useState([]);
+    // const [pokemonName, setPokemonName] = useState("")
+    // const [pokemonType, setPokemonType] = useState("");
+    // const [pokemonUrl, setPokemonUrl] = useState("");
+    
 
-    const getPokemon = async () => {
-        try {
-            const toArray = [];
-            const url = `https://pokeapi.co/api/v2/pokemon/${currentPokemon}`;
-            const res = await axios.get(url);
-            setPokemonName(res.data.name.toUpperCase());
-            setPokemonType(res.data.types.map((type)=>type.type.name.toUpperCase()).join(" / "))
-            setPokemonUrl(res.data.sprites["front_default"])
-            toArray.push(res.data);
-            setPokemonData(toArray)
+    // const getPokemon = async () => {
+    //     try {
+    //         const toArray = [];
+    //         const url = `https://pokeapi.co/api/v2/pokemon/${currentPokemon}`;
+    //         const res = await axios.get(url);
+    //         setPokemonName(res.data.name.toUpperCase());
+    //         setPokemonType(res.data.types.map((type)=>type.type.name.toUpperCase()).join(" / "))
+    //         setPokemonUrl(res.data.sprites["front_default"])
+    //         setAllStats(res.data)
+    //         toArray.push(res.data);
+    //         console.log(res.data.moves)
+    //         setPokemonData(toArray)
 
-        } catch (e) {
-            console.log("Invalid Name/ID");
-        }
-    };  
-
+    //     } catch (e) {
+    //         console.log("Invalid Name/ID");
+    //     }
+    // };  
+//something on line 35 not working
     const handleCapture = (e) => {
         e.preventDefault()
-        setFormData({
-            name: pokemonName, 
-            types: pokemonType, 
-            image: pokemonUrl, 
-            user_id: user.id
-        })
         let params = {
             ...formData
         }
@@ -57,25 +48,18 @@ const FindPokemon = ({user}) => {
             if(resp.ok){
                 resp.json()
                 .then((json) => {
+                    console.log(json)
                     alert("Nice Catch!")
                     navigate(`/users/${user.id}`)
                 })
             } else {
                 resp.json()
                 .then((json) => {
+                    console.log(json)
                     setErrors(json.errors)
                 });
             }
         });
-    };
-    
-    const handleChange = (e) => {
-        setCurrentPokemon(e.target.value.toLowerCase());
-    };
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        getPokemon();
     };
 
     return (
@@ -106,7 +90,7 @@ const FindPokemon = ({user}) => {
                     
                     <div className="divTableRow">
                         <div className="divTableCell">Type</div>
-                        <div className="divTableCell">{pokemonType}</div>
+                        <div className="divTableCell">{data.types[0].type.name.toUpperCase()}</div>
                     </div>
 
                     <div className="divTableRow">
