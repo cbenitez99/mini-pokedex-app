@@ -1,9 +1,7 @@
   body {
     background-image: url("https://i.pinimg.com/originals/26/b5/55/26b5551ba10f013a335e91b98f530d51.png");
     font-family: 'Comfortaa', cursive;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center;
+    background-size: cover;
   }
 
   .divTable {
