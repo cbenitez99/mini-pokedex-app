@@ -82,7 +82,7 @@ const App = () => {
       if (resp.ok) {
         resp.json()
         .then((json) => {
-          console.log(json);
+          console.log(json.moves);
           alert("Nice Catch!");
           navigate(`/users/${user.id}`);
         });
