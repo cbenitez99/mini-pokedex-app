@@ -18,15 +18,17 @@ const App = () => {
   const [pokemonName, setPokemonName] = useState("")
   const [pokemonType, setPokemonType] = useState("");
   const [pokemonUrl, setPokemonUrl] = useState("");
+  const [moves, setMoves] = useState([]);
+  const [stats, setStats] = useState([]);
   const [formData, setFormData] = useState({
     name: pokemonName,
     types: pokemonType,
     image: pokemonUrl,
     moves: moves,
-    stats: pokemonData,
-    user_id: user.id
+    stats: stats,
+    user_id: user.id,
+    pokemon_party_id: user.id
   });
-  const [moves, setMoves] = useState([]);
 
   const getPokemon = async () => {
     try {
@@ -36,7 +38,8 @@ const App = () => {
       setPokemonName(res.data.name.toUpperCase());
       setPokemonType(res.data.types.map((type) => type.type.name.toUpperCase()).join(" / "));
       setPokemonUrl(res.data.sprites["front_default"]);
-      setMoves(res.data.moves)
+      setMoves(res.data.moves.map((move)=>move.move.name))
+      setStats(res.data.stats.map((stat) => stat))
       toArray.push(res.data);
       setPokemonData(toArray);
       setFormData({
@@ -44,8 +47,9 @@ const App = () => {
         types: pokemonType,
         image: pokemonUrl,
         moves: moves,
-        stats: pokemonData,
-        user_id: user.id
+        stats: stats,
+        user_id: user.id,
+        pokemon_party_id: user.id
       })
     } catch (e) {
       console.log("Invalid Name/ID");
@@ -63,7 +67,10 @@ const App = () => {
       name: pokemonName,
       types: pokemonType,
       image: pokemonUrl,
-      user_id: user.id
+      moves: moves,
+      stats: stats,
+      user_id: user.id,
+      pokemon_party_id: user.id
     });
   }
 
@@ -105,7 +112,7 @@ const App = () => {
       <Navbar user={user} setUser={setUser}/>
       <main>
         <Routes>
-          <Route exact path="/pokemons/:id/info" element={<PokemonInfo user={user} moves={moves}/>}/>
+          <Route exact path="/pokemons/:id/info" element={<PokemonInfo user={user} moves={moves} stats={stats}/>}/>
           <Route exact path="/find-pokemon" element={<FindPokemon 
           pokemonData={pokemonData}
           handleCapture={handleCapture} 

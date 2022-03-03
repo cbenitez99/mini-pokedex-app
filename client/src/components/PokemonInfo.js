@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import { useParams } from 'react-router-dom';
 
-const PokemonInfo = ({user, moves}) => {
+const PokemonInfo = ({user, moves, stats}) => {
     const {id} = useParams();
 
     const [pokemonData, setPokemonData] = useState([]);
@@ -15,17 +15,25 @@ const PokemonInfo = ({user, moves}) => {
 
     const shuffled = moves.sort(() => 0.5 - Math.random());
     let selected = shuffled.slice(0, 4);
-    let new_moves = selected.map((move) => (<li>{move.move.name}</li>))
+    let new_moves = selected.map((move) => (<li>{move}</li>))
 
 
-    return (
+    if(!!moves) {
+        return (
         <div className="info-container" key={id}>
             <h1>{pokemonData.name}</h1>
             <h1>{pokemonData.types}</h1> 
-            {new_moves}
+            <ol>{new_moves}</ol>
             <img src={pokemonData.image} alt={`No pic of ${pokemonData.name}!`}/> 
-        </div>        
-    );
+        </div> 
+        );
+    } else {
+        return (
+        <div className="info-container" key={id}>
+            <h1>No Data to show</h1>
+        </div>   
+        );
+    }
 }
 
 export default PokemonInfo;

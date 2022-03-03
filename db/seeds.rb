@@ -17,7 +17,7 @@ pokemon1 = Pokemon.create(
     name: "Bulbasaur", 
     types: "Grass", 
     image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png", 
-    moves: ["Solar-Beam", "Leech-Seed"],
+    moves: "Solar-Beam",
     stats: "",
     pokemon_party_id: party1.id,
     user_id: user.id
@@ -26,7 +26,7 @@ pokemon2 = Pokemon.create(
     name: "Charmander", 
     types: "Fire", 
     image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png", 
-    moves: ["Flamethrower", "Ember"],
+    moves: "Flamethrower",
     stats: "",
     pokemon_party_id: party2.id,
     user_id: user2.id
@@ -35,7 +35,7 @@ pokemon3 = Pokemon.create(
     name: "Squirtle", 
     types: "Water", 
     image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png", 
-    moves: ["Hydropump", "Water-Gun"],
+    moves: "Hydropump",
     stats: "",
     pokemon_party_id: party3.id,
     user_id: user3.id
