@@ -1,6 +1,6 @@
 class CreatePokemonParties < ActiveRecord::Migration[6.1]
   def change
-    create_table :pokemon_party do |t|
+    create_table :pokemon_parties do |t|
       t.string :name
       t.integer :party_count
       t.integer :user_id
