@@ -32,9 +32,8 @@ pokemon3 = Pokemon.create(
 )
 puts "Teaching starter pokemon moves!"
 
-Move.create(name: "Grass Knot", pokemon_id: pokemon1.id)
-Move.create(name: "Flame Wheel", pokemon_id: pokemon2.id)
-Move.create(name: "Bubble", pokemon_id: pokemon3.id)
+PokemonParty.create(name: "Team Grass", party_count: 1 , user_id: user.id)
+
 
 
 puts "Data seeded...."

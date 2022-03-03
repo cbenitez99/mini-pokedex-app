@@ -22,6 +22,8 @@ const App = () => {
     name: pokemonName,
     types: pokemonType,
     image: pokemonUrl,
+    moves: moves,
+    stats: pokemonData,
     user_id: user.id
   });
   const [moves, setMoves] = useState([]);
@@ -41,6 +43,8 @@ const App = () => {
         name: pokemonName,
         types: pokemonType,
         image: pokemonUrl,
+        moves: moves,
+        stats: pokemonData,
         user_id: user.id
       })
     } catch (e) {
