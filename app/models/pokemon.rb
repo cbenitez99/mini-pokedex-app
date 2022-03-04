@@ -1,7 +1,8 @@
 class Pokemon < ApplicationRecord
     belongs_to :user
-    belongs_to :pokemon_party
+    has_many :types
+    has_many :moves
     validates :name, presence: true
     validates :image, presence: true
-    validates :types, presence: true
+    validates :poke_type, presence: true
 end

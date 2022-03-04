@@ -1,22 +1,21 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect} from 'react'
 import { useParams } from 'react-router-dom';
 
-const PokemonInfo = ({user, moves, stats}) => {
+const PokemonInfo = ({user, pokemonData, setPokemonData}) => {
     const {id} = useParams();
 
-    const [pokemonData, setPokemonData] = useState([]);
+    // const [pokemonData, setPokemonData] = useState([]);
     useEffect(() => {
         fetch(`/pokemons/${id}`)
         .then((resp) => (resp.json()))
         .then(data => {
             setPokemonData(data)
         })
-    }, [user.id, id])
+    }, [user.id, id, setPokemonData])
 
     const shuffled = moves.sort(() => 0.5 - Math.random());
     let selected = shuffled.slice(0, 4);
-    let new_moves = selected.map((move) => (<li>{move}</li>))
-
+    let new_moves = selected.map((move) => (<li key={id}>{move}</li>))
 
     if(!!moves) {
         return (
