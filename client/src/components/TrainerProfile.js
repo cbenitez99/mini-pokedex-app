@@ -1,38 +1,39 @@
-import React, {useState, useEffect} from 'react';
+// import React, {useState, useEffect} from 'react';
+import React from 'react'
 import PokemonCard from './PokemonCard';
 import { useNavigate } from 'react-router-dom';
 
 const TrainerProfile = ({user}) => {
     let navigate = useNavigate();
-    const [userPokemon, setUserPokemon] = useState([]);
-    useEffect(() => {
-        if (!!user.id) fetch(`/users/${user.id}`)
-        .then((resp) => (resp.json()))
-        .then(userData => {
-            setUserPokemon(userData.pokemons)
-        })
-    }, [user.id])
-    function handleDelete(id) {
-        let removedPokemon = userPokemon.filter((pokemon) => pokemon.id !== id)
-        setUserPokemon(removedPokemon)
-        fetch(`/pokemons/${id}`, {
-          method: "DELETE",
-          headers: {"Content-Type":"application/json"}
-        }).then(resp => {
-            if(resp.ok){
-              console.log(`Bye-bye!`)  
-              navigate(`/users/${user.id}`)
-            } else {
-              alert(`Oh no! It'll follow you forever!`)
-            }
-        })
-    };
+    // const [userPokemon, setUserPokemon] = useState([]);
+    // useEffect(() => {
+    //     if (!!user.id) fetch(`/users/${user.id}`)
+    //     .then((resp) => (resp.json()))
+    //     .then(userData => {
+    //         setUserPokemon(userData.pokemons)
+    //     })
+    // }, [user.id])
+    // function handleDelete(id) {
+    //     let removedPokemon = userPokemon.filter((pokemon) => pokemon.id !== id)
+    //     setUserPokemon(removedPokemon)
+    //     fetch(`/pokemons/${id}`, {
+    //       method: "DELETE",
+    //       headers: {"Content-Type":"application/json"}
+    //     }).then(resp => {
+    //         if(resp.ok){
+    //           console.log(`Bye-bye!`)  
+    //           navigate(`/users/${user.id}`)
+    //         } else {
+    //           alert(`Oh no! It'll follow you forever!`)
+    //         }
+    //     })
+    // };
 
     const handleClick = () => {
         navigate(`/find-pokemon`)
     }
-
-    if (user.pokemons.length <= 0) {
+    //userPokemon={userPokemon} handleDelete={handleDelete}
+    // if (user.pokemons.length <= 0) {
         return (
             <div className='trainer'>
                 <div className='trainer-content'>
@@ -41,22 +42,22 @@ const TrainerProfile = ({user}) => {
                         Find Pokemon!
                         </div> 
                     </h3>
-                    <PokemonCard userPokemon={userPokemon} handleDelete={handleDelete} user={user}/>
+                    <PokemonCard user={user}/>
                 </div>  
             </div>
         );
-    } else {
-        return (
-            <div className='trainer'>
-                <div className='trainer-content'>
-                    <h1 className='user-name'>{user.username}'s Party: </h1>
-                    <PokemonCard userPokemon={userPokemon} handleDelete={handleDelete} user={user}/>
-                    <h3>Click <em>Release</em> to remove Pokemon from party.</h3>
-                    <h3>Click <em>More Info</em> to see more about that Pokemon.</h3>
-                </div>  
-            </div>
-        );
-    }
+    // } else {
+    //     return (
+    //         <div className='trainer'>
+    //             <div className='trainer-content'>
+    //                 <h1 className='user-name'>{user.username}'s Party: </h1>
+    //                 <PokemonCard userPokemon={userPokemon} handleDelete={handleDelete} user={user}/>
+    //                 <h3>Click <em>Release</em> to remove Pokemon from party.</h3>
+    //                 <h3>Click <em>More Info</em> to see more about that Pokemon.</h3>
+    //             </div>  
+    //         </div>
+    //     );
+    // }
 }
 
 export default TrainerProfile;

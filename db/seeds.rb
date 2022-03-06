@@ -29,14 +29,25 @@ pokemon3 = Pokemon.create!(
     poke_type: 'WATER',
     user_id: user3.id
 );
-# moves = RestClient.get "https://pokeapi.co/api/v2/move"
+
+# moves = RestClient.get("https://pokeapi.co/api/v2/move")
 # movesArray = JSON.parse(moves)["results"]
+# byebug
 # newMoves = movesArray.each do |move|
 #     Move.create!(
 #         name: move["name"]
-#     )
+#     );
 # end
 # byebug
+# Use select to get all objects in an array that match your criteria
+
+# find_all and filter (in Ruby 2.6+) are aliases for select
+# my_array.find_all { |obj| obj.attr == 'value' }
+# my_array.filter { |obj| obj.attr == 'value' }
+
+# Use find to get the first object in an array that matches your criteria
+# my_array.find { |obj| obj.attr == 'value' }
+
 
 
 # all_types = RestClient.get("https://pokeapi.co/api/v2/type")
