@@ -5,7 +5,7 @@ import SignupForm from "./components/SignupForm";
 import Home from "./components/Home";
 import Navbar from "./components/Navbar";
 import PokemonInfo from "./components/PokemonInfo";
-import FindPokemon from "./components/FindPokemon";
+import PokemonContainer from "./containers/PokemonContainer";
 import TrainerProfile from "./components/TrainerProfile";
 // import axios from "axios";
 //, useNavigate

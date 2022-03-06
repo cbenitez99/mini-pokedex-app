@@ -1,8 +1,9 @@
 import "../App.css"
 import React from "react"
+import { useNavigate } from "react-router-dom";
 
-function FindPokemon({pokemonData, getPokemon, formData}) {
-
+function FindPokemon({user, pokemonData, getPokemon, formData}) {
+let navigate = useNavigate();
     // const handleAddChange = (e) => {
     //     setFormData(prev => {
     //         return { ...prev, 
@@ -34,7 +35,7 @@ function FindPokemon({pokemonData, getPokemon, formData}) {
             } else {
                 resp.json()
                 .then((json) => {
-                    setErrors(json.errors)
+                    console.log(json.errors)
                 });
             }
         });
@@ -96,7 +97,7 @@ function FindPokemon({pokemonData, getPokemon, formData}) {
                     </div>
                 </div>
             );
-            })}  onClick={handleCapture}
+            })}
             <br />
             <button className="button-82-pushable" >
                 <span className="button-82-shadow"></span>

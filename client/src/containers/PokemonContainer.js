@@ -1,11 +1,11 @@
 import React, {useState} from 'react';
 import FindPokemon from '../components/FindPokemon';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 function PokemonContainer ({user}) {
-    let navigate = useNavigate();
-    const [pokemon, setPokemon] = useState("pikachu");
+    // let navigate = useNavigate();
+    const [pokemon, setPokemon] = useState("");
     const [pokemonData, setPokemonData] = useState([]);
     const [errors, setErrors] = useState([]);
     const [formData, setFormData] = useState({
@@ -24,21 +24,23 @@ function PokemonContainer ({user}) {
             setFormData({
                 name: res.data.name.toUpperCase(),
                 poke_type: res.data.types.map((type) => type.type.name.toUpperCase()).join(" / "),
-                image: res.data.sprites["front_default"]
+                image: res.data.sprites["front_default"],
+                user_id: user.id
             });
+            setPokemonData(toArray)
+            setPokemon(res.data.name)
         } catch (e) {
             setErrors(e)
             // alert("Pokemon does not exist!");
             console.log(errors)
         }
-        setPokemonData(toArray)
-        setPokemon(res.data.name)
+     
     };
 
 
    
     return (
-        <FindPokemon pokemonData={pokemonData} formData={formData} getPokemon={getPokemon} user={user} errors={errors}/>
+        <FindPokemon pokemonData={pokemonData} formData={formData} getPokemon={getPokemon} user={user}/>
     );
 }
 
