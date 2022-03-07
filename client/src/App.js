@@ -5,7 +5,8 @@ import SignupForm from "./components/SignupForm";
 import Home from "./components/Home";
 import Navbar from "./components/Navbar";
 import PokemonInfo from "./components/PokemonInfo";
-import PokemonContainer from "./containers/PokemonContainer";
+// import PokemonContainer from "./containers/PokemonContainer";
+import FindPokemon from "./components/FindPokemon"
 import TrainerProfile from "./components/TrainerProfile";
 // import axios from "axios";
 //, useNavigate
@@ -103,7 +104,7 @@ const App = () => {
       <main>
         <Routes>
           <Route exact path="/pokemons/:id/info" element={<PokemonInfo/>}/>
-          <Route exact path="/find-pokemon" element={<PokemonContainer user={user}/>}/>
+          <Route exact path="/find-pokemon" element={<FindPokemon user={user}/>}/>
           <Route exact path="/login" element={<LoginForm setUser={setUser}/>}/>
           <Route exact path="/signup" element={<SignupForm setUser={setUser}/>}/>
           <Route exact path="/" element={<Home user={user}/>}/>

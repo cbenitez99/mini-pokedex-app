@@ -139,14 +139,9 @@
 
   .pokemon-card{
     text-align: center;
-    background-color: whitesmoke;
-    border-radius: 20px;
-    margin: 9px;
-  }
-
-  .pokemon-card {
     background-image: linear-gradient(white, yellow);
-    margin: 9px;
+    border-radius: 20px;
+    margin: 4px;
   }
 
   .login-container {
