@@ -10,7 +10,6 @@ user3 = User.create!(username: "bbb", password: "bbbb")
 
 puts "Grabbing starter pokemon!"
 
-
 pokemon1 = Pokemon.create!(
     name: "Bulbasaur", 
     image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
@@ -29,35 +28,41 @@ pokemon3 = Pokemon.create!(
     poke_type: 'WATER',
     user_id: user3.id
 );
+puts "Adding moves....."
+move1 = Move.create(
+    name: "Razor-Leaf",
+    pokemon_id: pokemon1.id,
+    user_id: user.id
+);
 
-# moves = RestClient.get("https://pokeapi.co/api/v2/move")
-# movesArray = JSON.parse(moves)["results"]
-# byebug
-# newMoves = movesArray.each do |move|
-#     Move.create!(
-#         name: move["name"]
-#     );
-# end
-# byebug
-# Use select to get all objects in an array that match your criteria
+move2 = Move.create(
+    name: "Flamethrower",
+    pokemon_id: pokemon2.id,
+    user_id: user2.id
+);
 
-# find_all and filter (in Ruby 2.6+) are aliases for select
-# my_array.find_all { |obj| obj.attr == 'value' }
-# my_array.filter { |obj| obj.attr == 'value' }
+move3 = Move.create(  
+    name: "Water-Gun",
+    pokemon_id: pokemon3.id,
+    user_id: user3.id
+);
+puts "Adding types....."
+type1 = Type.create(    
+    name: "Grass", 
+    pokemon_id: pokemon1.id,
+    move_id: move1.id 
+);
 
-# Use find to get the first object in an array that matches your criteria
-# my_array.find { |obj| obj.attr == 'value' }
+type2 = Type.create(
+    name: "Fire", 
+    pokemon_id: pokemon2.id,
+    move_id: move2.id
+);
 
-
-
-# all_types = RestClient.get("https://pokeapi.co/api/v2/type")
-# typesArray = JSON.parse(all_types)["results"]
-# typesArray.each do |type|
-#     Type.create(name: type["name"])
-# end
-
+type3 = Type.create(
+    name: "Water", 
+    pokemon_id: pokemon3.id,
+    move_id: move3.id
+);
 
 puts "Data seeded...."
-
-
-

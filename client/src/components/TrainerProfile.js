@@ -6,7 +6,7 @@ const TrainerProfile = ({user}) => {
     let navigate = useNavigate();
     const [userPokemon, setUserPokemon] = useState([]);
     useEffect(() => {
-        if (!!user.id) fetch(`/users/${user.id}`)
+        fetch(`/users/${user.id}`)
         .then((resp) => (resp.json()))
         .then(userData => {
             setUserPokemon(userData.pokemons)
@@ -30,29 +30,33 @@ const TrainerProfile = ({user}) => {
 
     const handleClick = () => {
         navigate(`/find-pokemon`)
+        setUserPokemon(userPokemon)
     }
    
     return (
         <div className='trainer'>
             <div className='trainer-content'>
                 <h1 className='user-name'>{user.username}'s Party: </h1>
-                { user.pokemons.length <= 0 
+                {/* { user.pokemons.length <= 1 
                     ? 
                     <div className='trainer'>
                     <div className='trainer-content'>
                         <h3 className='user-name'>You have no Pokemon, {user.username}!
-                            <div className="direct-profile" onClick={handleClick} style={{color: "purple", fontSize: 40}}>                    <br/>
+                            <button className="direct-profile" onClick={handleClick} style={{color: "purple", fontSize: 40}}>                    <br/>
                             Find Pokemon!
-                            {console.log("AHALOL" + user)}
-                            </div> 
+                            </button> 
                         </h3>
                     </div>  
                     </div> 
-                    : 
+                    :  */}
                     <PokemonCard userPokemon={userPokemon} handleDelete={handleDelete} user={user}/>
-                }
+                {/* } */}
                 <h3>Click <em>Release</em> to remove Pokemon from party.</h3>
                 <h3>Click <em>More Info</em> to see more about that Pokemon.</h3>
+                <p>Don't see Pokemon?
+                    {" "}
+                    <button onClick={handleClick} style={{color: "Black"}}>Click Here!</button> 
+                </p>
             </div>  
         </div>
     );
