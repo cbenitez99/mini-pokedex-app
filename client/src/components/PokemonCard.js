@@ -1,9 +1,9 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
-import PokemonInfo from './PokemonInfo';
 
-const PokemonCard = ({user, handleDelete, userPokemon}) => {
+const PokemonCard = ({handleDelete, userPokemon}) => {
   let navigate = useNavigate();
+
   return (
     <div className='pokemon-container'>
         {userPokemon.map((pokemon) => (
@@ -11,7 +11,7 @@ const PokemonCard = ({user, handleDelete, userPokemon}) => {
             <h5 className='pokemon-name'>{pokemon.name} ◓</h5>
             <img className="party-sprites" src={pokemon.image} alt={pokemon.name}/>
             <button className='release-button' onClick={() => handleDelete(pokemon.id)}>Release</button>
-            <button className='stats-button' element={<PokemonInfo onClick={() => navigate(`/pokemons/${pokemon.id}/info`)} user={user}/>} >See Moves</button>
+            <button className='stats-button' onClick={() => navigate(`/pokemons/${pokemon.id}/info`)}>More Info</button>
           </div>
         ))}
 
