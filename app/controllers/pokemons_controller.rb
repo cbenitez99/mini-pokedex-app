@@ -26,6 +26,12 @@ class PokemonsController < ApplicationController
         end
     end
 
+    def update
+        pokemon = find_pokemon
+        pokemon.update(params.permit(:name))
+        render json: pokemon
+    end
+
     def destroy
         pokemon = find_pokemon
         if pokemon

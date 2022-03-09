@@ -1,12 +1,11 @@
 import React , {useEffect, useState} from 'react'
 import { useParams } from 'react-router-dom';
-import { NavLink } from 'react-router-dom';
+import EditPokemon from './EditPokemon';
 
 const PokemonInfo = ({user}) => {
     const {id} = useParams();
-
     const [pokemonData, setPokemonData] = useState([]);
-    // const [moves, setMoves] = useState([]);
+    const [clicked, setClicked] = useState(false);
 
     useEffect(() => {
         fetch(`/pokemons/${id}`)
@@ -16,33 +15,29 @@ const PokemonInfo = ({user}) => {
         })
     }, [id])
 
-    // const handleClick = () =>{
-    //     fetch('/moves')
-    //     .then((resp)=>resp.json())
-    //     .then(data => {
-    //         setMoves(data)
-    //     })
-    // }
-    
+    const handleClick = () => {
+        setClicked(true)
+    }
 
     if(pokemonData.name) {
         return (
         <div className="info-container" key={pokemonData.id}>
-            <h1>Name: {pokemonData.name}</h1>
-            <p>Type: {pokemonData.poke_type}</p> 
+            <h1 className='info-name'>Name: {pokemonData.name}</h1>
+            <p className='info-type'>Type: {pokemonData.poke_type}</p> 
             Moves: 
             <ol>
                 {/* <li>{pokemonData.moves.map((move)=>move.name)}</li> */}
             </ol>
             {/* {console.log(moves)} */}
             <img className='pokemon-card' src={pokemonData.image} alt={`No pic of ${pokemonData.name}!`}/>
-            <NavLink to={`/pokemon/${pokemonData.id}/edit`}>Add moves</NavLink>
+            <button onClick={handleClick}>Give Nickname?</button>
+            {clicked ? <EditPokemon user={user} pokemonData={pokemonData}/> : null}
 
         </div> 
         );
     } else {
         return (
-        <div className="info-container" key={pokemonData.id}>
+        <div className="info-container">
             <h1>No data to show!</h1>
         </div>   
     );

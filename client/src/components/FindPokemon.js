@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const FindPokemon = ({user}) => {
-
     let navigate = useNavigate();
     const [currentPokemon, setCurrentPokemon] = useState("");
     const [pokemonData, setPokemonData] = useState([]);
@@ -19,23 +18,31 @@ const FindPokemon = ({user}) => {
         user_id: user.id
     });
 
+    const handleChange = (e) => {
+        setCurrentPokemon(e.target.value.toLowerCase());
+    };
+
     const getPokemon = async () => {
+        const toArray = [];
+        const url = `https://pokeapi.co/api/v2/pokemon/${currentPokemon}`;
         try {
-            const toArray = [];
-            const url = `https://pokeapi.co/api/v2/pokemon/${currentPokemon}`;
             const res = await axios.get(url);
             setPokemonName(res.data.name.toUpperCase());
             setPokemonType(res.data.types.map((type)=>type.type.name.toUpperCase()).join(" / "))
             setPokemonUrl(res.data.sprites["front_default"])
             toArray.push(res.data);
             setPokemonData(toArray)
-
         } catch (e) {
-            console.log("Invalid Name/ID");
+            alert("Invalid Name/ID");
         }
     };  
 
-    const handleCapture = (e) => {
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        getPokemon();
+    };
+
+    const handleCaptureClick = (e) => {
         e.preventDefault()
         let params = {
             ...formData
@@ -58,24 +65,15 @@ const FindPokemon = ({user}) => {
                 resp.json()
                 .then((json) => {
                     setErrors(json.errors)
+                    setFormData({
+                        name: pokemonName, 
+                        poke_type: pokemonType, 
+                        image: pokemonUrl, 
+                        user_id: user.id
+                    })
                 });
             }
         });
-    };
-
-    const handleChange = (e) => {
-        setCurrentPokemon(e.target.value.toLowerCase());
-    };
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        setFormData({
-            name: pokemonName, 
-            poke_type: pokemonType, 
-            image: pokemonUrl, 
-            user_id: user.id
-        })
-        getPokemon();
     };
 
     return (
@@ -132,7 +130,7 @@ const FindPokemon = ({user}) => {
         );
         })}
         <br/>
-        <button className="button-82-pushable" onClick={handleCapture}>
+        <button className="button-82-pushable" onClick={handleCaptureClick}>
             <span className="button-82-shadow"></span>
             <span className="button-82-edge"></span>
             <span className="button-82-front text">
