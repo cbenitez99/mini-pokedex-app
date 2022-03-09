@@ -1,3 +1,3 @@
 class MoveSerializer < ActiveModel::Serializer
-  attributes :id, :name, :pokemon_id
+  attributes :id, :name
 end

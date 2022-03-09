@@ -1,4 +1,4 @@
 class Type < ApplicationRecord
-    belongs_to :pokemon
-    belongs_to :move
+    # belongs_to :pokemon
+    # belongs_to :move
 end

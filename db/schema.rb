@@ -17,8 +17,6 @@ ActiveRecord::Schema.define(version: 2022_03_04_000111) do
 
   create_table "moves", force: :cascade do |t|
     t.string "name"
-    t.integer "user_id"
-    t.integer "pokemon_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -34,8 +32,6 @@ ActiveRecord::Schema.define(version: 2022_03_04_000111) do
 
   create_table "types", force: :cascade do |t|
     t.string "name"
-    t.integer "pokemon_id"
-    t.integer "move_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

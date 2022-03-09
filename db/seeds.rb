@@ -28,41 +28,21 @@ pokemon3 = Pokemon.create!(
     poke_type: 'WATER',
     user_id: user3.id
 );
+
 puts "Adding moves....."
-move1 = Move.create(
-    name: "Razor-Leaf",
-    pokemon_id: pokemon1.id,
-    user_id: user.id
-);
 
-move2 = Move.create(
-    name: "Flamethrower",
-    pokemon_id: pokemon2.id,
-    user_id: user2.id
-);
+moves = RestClient.get'https://pokeapi.co/api/v2/move?offset=50&limit=100'
+moveArray = JSON.parse(moves)["results"]
+moveArray.each do |move|
+    Move.create(name: move["name"])
+end
 
-move3 = Move.create(  
-    name: "Water-Gun",
-    pokemon_id: pokemon3.id,
-    user_id: user3.id
-);
 puts "Adding types....."
-type1 = Type.create(    
-    name: "Grass", 
-    pokemon_id: pokemon1.id,
-    move_id: move1.id 
-);
 
-type2 = Type.create(
-    name: "Fire", 
-    pokemon_id: pokemon2.id,
-    move_id: move2.id
-);
-
-type3 = Type.create(
-    name: "Water", 
-    pokemon_id: pokemon3.id,
-    move_id: move3.id
-);
+types = RestClient.get'https://pokeapi.co/api/v2/type'
+typeArray = JSON.parse(types)["results"]
+typeArray.each do |type|
+    Type.create(name: type["name"])
+end
 
 puts "Data seeded...."

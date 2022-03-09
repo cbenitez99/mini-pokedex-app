@@ -3,6 +3,6 @@ class PokemonSerializer < ActiveModel::Serializer
   belongs_to :user
 
   # attributes :id, :name, :poke_type, :image
-  has_many :moves
+  # has_many :moves
   # belongs_to :users
 end

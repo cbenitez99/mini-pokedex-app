@@ -1,11 +1,13 @@
 import React , {useEffect, useState} from 'react'
 import { useParams } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const PokemonInfo = ({user}) => {
     const {id} = useParams();
 
     const [pokemonData, setPokemonData] = useState([]);
-    const [moves, setMoves] = useState([]);
+    // const [moves, setMoves] = useState([]);
+
     useEffect(() => {
         fetch(`/pokemons/${id}`)
         .then((resp) => (resp.json()))
@@ -14,13 +16,13 @@ const PokemonInfo = ({user}) => {
         })
     }, [id])
 
-    const handleClick = () =>{
-        fetch('https://pokeapi.co/api/v2/move?offset=50&limit=100')
-        .then((resp)=>resp.json())
-        .then(data => {
-            setMoves(data.results)
-        })
-    }
+    // const handleClick = () =>{
+    //     fetch('/moves')
+    //     .then((resp)=>resp.json())
+    //     .then(data => {
+    //         setMoves(data)
+    //     })
+    // }
     
 
     if(pokemonData.name) {
@@ -30,11 +32,11 @@ const PokemonInfo = ({user}) => {
             <p>Type: {pokemonData.poke_type}</p> 
             Moves: 
             <ol>
-                <li>{pokemonData.moves.map((move)=>move.name)}</li>
+                {/* <li>{pokemonData.moves.map((move)=>move.name)}</li> */}
             </ol>
-            {console.log(moves)}
+            {/* {console.log(moves)} */}
             <img className='pokemon-card' src={pokemonData.image} alt={`No pic of ${pokemonData.name}!`}/>
-            <button onClick={handleClick}>Add moves</button>
+            <NavLink to={`/pokemon/${pokemonData.id}/edit`}>Add moves</NavLink>
 
         </div> 
         );
