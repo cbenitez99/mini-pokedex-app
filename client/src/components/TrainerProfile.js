@@ -55,7 +55,14 @@ const TrainerProfile = ({user}) => {
                 <h3>Click <em>More Info</em> to see more about that Pokemon.</h3>
                 <p>Don't see Pokemon?
                     {" "}
-                    <button onClick={handleClick} style={{color: "Black"}}>Click Here!</button> 
+                    {/* <button onClick={handleClick} style={{color: "Black"}}>Click Here!</button> */}
+                    <button onClick={handleClick} className="button-82-pushable">
+                <span className="button-82-shadow"></span>
+                <span className="button-82-edge"></span>
+                <span className="button-82-front text">
+                    Click Here!
+                </span>
+            </button> 
                 </p>
             </div>  
         </div>

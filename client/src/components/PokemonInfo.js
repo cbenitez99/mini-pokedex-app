@@ -6,6 +6,7 @@ const PokemonInfo = ({user}) => {
     const {id} = useParams();
     const [pokemonData, setPokemonData] = useState([]);
     const [clicked, setClicked] = useState(false);
+    const [hidden, setHidden] = useState(true)
 
     useEffect(() => {
         fetch(`/pokemons/${id}`)
@@ -17,6 +18,7 @@ const PokemonInfo = ({user}) => {
 
     const handleClick = () => {
         setClicked(true)
+        setHidden(false)
     }
 
     if(pokemonData.name) {
@@ -24,14 +26,15 @@ const PokemonInfo = ({user}) => {
         <div className="info-container" key={pokemonData.id}>
             <h1 className='info-name'>Name: {pokemonData.name}</h1>
             <p className='info-type'>Type: {pokemonData.poke_type}</p> 
-            Moves: 
+            {/* Moves:  */}
             <ol>
                 {/* <li>{pokemonData.moves.map((move)=>move.name)}</li> */}
             </ol>
             {/* {console.log(moves)} */}
             <img className='pokemon-card' src={pokemonData.image} alt={`No pic of ${pokemonData.name}!`}/>
-            <button onClick={handleClick}>Give Nickname?</button>
-            {clicked ? <EditPokemon user={user} pokemonData={pokemonData}/> : null}
+            <br/>
+            {hidden ?  <button onClick={handleClick}>Nickname?</button> : false }
+            {clicked ? <EditPokemon user={user}/> : null}
 
         </div> 
         );

@@ -83,6 +83,21 @@ const FindPokemon = ({user}) => {
             <label>
                 <input type="text" placeholder="Find Pokemon by: Name/ID" onChange={handleChange}/>
             </label>
+            <br/>
+            <button className="button-82-pushable" onClick={handleSubmit}>
+                <span className="button-82-shadow"></span>
+                <span className="button-82-edge"></span>
+                <span className="button-82-front text">
+                    Search
+                </span>
+            </button>
+            <button className="button-82-pushable" onClick={handleCaptureClick}>
+                <span className="button-82-shadow"></span>
+                <span className="button-82-edge"></span>
+                <span className="button-82-front text">
+                    Capture
+                </span>
+            </button>
         </form>
         {pokemonData.map((data) => {
         return (
@@ -130,13 +145,6 @@ const FindPokemon = ({user}) => {
         );
         })}
         <br/>
-        <button className="button-82-pushable" onClick={handleCaptureClick}>
-            <span className="button-82-shadow"></span>
-            <span className="button-82-edge"></span>
-            <span className="button-82-front text">
-                Capture
-            </span>
-        </button>
     </div>
     );
 }

@@ -1,8 +1,8 @@
 import React, {useState} from 'react'
 import "../App.css"
 import { useNavigate, useParams } from 'react-router-dom'
-// import PokemonInfo from './PokemonInfo'
-const EditPokemon = ({pokemonData, user}) => {
+
+const EditPokemon = ({user}) => {
 
     let navigate = useNavigate();
     const {id} = useParams();
@@ -18,7 +18,6 @@ const EditPokemon = ({pokemonData, user}) => {
         })
         .then((resp)=>(resp.json()))
         .then((data)=> {
-            // console.log(data)
             setNickname(data.name)
             alert("Successfully nicknamed you Pokemon!")
             navigate(`/users/${user.id}`)
@@ -30,8 +29,7 @@ const EditPokemon = ({pokemonData, user}) => {
             <form onSubmit={handleSubmit}>
                     <textarea
                     placeholder="Enter nickname..."
-                    onChange={(e) => setNickname(e.target.value)}
-                    />
+                    onChange={(e) => setNickname(e.target.value)}/>
                 <br/>
                 <button type="submit">Change nickname</button>
             </form>

@@ -12,6 +12,7 @@ import EditPokemon from "./components/EditPokemon";
 const App = () => {
   const [user, setUser] = useState({});
 
+
   // useEffect(() => {
   //   fetch(`/moves`)
   //   .then((resp) => (resp.json()))
@@ -27,7 +28,7 @@ const App = () => {
       <Navbar user={user} setUser={setUser}/>
       <main>
         <Routes>
-          <Route exact path="/pokemons/:id/edit" element={<EditPokemon />}/>
+          <Route exact path="/pokemons/:id/edit" element={<EditPokemon/>}/>
           <Route exact path="/pokemons/:id/info" element={<PokemonInfo user={user}/>}/>
           <Route exact path="/find-pokemon" element={<FindPokemon user={user}/>}/>
           <Route exact path="/login" element={<LoginForm setUser={setUser}/>}/>

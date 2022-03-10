@@ -114,7 +114,7 @@
   }
 
   .info-container {
-    align-content: center;
+    text-align: center;
     background-color: rgb(216, 216, 216);
     border: solid;
   }
