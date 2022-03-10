@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import "../App.css"
 import { useNavigate, useParams } from 'react-router-dom'
 
-const EditPokemon = ({user}) => {
+const EditPokemon = ({user, setClicked, setHidden}) => {
 
     let navigate = useNavigate();
     const {id} = useParams();
@@ -19,19 +19,22 @@ const EditPokemon = ({user}) => {
         .then((resp)=>(resp.json()))
         .then((data)=> {
             setNickname(data.name)
-            alert("Successfully nicknamed you Pokemon!")
+            alert("Success!")
             navigate(`/users/${user.id}`)
         })
+    }
+    const handleCancel = () => {
+        setClicked(false)
+        setHidden(true)
     }
 
     return (
         <div>
             <form onSubmit={handleSubmit}>
-                    <textarea
-                    placeholder="Enter nickname..."
-                    onChange={(e) => setNickname(e.target.value)}/>
+                    <textarea onChange={(e) => setNickname(e.target.value)} placeholder="Enter nickname..."/>
                 <br/>
-                <button type="submit">Change nickname</button>
+                <button type="submit">Change Name</button>
+                <button onClick={handleCancel}type="submit">Cancel</button>
             </form>
         </div>
     );

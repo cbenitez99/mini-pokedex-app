@@ -21,21 +21,32 @@ const PokemonInfo = ({user}) => {
         setHidden(false)
     }
 
+    const findMoves = () => {
+        fetch("/moves")
+        .then((resp)=>(resp.json()))
+        .then(data => {
+            console.log(data)
+        })
+    }
+
+   
+
     if(pokemonData.name) {
         return (
         <div className="info-container" key={pokemonData.id}>
             <h1 className='info-name'>Name: {pokemonData.name}</h1>
-            <p className='info-type'>Type: {pokemonData.poke_type}</p> 
-            {/* Moves:  */}
-            <ol>
-                {/* <li>{pokemonData.moves.map((move)=>move.name)}</li> */}
-            </ol>
-            {/* {console.log(moves)} */}
+            <p className='info-type'>Type: {pokemonData.poke_type}</p>         
             <img className='pokemon-card' src={pokemonData.image} alt={`No pic of ${pokemonData.name}!`}/>
             <br/>
-            {hidden ?  <button onClick={handleClick}>Nickname?</button> : false }
-            {clicked ? <EditPokemon user={user}/> : null}
-
+            {hidden ?  <button onClick={handleClick}>Rename {pokemonData.name}?</button> : false }
+            {clicked ? <EditPokemon user={user} setHidden={setHidden} setClicked={setClicked}/> : null}
+            <div>
+                <h3>Moves:</h3>
+                <ol>
+                    {pokemonData.moves ? <li>{console.log(pokemonData.moves)}</li> : <button onClick={findMoves}>Add Moves</button>}
+                </ol>
+                {/* {console.log(moves)} */}
+            </div> 
         </div> 
         );
     } else {
