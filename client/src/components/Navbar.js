@@ -9,7 +9,7 @@ const Navbar = ({user, setUser}) => {
           <div className='navbar-container'>
             <NavLink className="navlinks" to="/">Home</NavLink>
             <NavLink className="navlinks" to={`/users/${user.id}`}>Trainer Profile</NavLink>
-            <NavLink className="navlinks" to="/find-pokemon">Find Pokemon</NavLink>    
+            <NavLink className="navlinks" to="/find-pokemon">Pokédex</NavLink>    
             <NavLink className="navlinks" to="/" style={{color: "black"}} onClick={(e) => {
             e.preventDefault()
             fetch('/logout', {

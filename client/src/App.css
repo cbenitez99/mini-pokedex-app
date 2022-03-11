@@ -1,7 +1,8 @@
   body {
     background-image: url("https://i.pinimg.com/originals/26/b5/55/26b5551ba10f013a335e91b98f530d51.png");
     font-family: 'Comfortaa', cursive;
-    background-size: cover;
+    background-position: top center;
+    background-repeat: no-repeat;
   }
 
   .divTable {
@@ -369,7 +370,16 @@
   }
   
   .pokedex {
-    padding-top: 30px;
+    padding-top: 20px;
+    /* margin: 50px; */
+    /* margin-top: 500px; */
+    margin-left: 80px;
+    margin-right: 80px;
+    /* margin-bottom: 500px; */
+  }
+
+  .creator-text {
+    text-align: center;
   }
 
   .login-form {
@@ -407,7 +417,8 @@
   .home-page {
     text-align: center;
     margin: auto;
-    padding: 150px;
+    /* padding: 150px; */
+    padding-top: 150px;
     background-color: whitesmoke;
     border: solid black;
     border-bottom-left-radius: 20px;
@@ -417,7 +428,8 @@
 
   .home-page-logout{
     text-align: center;
-    padding: 150px;
+    /* padding: 150px; */
+    padding-top: 150px;
     background-color: whitesmoke;
     border: solid black;
     border-bottom-left-radius: 20px;

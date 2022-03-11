@@ -12,17 +12,6 @@ import EditPokemon from "./components/EditPokemon";
 const App = () => {
   const [user, setUser] = useState({});
 
-
-  // useEffect(() => {
-  //   fetch(`/moves`)
-  //   .then((resp) => (resp.json()))
-  //   .then(data => {
-  //      setMoves(data)
-  //   })
-  // }, [])
-
-  
-
   return (
     <div className="pokedex">
       <Navbar user={user} setUser={setUser}/>
@@ -37,6 +26,7 @@ const App = () => {
           <Route exact path={`/users/${user.id}`} element={<TrainerProfile user={user}/>}/>
         </Routes>
       </main>
+      
     </div>
   );
 }

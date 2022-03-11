@@ -7,6 +7,7 @@ const PokemonInfo = ({user}) => {
     const [pokemonData, setPokemonData] = useState([]);
     const [clicked, setClicked] = useState(false);
     const [hidden, setHidden] = useState(true)
+    const [allMoves, setAllMoves] = useState([]);
 
     useEffect(() => {
         fetch(`/pokemons/${id}`)
@@ -20,14 +21,18 @@ const PokemonInfo = ({user}) => {
         setClicked(true)
         setHidden(false)
     }
+    // let move_names = allMoves.map((move)=>(move.name))
+    // let move_description = allMoves.map((move)=>(move.description))
 
     const findMoves = () => {
         fetch("/moves")
         .then((resp)=>(resp.json()))
         .then(data => {
+            setAllMoves(data)
             console.log(data)
         })
     }
+
 
    
 
@@ -38,15 +43,11 @@ const PokemonInfo = ({user}) => {
             <p className='info-type'>Type: {pokemonData.poke_type}</p>         
             <img className='pokemon-card' src={pokemonData.image} alt={`No pic of ${pokemonData.name}!`}/>
             <br/>
-            {hidden ?  <button onClick={handleClick}>Rename {pokemonData.name}?</button> : false }
+            {hidden ?  <button onClick={handleClick}>Rename {pokemonData.name}</button> : false }
             {clicked ? <EditPokemon user={user} setHidden={setHidden} setClicked={setClicked}/> : null}
-            <div>
-                <h3>Moves:</h3>
-                <ol>
-                    {pokemonData.moves ? <li>{console.log(pokemonData.moves)}</li> : <button onClick={findMoves}>Add Moves</button>}
-                </ol>
-                {/* {console.log(moves)} */}
-            </div> 
+            <h3>Moves: </h3>
+            {/* <li>{move_names}</li> */}
+            <button onClick={findMoves}>Add Moves</button>
         </div> 
         );
     } else {

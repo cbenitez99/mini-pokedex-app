@@ -5,6 +5,7 @@ import axios from "axios";
 
 const FindPokemon = ({user}) => {
     let navigate = useNavigate();
+    // const [showError, setShowError] = useState(false); to make error hidden after catching pokemon
     const [currentPokemon, setCurrentPokemon] = useState("");
     const [pokemonData, setPokemonData] = useState([]);
     const [pokemonName, setPokemonName] = useState("")
@@ -107,7 +108,7 @@ const FindPokemon = ({user}) => {
                 <div className="divTable">
                 <img className="sprite" src={data.sprites["front_default"]} alt="poke-sprite"/>
                 <div className="divTableBody">
-                <p style={{color: "red"}}>{errors}</p>
+                <p style={{color: "red"}}>{errors}</p> 
                     <div className="divTableRow">
                         <div className="divTableCell">ID</div>
                         <div className="divTableCell">{data.id}</div>

@@ -37,32 +37,18 @@ const TrainerProfile = ({user}) => {
         <div className='trainer'>
             <div className='trainer-content'>
                 <h1 className='user-name'>{user.username}'s Party: </h1>
-                {/* { user.pokemons.length <= 1 
-                    ? 
-                    <div className='trainer'>
-                    <div className='trainer-content'>
-                        <h3 className='user-name'>You have no Pokemon, {user.username}!
-                            <button className="direct-profile" onClick={handleClick} style={{color: "purple", fontSize: 40}}>                    <br/>
-                            Find Pokemon!
-                            </button> 
-                        </h3>
-                    </div>  
-                    </div> 
-                    :  */}
-                    <PokemonCard userPokemon={userPokemon} handleDelete={handleDelete} user={user}/>
-                {/* } */}
+                <PokemonCard userPokemon={userPokemon} handleDelete={handleDelete} user={user}/>
                 <h3>Click <em>Release</em> to remove Pokemon from party.</h3>
                 <h3>Click <em>More Info</em> to see more about that Pokemon.</h3>
-                <p>Don't see Pokemon?
+                <p>Catch Pokemon 
                     {" "}
-                    {/* <button onClick={handleClick} style={{color: "Black"}}>Click Here!</button> */}
                     <button onClick={handleClick} className="button-82-pushable">
-                <span className="button-82-shadow"></span>
-                <span className="button-82-edge"></span>
-                <span className="button-82-front text">
-                    Click Here!
-                </span>
-            </button> 
+                        <span className="button-82-shadow"></span>
+                        <span className="button-82-edge"></span>
+                        <span className="button-82-front text">
+                            GO!
+                        </span>
+                    </button> 
                 </p>
             </div>  
         </div>
