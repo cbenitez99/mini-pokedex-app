@@ -32,6 +32,12 @@ class PokemonsController < ApplicationController
         render json: pokemon
     end
 
+    def update_moves
+        pokemon = find_pokemon
+        pokemon.update(pokemon_params)
+        render json: pokemon
+    end
+
     def destroy
         pokemon = find_pokemon
         if pokemon
