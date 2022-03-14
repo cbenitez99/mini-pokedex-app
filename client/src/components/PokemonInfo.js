@@ -8,14 +8,13 @@ const PokemonInfo = ({user}) => {
     const [clicked, setClicked] = useState(false);
     const [hidden, setHidden] = useState(true)
     const [allMoves, setAllMoves] = useState([]);
-    // const [myMoves, setMyMoves] = [];
+    const [myMoves, setMyMoves] = useState([]);
   
     useEffect(() => {
         fetch(`/pokemons/${id}`)
         .then((resp) => (resp.json()))
         .then(data => {
            setPokemon(data)
-        //    setChosenMove(data.poke_moves)
         })
     }, [id])
 
@@ -25,19 +24,27 @@ const PokemonInfo = ({user}) => {
     }
 
     const handleAddMove = (move) => {
-        console.log(move) //ONE SELECTED MOVE
-        // let params = {...move}
+        // console.log(move) //ONE SELECTED MOVE
+        let params = {
+            ...move
+        }
         fetch(`/pokemons/${id}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify({poke_moves: move}) 
+            body: JSON.stringify({poke_moves: {
+                // id: params["id"],
+                // name: params["name"],
+                description: params["description"]
+            }}) 
         })
         .then((resp)=>(resp.json()))
         .then((pokemonData)=> {
-            alert("Move Saved!")
-            console.log(pokemonData)
+            // alert("Move Saved!")
+            setPokemon(pokemonData)
+            setMyMoves(pokemonData.poke_moves)
+
             // navigate(`/users/${user.id}`)
         })
     }
@@ -58,7 +65,6 @@ const PokemonInfo = ({user}) => {
                 {move.name.toUpperCase()}: 
                 <button onClick={()=>handleAddMove(move)}>+</button>
                 <br/>
-                {move.description}
             </p>
         </div>
     ));
@@ -72,7 +78,7 @@ const PokemonInfo = ({user}) => {
             <br/>
             {hidden ?  <button onClick={handleClick}>Rename {pokemon.name}</button> : false }
             {clicked ? <EditPokemon user={user} setHidden={setHidden} setClicked={setClicked}/> : null}
-            <h1>Moves:</h1>
+            <h1>Your Move: {myMoves}</h1>
             {new_moves}
             <button onClick={findRandomMoves}>Randomize Moves</button>
         </div> 

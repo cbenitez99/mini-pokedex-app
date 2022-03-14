@@ -28,15 +28,15 @@ class PokemonsController < ApplicationController
 
     def update
         pokemon = find_pokemon
-        pokemon.update(params.permit(:name))
-        render json: pokemon
-    end
-
-    def update_moves
-        pokemon = find_pokemon
         pokemon.update(pokemon_params)
         render json: pokemon
     end
+
+    # def update_moves
+    #     pokemon = find_pokemon
+    #     pokemon.update(pokemon_params)
+    #     render json: pokemon
+    # end
 
     def destroy
         pokemon = find_pokemon
@@ -55,6 +55,6 @@ class PokemonsController < ApplicationController
     end
     
     def pokemon_params
-        params.require(:pokemon).permit(:name, :image, :poke_type, :poke_moves, :user_id );
+        params.require(:pokemon).permit(:name, :image, :poke_type, :user_id, {poke_moves: [:id, :name, :description]});
     end
 end

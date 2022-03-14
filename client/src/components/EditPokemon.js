@@ -18,7 +18,7 @@ const EditPokemon = ({user, setClicked, setHidden}) => {
         })
         .then((resp)=>(resp.json()))
         .then((data)=> {
-            setNickname(data.name)
+            setNickname(data)
             alert("Success!")
             navigate(`/users/${user.id}`)
         })
