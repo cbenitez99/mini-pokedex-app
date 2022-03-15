@@ -32,19 +32,13 @@ class PokemonsController < ApplicationController
         render json: pokemon
     end
 
-    # def update_moves
-    #     pokemon = find_pokemon
-    #     pokemon.update(pokemon_params)
-    #     render json: pokemon
-    # end
-
     def destroy
         pokemon = find_pokemon
         if pokemon
             pokemon.destroy
             head :no_content
         else
-            render json: {error: "Pokemon not found"}
+            render json: {error: "Pokemon not found"}, status: :not_found
         end
     end
 
@@ -55,6 +49,6 @@ class PokemonsController < ApplicationController
     end
     
     def pokemon_params
-        params.require(:pokemon).permit(:name, :image, :poke_type, :user_id, {poke_moves: [:id, :name, :description]});
+        params.require(:pokemon).permit(:name, :image, :poke_type, :user_id );
     end
 end
