@@ -4,20 +4,17 @@ import EditPokemon from './EditPokemon';
 
 const PokemonInfo = ({user}) => {
     const {id} = useParams();
-    const [pokemon, setPokemon] = useState([]);
+    const [userPokemon, setUserPokemon] = useState([]);
     const [clicked, setClicked] = useState(false);
     const [hidden, setHidden] = useState(true)
-    // const [allMoves, setAllMoves] = useState([]);
-    // const [moveData, setMoveData] = useState({
-        
-    // })
-    // const [myMoves, setMyMoves] = useState([]);
-  
+    const [clickedForm, setClickedForm] = useState(false);
+    const [hiddenForm, setHiddenForm] = useState(true)
+
     useEffect(() => {
         fetch(`/pokemons/${id}`)
         .then((resp) => (resp.json()))
         .then(data => {
-           setPokemon(data)
+           setUserPokemon(data)
         })
     }, [id])
 
@@ -26,7 +23,55 @@ const PokemonInfo = ({user}) => {
         setHidden(false)
     }
 
-    // const addMove = () => {
+    const handleMoves = (moves) => {
+        console.log(moves)
+    }
+
+    
+    const handleCancel = () => {
+        setClickedForm(false)
+        setHiddenForm(true)
+    }
+        // <div>
+        //     <form onSubmit={handleSubmit}>
+        //             <input onChange={(e) => setNickname(e.target.value)} placeholder="Enter nickname..."/>
+        //         <br/>
+        //         <button type="submit">Change Name</button>
+        //         <button onClick={handleCancel}type="submit">Cancel</button>
+        //     </form>
+        // </div>
+
+    if(userPokemon.name) {
+        return (
+        <div className="info-container" key={userPokemon.id}>
+            <h1 className='info-name'>Name: {userPokemon.name}</h1>
+            <p className='info-type'>Type: {userPokemon.poke_type}</p>         
+            <img className='pokemon-card' src={userPokemon.image} alt={`No pic of ${userPokemon.name}!`}/>
+            <br/>
+            {hidden ?  <button onClick={handleClick}>Rename {userPokemon.name}</button> : false }
+            {clicked ? <EditPokemon user={user} setHidden={setHidden} setClicked={setClicked}/> : null}
+            <h1>Your Moves:</h1>
+            {hiddenForm ? <button onClick={()=>handleMoves(userPokemon.moves)}>Add Moves</button> : false}
+            {clickedForm ? <button onClick={handleCancel}>Cancel</button> : null}
+        </div> 
+        );
+    } else {
+        return (
+        <div className="info-container">
+            <h1>No data to show!</h1>
+        </div>   
+    );
+    }
+}
+
+export default PokemonInfo;
+// const [allMoves, setAllMoves] = useState([]);
+    // const [moveData, setMoveData] = useState({
+        
+    // })
+    // const [myMoves, setMyMoves] = useState([]);
+
+// const addMove = () => {
     //     let params = {
     //         ...moves
     //     }
@@ -44,7 +89,7 @@ const PokemonInfo = ({user}) => {
     //     .then((resp)=>(resp.json()))
     //     .then((pokemonData)=> {
     //         // alert("Move Saved!")
-    //         setPokemon(pokemonData)
+    //         setuserPokemon(pokemonData)
     //         // navigate(`/users/${user.id}`)
     //     })
     // }
@@ -59,28 +104,3 @@ const PokemonInfo = ({user}) => {
     //         </p>
     //     </div>
     // ));
-
-    if(pokemon.name) {
-        return (
-        <div className="info-container" key={pokemon.id}>
-            <h1 className='info-name'>Name: {pokemon.name}</h1>
-            <p className='info-type'>Type: {pokemon.poke_type}</p>         
-            <img className='pokemon-card' src={pokemon.image} alt={`No pic of ${pokemon.name}!`}/>
-            <br/>
-            {hidden ?  <button onClick={handleClick}>Rename {pokemon.name}</button> : false }
-            {clicked ? <EditPokemon user={user} setHidden={setHidden} setClicked={setClicked}/> : null}
-            <h1>Your Moves:</h1>
-            {/* {myMoves}
-            <button onClick={addMove}>Add Moves</button> */}
-        </div> 
-        );
-    } else {
-        return (
-        <div className="info-container">
-            <h1>No data to show!</h1>
-        </div>   
-    );
-    }
-}
-
-export default PokemonInfo;
