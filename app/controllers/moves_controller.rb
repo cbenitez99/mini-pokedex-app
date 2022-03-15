@@ -1,4 +1,4 @@
-class MovesController < ApplicationController
+class MovesController < ApplicationController 
     def index
         moves = Move.all
         if moves
@@ -18,7 +18,8 @@ class MovesController < ApplicationController
     end
 
     def create 
-        move = Move.new(move_params)
+        move = Move.new(params.require(:move).permit(:name, :description, :pokemon_id, :user_id))
+        # byebug
         if move.save
             render json: move, status: :created
         else
@@ -49,6 +50,6 @@ class MovesController < ApplicationController
     end
 
     def move_params
-        params.permit(:name, :description, :pokemon_id, :user_id)
+        params.permit(:move, :name, :description, :pokemon_id, :user_id)
     end
 end

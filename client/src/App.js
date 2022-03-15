@@ -18,6 +18,8 @@ const App = () => {
       <main>
         <Routes>
           <Route exact path="/pokemons/:id/edit" element={<EditPokemon/>}/>
+          {/* <Route exact path="/pokemons/:id/edit" element={<EditPokemon/>}/> */}
+
           <Route exact path="/pokemons/:id/info" element={<PokemonInfo user={user}/>}/>
           <Route exact path="/find-pokemon" element={<FindPokemon user={user}/>}/>
           <Route exact path="/login" element={<LoginForm setUser={setUser}/>}/>

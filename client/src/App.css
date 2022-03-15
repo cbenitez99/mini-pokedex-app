@@ -467,3 +467,11 @@
   .navlinks:hover {
       text-decoration: underline red;
   }
+
+  .move-list {
+    background-color: royalblue;
+  }
+
+  .move-container {
+    background-color: rebeccapurple;
+  }

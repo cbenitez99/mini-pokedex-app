@@ -31,7 +31,7 @@ pokemon1 = Pokemon.create!(
 
 puts "Adding moves....."
 
-moves = RestClient.get'https://pokeapi.co/api/v2/move?limit=25'
+moves = RestClient.get'https://pokeapi.co/api/v2/move?limit=4'
 moveArray = JSON.parse(moves)["results"]
 moveArray.each do |move|
     move_url = RestClient.get(move["url"])

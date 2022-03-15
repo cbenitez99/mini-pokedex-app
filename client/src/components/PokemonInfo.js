@@ -1,6 +1,7 @@
 import React , {useEffect, useState} from 'react'
 import { useParams } from 'react-router-dom';
 import EditPokemon from './EditPokemon';
+import EditMoves from './EditMoves';
 
 const PokemonInfo = ({user}) => {
     const {id} = useParams();
@@ -15,6 +16,7 @@ const PokemonInfo = ({user}) => {
         .then((resp) => (resp.json()))
         .then(data => {
            setUserPokemon(data)
+           console.log(data)
         })
     }, [id])
 
@@ -23,23 +25,10 @@ const PokemonInfo = ({user}) => {
         setHidden(false)
     }
 
-    const handleMoves = (moves) => {
-        console.log(moves)
+    const handleMoves = () => {
+        setClickedForm(true)
+        setHiddenForm(false)
     }
-
-    
-    const handleCancel = () => {
-        setClickedForm(false)
-        setHiddenForm(true)
-    }
-        // <div>
-        //     <form onSubmit={handleSubmit}>
-        //             <input onChange={(e) => setNickname(e.target.value)} placeholder="Enter nickname..."/>
-        //         <br/>
-        //         <button type="submit">Change Name</button>
-        //         <button onClick={handleCancel}type="submit">Cancel</button>
-        //     </form>
-        // </div>
 
     if(userPokemon.name) {
         return (
@@ -50,9 +39,31 @@ const PokemonInfo = ({user}) => {
             <br/>
             {hidden ?  <button onClick={handleClick}>Rename {userPokemon.name}</button> : false }
             {clicked ? <EditPokemon user={user} setHidden={setHidden} setClicked={setClicked}/> : null}
-            <h1>Your Moves:</h1>
-            {hiddenForm ? <button onClick={()=>handleMoves(userPokemon.moves)}>Add Moves</button> : false}
-            {clickedForm ? <button onClick={handleCancel}>Cancel</button> : null}
+            <div className='move-container'>
+                <h1>Your Moves: </h1>
+                {userPokemon.moves.map((move) => 
+                <div className="move-list" key={move.id}>
+                    <p>{move.name} <button onClick={(e) => {
+                        e.preventDefault()
+                        fetch(`/moves/${id}`, {
+                        method: "DELETE",
+                        headers: {
+                            "Accept": "application/json",
+                            "Content-Type": "application/json"
+                        }
+                        }).then(resp => {
+                           console.log(resp)
+                        })
+                    }}> x
+                    </button></p> 
+                    <li>
+                        {move.description}
+                    </li>
+                    <br/>
+                </div>)}
+                {hiddenForm ? <button onClick={handleMoves}>Add Moves</button> : false}
+                {clickedForm ? <EditMoves user={user} userPokemon={userPokemon} setHiddenForm={setHiddenForm} setClickedForm={setClickedForm}/> : null}
+            </div> 
         </div> 
         );
     } else {

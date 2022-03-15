@@ -59,7 +59,7 @@ const FindPokemon = ({user}) => {
             if(resp.ok){
                 resp.json()
                 .then((json) => {
-                    alert("Nice Catch!")
+                    alert(`You caught, ${json.name}!`)
                     navigate(`/users/${user.id}`)
                 })
             } else {
