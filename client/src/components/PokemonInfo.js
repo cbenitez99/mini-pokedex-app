@@ -2,6 +2,7 @@ import React , {useEffect, useState} from 'react'
 import { useParams } from 'react-router-dom';
 import EditPokemon from './EditPokemon';
 import EditMoves from './EditMoves';
+import { useNavigate } from 'react-router-dom';
 
 const PokemonInfo = ({user}) => {
     const {id} = useParams();
@@ -10,6 +11,7 @@ const PokemonInfo = ({user}) => {
     const [hidden, setHidden] = useState(true)
     const [clickedForm, setClickedForm] = useState(false);
     const [hiddenForm, setHiddenForm] = useState(true)
+    let navigate = useNavigate();
 
     useEffect(() => {
         fetch(`/pokemons/${id}`)
@@ -45,14 +47,15 @@ const PokemonInfo = ({user}) => {
                 <div className="move-list" key={move.id}>
                     <p>{move.name} <button onClick={(e) => {
                         e.preventDefault()
-                        fetch(`/moves/${id}`, {
+                        fetch(`/moves/${move.id}`, {
                         method: "DELETE",
                         headers: {
-                            "Accept": "application/json",
                             "Content-Type": "application/json"
                         }
                         }).then(resp => {
+                            alert("Deleted!")
                            console.log(resp)
+                           navigate(`/users/${user.id}`)
                         })
                     }}> x
                     </button></p> 

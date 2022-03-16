@@ -18,8 +18,7 @@ class MovesController < ApplicationController
     end
 
     def create 
-        move = Move.new(params.require(:move).permit(:name, :description, :pokemon_id, :user_id))
-        # byebug
+        move = Move.new(move_params)
         if move.save
             render json: move, status: :created
         else
@@ -50,6 +49,7 @@ class MovesController < ApplicationController
     end
 
     def move_params
-        params.permit(:move, :name, :description, :pokemon_id, :user_id)
+        params.permit(:name, :description, :pokemon_id, :user_id)
+        # params.permit(:move, :name, :description, :pokemon_id, :user_id)
     end
 end
