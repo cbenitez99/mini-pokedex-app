@@ -16,7 +16,6 @@ const PokemonInfo = ({user}) => {
         .then((resp) => (resp.json()))
         .then(data => {
            setUserPokemon(data)
-           console.log(data)
         })
     }, [id])
 
@@ -45,24 +44,25 @@ const PokemonInfo = ({user}) => {
     if(userPokemon.name) {
         return (
         <div className="info-container" key={userPokemon.id}>
-            <h1 className='info-name'>Name: {userPokemon.name}</h1>
-            <p className='info-type'>Type: {userPokemon.poke_type}</p>         
+            <h1>Name: {userPokemon.name}</h1>
+            <p>Type: {userPokemon.poke_type}</p>         
             <img className='pokemon-card' src={userPokemon.image} alt={`No pic of ${userPokemon.name}!`}/>
             <br/>
-            {hidden ?  <button onClick={handleClick}>Rename {userPokemon.name}</button> : false }
+            {hidden ?  <button className="button-82-pushable" onClick={handleClick}><span className="button-82-front text">Rename {userPokemon.name}</span></button> : false }
             {clicked ? <EditPokemon user={user} setHidden={setHidden} setClicked={setClicked}/> : null}
+            <h1>Your Moves: </h1>
+
             <div className='move-container'>
-                <h1>Your Moves: </h1>
                 {userPokemon.moves.map((move) => 
                 <div className="move-list" key={move.id}>
-                    <p>{move.name} <button onClick={()=>handleDelete(move.id)}> x
+                    <p><strong>{move.name}</strong> <button onClick={()=>handleDelete(move.id)}> x
                     </button></p> 
                     <li>
                         {move.description}
                     </li>
-                    <br/>
                 </div>)}
-                {hiddenForm ? <button onClick={handleMoves}>Add Move</button> : false}
+                <br/>
+                {hiddenForm ? <button className="button-82-pushable" onClick={handleMoves}><span className="button-82-front text">Add Move</span></button> : false}
                 {clickedForm ? <EditMoves user={user} userPokemon={userPokemon} setHiddenForm={setHiddenForm} setClickedForm={setClickedForm}/> : null}
             </div> 
         </div> 

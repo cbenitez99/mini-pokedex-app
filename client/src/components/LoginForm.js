@@ -43,6 +43,11 @@ const LoginForm = ({setUser}) => {
             }
         })
     }
+
+    const handleWindow = () => {
+        window.open("https://youtu.be/JuYeHPFR3f0?t=5");
+    }; 
+    
     return (
         <div className='login-page'>
             <div className="login-container">
@@ -56,7 +61,7 @@ const LoginForm = ({setUser}) => {
                     <button type="submit" className='login-button'>Log in</button>
                     <p style={{color: "black"}}>{errors}</p>
                     <p>Dont have an account? <a href='/signup'>Sign-Up!</a></p>
-                    <p><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'>Forgot Password?</a></p>
+                    <p onClick={handleWindow}><a href='/signup'>Forgot Password?</a></p>
                 </form>
                 <br/>
             </div>

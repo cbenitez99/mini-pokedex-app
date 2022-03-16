@@ -107,17 +107,13 @@
 
   .pokemon-container {
     display: flex;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
+    flex-wrap: nowrap;
+
     background-color: rgb(176, 255, 255);
     border: solid;
     border-radius: 30px;
     margin: auto;
-  }
-
-  .info-container {
-    text-align: center;
-    background-color: rgb(216, 216, 216);
-    border: solid;
   }
 
   .user-name{
@@ -371,11 +367,8 @@
   
   .pokedex {
     padding-top: 20px;
-    /* margin: 50px; */
-    /* margin-top: 500px; */
     margin-left: 80px;
     margin-right: 80px;
-    /* margin-bottom: 500px; */
   }
 
   .creator-text {
@@ -417,7 +410,6 @@
   .home-page {
     text-align: center;
     margin: auto;
-    /* padding: 150px; */
     padding-top: 150px;
     background-color: whitesmoke;
     border: solid black;
@@ -428,7 +420,6 @@
 
   .home-page-logout{
     text-align: center;
-    /* padding: 150px; */
     padding-top: 150px;
     background-color: whitesmoke;
     border: solid black;
@@ -468,10 +459,19 @@
       text-decoration: underline red;
   }
 
-  .move-list {
-    background-color: royalblue;
+  .info-container {
+    text-align: center;
+    background-color: rgb(255,0,0);
+    border: solid;
+    
   }
 
-  .move-container {
-    background-color: rebeccapurple;
+  .move-list {
+    background-color: #ffffd8;
   }
+  
+
+  .move-container {
+    background-color: black;
+  }
+
