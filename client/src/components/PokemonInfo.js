@@ -2,7 +2,6 @@ import React , {useEffect, useState} from 'react'
 import { useParams } from 'react-router-dom';
 import EditPokemon from './EditPokemon';
 import EditMoves from './EditMoves';
-import { useNavigate } from 'react-router-dom';
 
 const PokemonInfo = ({user}) => {
     const {id} = useParams();
@@ -11,7 +10,6 @@ const PokemonInfo = ({user}) => {
     const [hidden, setHidden] = useState(true)
     const [clickedForm, setClickedForm] = useState(false);
     const [hiddenForm, setHiddenForm] = useState(true)
-    let navigate = useNavigate();
 
     useEffect(() => {
         fetch(`/pokemons/${id}`)
@@ -32,6 +30,18 @@ const PokemonInfo = ({user}) => {
         setHiddenForm(false)
     }
 
+    const handleDelete = (move_id) => {
+        fetch(`/moves/${move_id}`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json"
+        }})
+        .then((resp) => {
+            let newMoves = userPokemon.moves.filter((move) => move.id !== move_id)
+            setUserPokemon({...userPokemon, moves : newMoves})
+        })
+    }
+
     if(userPokemon.name) {
         return (
         <div className="info-container" key={userPokemon.id}>
@@ -45,26 +55,14 @@ const PokemonInfo = ({user}) => {
                 <h1>Your Moves: </h1>
                 {userPokemon.moves.map((move) => 
                 <div className="move-list" key={move.id}>
-                    <p>{move.name} <button onClick={(e) => {
-                        e.preventDefault()
-                        fetch(`/moves/${move.id}`, {
-                        method: "DELETE",
-                        headers: {
-                            "Content-Type": "application/json"
-                        }
-                        }).then(resp => {
-                            alert("Deleted!")
-                           console.log(resp)
-                           navigate(`/users/${user.id}`)
-                        })
-                    }}> x
+                    <p>{move.name} <button onClick={()=>handleDelete(move.id)}> x
                     </button></p> 
                     <li>
                         {move.description}
                     </li>
                     <br/>
                 </div>)}
-                {hiddenForm ? <button onClick={handleMoves}>Add Moves</button> : false}
+                {hiddenForm ? <button onClick={handleMoves}>Add Move</button> : false}
                 {clickedForm ? <EditMoves user={user} userPokemon={userPokemon} setHiddenForm={setHiddenForm} setClickedForm={setClickedForm}/> : null}
             </div> 
         </div> 
@@ -79,42 +77,3 @@ const PokemonInfo = ({user}) => {
 }
 
 export default PokemonInfo;
-// const [allMoves, setAllMoves] = useState([]);
-    // const [moveData, setMoveData] = useState({
-        
-    // })
-    // const [myMoves, setMyMoves] = useState([]);
-
-// const addMove = () => {
-    //     let params = {
-    //         ...moves
-    //     }
-    //     fetch(`/pokemons/${id}`, {
-    //         method: "PATCH",
-    //         headers: {
-    //             "Content-Type": "application/json"
-    //         },
-    //         body: JSON.stringify({poke_moves: {
-    //             // id: params["id"],
-    //             // name: params["name"],
-    //             description: params["description"]
-    //         }}) 
-    //     })
-    //     .then((resp)=>(resp.json()))
-    //     .then((pokemonData)=> {
-    //         // alert("Move Saved!")
-    //         setuserPokemon(pokemonData)
-    //         // navigate(`/users/${user.id}`)
-    //     })
-    // }
-    // const shuffled = allMoves.sort(() => 0.5 - Math.random());
-    // let selected = shuffled.slice(0, 4);
-    // let new_moves = selected.map((move) => (
-    //     <div className="moves-card" key={move.id}>
-    //         <p>
-    //             {move.name.toUpperCase()}: 
-    //             <button onClick={handleAddMove}>+</button>
-    //             <br/>
-    //         </p>
-    //     </div>
-    // ));

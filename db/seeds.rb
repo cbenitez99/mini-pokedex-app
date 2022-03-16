@@ -36,7 +36,7 @@ moveArray = JSON.parse(moves)["results"]
 moveArray.each do |move|
     move_url = RestClient.get(move["url"])
     move_array = JSON.parse(move_url)
-    Move.create!(name: move["name"], description: move_array["flavor_text_entries"][0]["flavor_text"].gsub!(/[^a-zA-Z. ]/, ""), pokemon_id: pokemon1.id, user_id: user.id)
+    Move.create!(name: move["name"], description: move_array["flavor_text_entries"][0]["flavor_text"].gsub!(/[^a-zA-Z0-9. -]/, ""), pokemon_id: pokemon1.id, user_id: user.id)
     # byebug
 
 end

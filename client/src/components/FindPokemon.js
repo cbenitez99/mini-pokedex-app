@@ -5,7 +5,6 @@ import axios from "axios";
 
 const FindPokemon = ({user}) => {
     let navigate = useNavigate();
-    // const [showError, setShowError] = useState(false); to make error hidden after catching pokemon
     const [currentPokemon, setCurrentPokemon] = useState("");
     const [pokemonData, setPokemonData] = useState([]);
     const [pokemonName, setPokemonName] = useState("")

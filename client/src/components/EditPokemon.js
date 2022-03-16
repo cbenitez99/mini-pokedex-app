@@ -1,5 +1,4 @@
 import React, {useState} from 'react'
-import "../App.css"
 import { useNavigate, useParams } from 'react-router-dom'
 
 const EditPokemon = ({user, setClicked, setHidden}) => {
@@ -21,17 +20,18 @@ const EditPokemon = ({user, setClicked, setHidden}) => {
             setNickname(data)
             alert("Success!")
             navigate(`/users/${user.id}`)
-        })
-    }
+        });
+    };
+
     const handleCancel = () => {
-        setClicked(false)
-        setHidden(true)
-    }
+        setClicked(false);
+        setHidden(true);
+    };
 
     return (
         <div>
             <form onSubmit={handleSubmit}>
-                    <input onChange={(e) => setNickname(e.target.value)} placeholder="Enter nickname..."/>
+                <input onChange={(e) => setNickname(e.target.value)} placeholder="Enter nickname..."/>
                 <br/>
                 <button type="submit">Change Name</button>
                 <button onClick={handleCancel}type="submit">Cancel</button>
