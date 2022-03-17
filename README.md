@@ -1,9 +1,8 @@
-# Project Template: React/Rails API
+# Mini Pokedex Clone
 
 ## Description
 
-This project is scaffolded so that you can build a React frontend and Rails
-backend together, and easily deploy them to Heroku.
+This project was made so that you can find and manage Pokemon! Includes over 1000 Pokemon to search for and see information about, and also save to your own party to manage them!
 
 ## Requirements
 

@@ -44,4 +44,4 @@ const EditPokemon = ({userPokemon, setUserPokemon, setClicked, setHidden}) => {
     );
 };
 
-export default EditPokemon;
+export default EditPokemon; 
