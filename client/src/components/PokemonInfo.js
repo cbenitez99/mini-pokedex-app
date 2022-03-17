@@ -49,7 +49,7 @@ const PokemonInfo = ({user}) => {
             <img className='pokemon-card' src={userPokemon.image} alt={`No pic of ${userPokemon.name}!`}/>
             <br/>
             {hidden ?  <button className="button-82-pushable" onClick={handleClick}><span className="button-82-front text">Rename {userPokemon.name}</span></button> : false }
-            {clicked ? <EditPokemon user={user} setHidden={setHidden} setClicked={setClicked}/> : null}
+            {clicked ? <EditPokemon setUserPokemon={setUserPokemon} userPokemon={userPokemon} setHidden={setHidden} setClicked={setClicked}/> : null}
             <h1>Your Moves: </h1>
 
             <div className='move-container'>
@@ -63,7 +63,7 @@ const PokemonInfo = ({user}) => {
                 </div>)}
                 <br/>
                 {hiddenForm ? <button className="button-82-pushable" onClick={handleMoves}><span className="button-82-front text">Add Move</span></button> : false}
-                {clickedForm ? <EditMoves user={user} userPokemon={userPokemon} setHiddenForm={setHiddenForm} setClickedForm={setClickedForm}/> : null}
+                {clickedForm ? <EditMoves user={user} userPokemon={userPokemon} setUserPokemon={setUserPokemon} setHiddenForm={setHiddenForm} setClickedForm={setClickedForm}/> : null}
             </div> 
         </div> 
         );

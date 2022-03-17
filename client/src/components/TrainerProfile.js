@@ -53,7 +53,7 @@ const TrainerProfile = ({user}) => {
             </div>  
         </div>
     );
-}
+};
 
 export default TrainerProfile;
 

@@ -1,25 +1,29 @@
 import React, {useState} from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 
-const EditPokemon = ({user, setClicked, setHidden}) => {
+const EditPokemon = ({userPokemon, setUserPokemon, setClicked, setHidden}) => {
 
-    let navigate = useNavigate();
     const {id} = useParams();
     const [nickname, setNickname] = useState("");
     const handleSubmit = (e) => {
         e.preventDefault()
+        let params = {
+            ...userPokemon,
+            name: nickname
+        };
         fetch(`/pokemons/${id}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify({name: nickname})
+            body: JSON.stringify(params)
         })
         .then((resp)=>(resp.json()))
         .then((data)=> {
-            setNickname(data)
-            alert("Success!")
-            navigate(`/users/${user.id}`)
+            alert("Name changed!")
+            setUserPokemon(data)   
+            setHidden(true)        
+            setClicked(false)
         });
     };
 
@@ -34,10 +38,10 @@ const EditPokemon = ({user, setClicked, setHidden}) => {
                 <input onChange={(e) => setNickname(e.target.value)} placeholder="Enter nickname..."/>
                 <br/>
                 <button type="submit">Change Name</button>
-                <button onClick={handleCancel}type="submit">Cancel</button>
+                <button onClick={handleCancel}>Cancel</button>
             </form>
         </div>
     );
-}
+};
 
 export default EditPokemon;

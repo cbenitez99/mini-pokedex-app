@@ -23,6 +23,7 @@ const EditMoves = ({setHiddenForm, setClickedForm, user, userPokemon}) => {
         })
         .then((resp)=>(resp.json()))
         .then((data)=> {
+            alert(`Learned, ${data.name}!`)
             navigate(`/users/${user.id}`)
         })
     }
@@ -43,5 +44,5 @@ const EditMoves = ({setHiddenForm, setClickedForm, user, userPokemon}) => {
             </form>
         </div>
     );
-}
+};
 export default EditMoves;

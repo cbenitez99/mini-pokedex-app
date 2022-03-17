@@ -147,5 +147,5 @@ const FindPokemon = ({user}) => {
         <br/>
     </div>
     );
-}
+};
 export default FindPokemon;

@@ -67,5 +67,5 @@ const LoginForm = ({setUser}) => {
             </div>
         </div>
     )
-}
+};
 export default LoginForm;

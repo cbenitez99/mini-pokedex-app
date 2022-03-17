@@ -63,5 +63,5 @@ const SignupForm = ({setUser}) => {
             </div>
         </div>
     )
-}
+};
 export default SignupForm;

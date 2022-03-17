@@ -33,6 +33,6 @@ const Navbar = ({user, setUser}) => {
         }
       </div>
   );
-}
+};
 
 export default Navbar;
