@@ -7,16 +7,8 @@ const FindPokemon = ({user}) => {
     let navigate = useNavigate();
     const [currentPokemon, setCurrentPokemon] = useState("");
     const [pokemonData, setPokemonData] = useState([]);
-    const [pokemonName, setPokemonName] = useState("")
-    const [pokemonType, setPokemonType] = useState("");
-    const [pokemonUrl, setPokemonUrl] = useState("");
     const [errors, setErrors] = useState([]);
-    const [formData, setFormData] = useState({
-        name: pokemonName,
-        poke_type: pokemonType,
-        image: pokemonUrl,
-        user_id: user.id
-    });
+    const [formData, setFormData] = useState({});
 
     const handleChange = (e) => {
         setCurrentPokemon(e.target.value.toLowerCase());
@@ -27,9 +19,14 @@ const FindPokemon = ({user}) => {
         const url = `https://pokeapi.co/api/v2/pokemon/${currentPokemon}`;
         try {
             const res = await axios.get(url);
-            setPokemonName(res.data.name.toUpperCase());
-            setPokemonType(res.data.types.map((type)=>type.type.name.toUpperCase()).join(" / "))
-            setPokemonUrl(res.data.sprites["front_default"])
+            setFormData(
+                {
+                    name: res.data.name.toUpperCase(),
+                    poke_type: res.data.types.map((type)=>type.type.name.toUpperCase()).join(" / "),
+                    image: res.data.sprites["front_default"],
+                    user_id: user.id
+                }
+            )
             toArray.push(res.data);
             setPokemonData(toArray)
         } catch (e) {
@@ -64,13 +61,8 @@ const FindPokemon = ({user}) => {
             } else {
                 resp.json()
                 .then((json) => {
+                    console.log(json.errors)
                     setErrors(json.errors)
-                    setFormData({
-                        name: pokemonName, 
-                        poke_type: pokemonType,
-                        image: pokemonUrl, 
-                        user_id: user.id
-                    })
                 });
             }
         });
@@ -117,7 +109,7 @@ const FindPokemon = ({user}) => {
 
                     <div className="divTableRow">
                         <div className="divTableCell">Type</div>
-                        <div className="divTableCell">{pokemonType}</div>
+                        <div className="divTableCell">{data.types.map((type)=>type.type.name.toUpperCase()).join(" / ")}</div>
                     </div>
 
                     <div className="divTableRow">
