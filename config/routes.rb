@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :stats
   resources :moves, only: [:index, :show, :create]
   resources :pokemons, only: [:index, :show, :create]
   resources :users, only: [:show, :create]

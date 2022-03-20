@@ -19,4 +19,14 @@ moveArray.each do |move|
     move_array = JSON.parse(move_url)
     Move.create!(name: move["name"], description: move_array["flavor_text_entries"][0]["flavor_text"].gsub!(/[^a-zA-Z0-9. -]/, ""), pokemon_id: pokemon1.id, user_id: user.id)
 end
+
+data = RestClient.get'https://pokeapi.co/api/v2/pokemon/25'
+hp = JSON.parse(data)["stats"][0]
+height = JSON.parse(data)["height"]
+weight = JSON.parse(data)["weight"]
+sprites = JSON.parse(data)["sprites"]
+pokedex_number = JSON.parse(data)["id"]
+
+Stat.create!(hp: hp["base_stat"], height: height, weight: weight, sprite: sprites["front_default"], pokedex_number: pokedex_number, pokemon_id: pokemon1.id, user_id: user.id)
+byebug
 puts "Data seeded...."
