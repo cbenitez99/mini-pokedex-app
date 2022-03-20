@@ -451,8 +451,7 @@
   .info-container {
     text-align: center;
     background-color: rgb(255,0,0);
-    border: solid;
-    
+    border: solid;    
   }
 
   .move-list {
@@ -464,3 +463,8 @@
     background-color: black;
   }
 
+  .stats-table {
+    background-color: white;
+    margin: auto;
+    width: fit-content;
+  }

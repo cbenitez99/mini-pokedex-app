@@ -2,6 +2,7 @@ import React , {useEffect, useState} from 'react'
 import { useParams } from 'react-router-dom';
 import EditPokemon from './EditPokemon';
 import EditMoves from './EditMoves';
+import PokemonStats from './PokemonStats';
 
 const PokemonInfo = ({user}) => {
     const {id} = useParams();
@@ -18,6 +19,7 @@ const PokemonInfo = ({user}) => {
            setUserPokemon(data)
         })
     }, [id])
+//userPokemon.stats.map((stat)=> <PokemonStats stat={stat}/>)
 
     const handleClick = () => {
         setClicked(true)
@@ -45,13 +47,13 @@ const PokemonInfo = ({user}) => {
         return (
         <div className="info-container" key={userPokemon.id}>
             <h1>Name: {userPokemon.name}</h1>
-            <p>Type: {userPokemon.poke_type}</p>         
+            <p>Type: {userPokemon.poke_type}</p>     
             <img className='pokemon-card' src={userPokemon.image} alt={`No pic of ${userPokemon.name}!`}/>
             <br/>
+            {<PokemonStats key={userPokemon.id} userPokemon={userPokemon}/>}
             {hidden ?  <button className="button-82-pushable" onClick={handleClick}><span className="button-82-front text">Rename {userPokemon.name}</span></button> : false }
             {clicked ? <EditPokemon setUserPokemon={setUserPokemon} userPokemon={userPokemon} setHidden={setHidden} setClicked={setClicked}/> : null}
-            <h1>Your Moves: </h1>
-
+            <h1>Your Moves:</h1>
             <div className='move-container'>
                 {userPokemon.moves.map((move) => 
                 <div className="move-list" key={move.id}>
