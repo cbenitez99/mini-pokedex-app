@@ -41,6 +41,7 @@ const PokemonInfo = ({user}) => {
             setUserPokemon({...userPokemon, moves : newMoves})
         })
     }
+    //handle render logic
 
     if(userPokemon.name) {
         return (
@@ -71,7 +72,7 @@ const PokemonInfo = ({user}) => {
             : 
             <div className='move-container-empty'>
                 <br/>
-                <h1 style={{color: "red"}}>No Moves!</h1>
+                <h1 style={{color: "red"}}>{userPokemon.moves.length}, moves!</h1>
                 <br/>
                 {hiddenForm ? <button className="button-82-pushable" onClick={handleMoves}><span className="button-82-front text">Add Move</span></button> : false}
                 {clickedForm ? <EditMoves user={user} userPokemon={userPokemon} setUserPokemon={setUserPokemon} setHiddenForm={setHiddenForm} setClickedForm={setClickedForm}/> : null}

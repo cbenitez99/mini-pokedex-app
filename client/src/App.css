@@ -422,13 +422,13 @@
   }
 
   .navbar-container {
-    background-color: white;
+    background-color: #ffffd8;
     border: solid black;
     border-bottom: none;
   }
 
   .navbar-container-two {
-    background-color: white;
+    background-color: #ffffd8;
     border: solid black;
     border-bottom: none;
   }
@@ -452,6 +452,8 @@
     text-align: center;
     background-color: rgb(255,0,0);
     border: solid;    
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
   }
 
   .move-list {
@@ -459,6 +461,8 @@
     margin: auto;
     width: 50%;
     overflow: scroll;
+    border-radius: 50px;
+    margin-bottom: 10px;
   }
 
   #x-button{
@@ -473,10 +477,10 @@
     height: 300px;
     overflow-y: auto;
     margin: 10px;
+    border-radius: 50px;
   }
   .move-container-empty {
     background-color: rgb(0, 0, 0);
-    /* height: 300px; */
     overflow-y: auto;
     margin: 10px;
   }
