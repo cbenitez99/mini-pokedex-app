@@ -21,9 +21,8 @@ data = RestClient.get'https://pokeapi.co/api/v2/pokemon/25'
 hp = JSON.parse(data)["stats"][0]
 height = JSON.parse(data)["height"]
 weight = JSON.parse(data)["weight"]
-sprites = JSON.parse(data)["sprites"]
 pokedex_number = JSON.parse(data)["id"]
 
-Stat.create!(hp: hp["base_stat"], height: height, weight: weight, sprite: sprites["front_default"], pokedex_number: pokedex_number, pokemon_id: pokemon1.id, user_id: user.id)
-byebug
+Stat.create!(hp: hp["base_stat"], height: height, weight: weight, pokedex_number: pokedex_number, pokemon_id: pokemon1.id, user_id: user.id)
+
 puts "LETS GO!"

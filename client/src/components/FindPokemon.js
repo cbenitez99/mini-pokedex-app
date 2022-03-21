@@ -24,7 +24,7 @@ const FindPokemon = ({user}) => {
                     name: res.data.name.toUpperCase(),
                     poke_type: res.data.types.map((type)=>type.type.name.toUpperCase()).join(" / "),
                     image: res.data.sprites["front_default"],
-                    user_id: user.id
+                    user_id: user.id,
                 }
             )
             toArray.push(res.data);

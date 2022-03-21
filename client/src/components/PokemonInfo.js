@@ -2,7 +2,7 @@ import React , {useEffect, useState} from 'react'
 import { useParams } from 'react-router-dom';
 import EditPokemon from './EditPokemon';
 import EditMoves from './EditMoves';
-import PokemonStats from './PokemonStats';
+// import PokemonStats from './PokemonStats';
 
 const PokemonInfo = ({user}) => {
     const {id} = useParams();
@@ -43,14 +43,13 @@ const PokemonInfo = ({user}) => {
     }
 
     if(userPokemon.name) {
-        console.log(userPokemon)
         return (
         <div className="info-container" key={userPokemon.id}>
             <h1>Name: {userPokemon.name}</h1>
             <p>Type: {userPokemon.poke_type}</p>     
             <img className='pokemon-card' src={userPokemon.image} alt={`No pic of ${userPokemon.name}!`}/>
             <br/>
-            {<PokemonStats key={userPokemon.id} userPokemon={userPokemon}/>}
+            {/* {<PokemonStats userPokemon={userPokemon}/>} */}
             {hidden ?  <button className="button-82-pushable" onClick={handleClick}><span className="button-82-front text">Rename {userPokemon.name}</span></button> : false }
             {clicked ? <EditPokemon setUserPokemon={setUserPokemon} userPokemon={userPokemon} setHidden={setHidden} setClicked={setClicked}/> : null}
             { userPokemon.moves.length > 0 ? 
@@ -63,7 +62,7 @@ const PokemonInfo = ({user}) => {
                     <li>
                         {move.description}
                     </li>
-                    <a id="x-button" href="#/" onClick={()=>handleDelete(move.id)}>delete move</a>
+                    <a id="x-button" href="#/" onClick={()=>handleDelete(move.id)}>Forget Move</a>
                 </div>)}
                 <br/>
                 {hiddenForm ? <button className="button-82-pushable" onClick={handleMoves}><span className="button-82-front text">Add Move</span></button> : false}
@@ -73,14 +72,6 @@ const PokemonInfo = ({user}) => {
             <div className='move-container-empty'>
                 <br/>
                 <h1 style={{color: "red"}}>No Moves!</h1>
-                {userPokemon.moves.map((move) => 
-                <div className="move-list" key={move.id}>
-                    <h2><strong>{move.name}</strong></h2> 
-                    <li>
-                        {move.description}
-                    </li>
-                    <a id="x-button" href="#/" onClick={()=>handleDelete(move.id)}>delete move</a>
-                </div>)}
                 <br/>
                 {hiddenForm ? <button className="button-82-pushable" onClick={handleMoves}><span className="button-82-front text">Add Move</span></button> : false}
                 {clickedForm ? <EditMoves user={user} userPokemon={userPokemon} setUserPokemon={setUserPokemon} setHiddenForm={setHiddenForm} setClickedForm={setClickedForm}/> : null}

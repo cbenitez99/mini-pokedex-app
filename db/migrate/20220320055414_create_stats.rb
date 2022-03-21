@@ -4,7 +4,6 @@ class CreateStats < ActiveRecord::Migration[6.1]
       t.integer :hp
       t.integer :height
       t.integer :weight
-      t.string :sprite
       t.integer :pokedex_number
       t.integer :pokemon_id
       t.integer :user_id
