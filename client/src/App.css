@@ -456,11 +456,29 @@
 
   .move-list {
     background-color: #ffffd8;
+    margin: auto;
+    width: 50%;
+    overflow: scroll;
+  }
+
+  #x-button{
+    color: red;
+    padding-left: 10px;
+    font-size: smaller;
   }
   
 
   .move-container {
     background-color: black;
+    height: 300px;
+    overflow-y: auto;
+    margin: 10px;
+  }
+  .move-container-empty {
+    background-color: rgb(0, 0, 0);
+    /* height: 300px; */
+    overflow-y: auto;
+    margin: 10px;
   }
 
   .stats-table {

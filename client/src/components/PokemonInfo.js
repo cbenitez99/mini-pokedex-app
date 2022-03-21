@@ -19,7 +19,6 @@ const PokemonInfo = ({user}) => {
            setUserPokemon(data)
         })
     }, [id])
-//userPokemon.stats.map((stat)=> <PokemonStats stat={stat}/>)
 
     const handleClick = () => {
         setClicked(true)
@@ -44,6 +43,7 @@ const PokemonInfo = ({user}) => {
     }
 
     if(userPokemon.name) {
+        console.log(userPokemon)
         return (
         <div className="info-container" key={userPokemon.id}>
             <h1>Name: {userPokemon.name}</h1>
@@ -53,20 +53,38 @@ const PokemonInfo = ({user}) => {
             {<PokemonStats key={userPokemon.id} userPokemon={userPokemon}/>}
             {hidden ?  <button className="button-82-pushable" onClick={handleClick}><span className="button-82-front text">Rename {userPokemon.name}</span></button> : false }
             {clicked ? <EditPokemon setUserPokemon={setUserPokemon} userPokemon={userPokemon} setHidden={setHidden} setClicked={setClicked}/> : null}
-            <h1>Your Moves:</h1>
+            { userPokemon.moves.length > 0 ? 
             <div className='move-container'>
+                <br/>
+                <h1 style={{color: "red"}}>Your Moves:</h1>
                 {userPokemon.moves.map((move) => 
                 <div className="move-list" key={move.id}>
-                    <p><strong>{move.name}</strong> <button onClick={()=>handleDelete(move.id)}> x
-                    </button></p> 
+                    <h2><strong>{move.name}</strong></h2> 
                     <li>
                         {move.description}
                     </li>
+                    <a id="x-button" href="#/" onClick={()=>handleDelete(move.id)}>delete move</a>
                 </div>)}
                 <br/>
                 {hiddenForm ? <button className="button-82-pushable" onClick={handleMoves}><span className="button-82-front text">Add Move</span></button> : false}
                 {clickedForm ? <EditMoves user={user} userPokemon={userPokemon} setUserPokemon={setUserPokemon} setHiddenForm={setHiddenForm} setClickedForm={setClickedForm}/> : null}
             </div> 
+            : 
+            <div className='move-container-empty'>
+                <br/>
+                <h1 style={{color: "red"}}>No Moves!</h1>
+                {userPokemon.moves.map((move) => 
+                <div className="move-list" key={move.id}>
+                    <h2><strong>{move.name}</strong></h2> 
+                    <li>
+                        {move.description}
+                    </li>
+                    <a id="x-button" href="#/" onClick={()=>handleDelete(move.id)}>delete move</a>
+                </div>)}
+                <br/>
+                {hiddenForm ? <button className="button-82-pushable" onClick={handleMoves}><span className="button-82-front text">Add Move</span></button> : false}
+                {clickedForm ? <EditMoves user={user} userPokemon={userPokemon} setUserPokemon={setUserPokemon} setHiddenForm={setHiddenForm} setClickedForm={setClickedForm}/> : null}
+            </div> }
         </div> 
         );
     } else {
