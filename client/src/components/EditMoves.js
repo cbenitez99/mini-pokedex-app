@@ -5,6 +5,11 @@ const EditMoves = ({setHiddenForm, setClickedForm, user, userPokemon}) => {
     let navigate = useNavigate();
     const [moveName, setMoveName] = useState("");
     const [moveDescription, setDescription] = useState("");
+
+    const handleCancel = () => {
+        setClickedForm(false)
+        setHiddenForm(true)
+    };
     
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -26,11 +31,7 @@ const EditMoves = ({setHiddenForm, setClickedForm, user, userPokemon}) => {
             alert(`Learned, ${data.name}!`)
             navigate(`/users/${user.id}`)
         })
-    }
-    const handleCancel = () => {
-        setClickedForm(false)
-        setHiddenForm(true)
-    }
+    };
 
     return (
         <div>

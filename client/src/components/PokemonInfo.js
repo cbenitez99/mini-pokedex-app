@@ -24,7 +24,6 @@ const PokemonInfo = ({user}) => {
         setHidden(false)
     }
 
-    
     const handleDelete = (move_id) => {
         fetch(`/moves/${move_id}`, {
         method: "DELETE",

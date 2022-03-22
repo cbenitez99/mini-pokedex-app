@@ -83,16 +83,11 @@ const FindPokemon = ({user}) => {
                     Search
                 </span>
             </button>
-            <button className="button-82-pushable" onClick={handleCaptureClick}>
-                <span className="button-82-shadow"></span>
-                <span className="button-82-edge"></span>
-                <span className="button-82-front text">
-                    Capture
-                </span>
-            </button>
         </form>
+        
         {pokemonData.map((data) => {
         return (
+            <>
             <div key={data.id} className="container">
                 <div className="divTable">
                 <img className="sprite" src={data.sprites["front_default"]} alt="poke-sprite"/>
@@ -133,11 +128,18 @@ const FindPokemon = ({user}) => {
             
                     </div>
                 </div>
-            </div>
+            </div><br/>
+            <button className="button-82-pushable" onClick={handleCaptureClick}>
+                <span className="button-82-shadow"></span>
+                <span className="button-82-edge"></span>
+                <span className="button-82-front text">Capture</span>
+            </button>
+        </>
         );
         })}
         <br/>
     </div>
+    
     );
 };
 export default FindPokemon;

@@ -2,11 +2,11 @@ import React from 'react'
 import EditMoves from "./EditMoves"
 
 const MoveInfo = ({userPokemon, setUserPokemon, clickedForm, setClickedForm, hiddenForm, setHiddenForm, handleDelete, user}) => {
+    
     const handleMoves = () => {
         setClickedForm(true)
         setHiddenForm(false)
     }
-    console.log(userPokemon)
    
     if (userPokemon.moves.length > 0) {
         return (
