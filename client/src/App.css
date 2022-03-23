@@ -1,6 +1,8 @@
   body {
     background-image: url("https://i.pinimg.com/originals/26/b5/55/26b5551ba10f013a335e91b98f530d51.png");
-    font-family: 'Comfortaa', cursive;
+    /* font-family: 'Comfortaa', cursive; */
+    font-family: 'pokemon-red';
+
     background-position: top center;
     background-repeat: no-repeat;
   }
@@ -502,3 +504,5 @@
     margin-top: 25px;
     font-size: 16px;
   }
+
+  .name-change-form {}

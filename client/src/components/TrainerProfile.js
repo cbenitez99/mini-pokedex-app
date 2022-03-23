@@ -6,6 +6,7 @@ const TrainerProfile = ({user}) => {
     let navigate = useNavigate();
     const [userPokemon, setUserPokemon] = useState([]);
     const [sortedPokemon, setSortedPokemon] = useState(false);
+    const [goodBye, setGoodBye] = useState("");
 
     useEffect(() => {
         fetch(`/users/${user.id}`)
@@ -18,15 +19,17 @@ const TrainerProfile = ({user}) => {
     const handleDelete = (id) => {
         let removedPokemon = userPokemon.filter((pokemon) => pokemon.id !== id)
         setUserPokemon(removedPokemon)
+        setGoodBye(`Bye-bye`)
         fetch(`/pokemons/${id}`, {
           method: "DELETE",
           headers: {"Content-Type":"application/json"}
-        }).then(resp => {
+        })
+        .then(resp => {
             if(resp.ok){
-              console.log(`Bye-bye!`)  
-              navigate(`/users/${user.id}`)
+                console.log(goodBye)  
+                navigate(`/users/${user.id}`)
             } else {
-              alert(`Oh no! It'll follow you forever!`)
+                alert(`Oh no! It'll follow you forever!`)
             }
         })
     };
@@ -37,22 +40,23 @@ const TrainerProfile = ({user}) => {
     }
 
     const handleSortByName = () => {
-        const sorted = userPokemon.sort(function(a, b) {
+        const sortedByName = userPokemon.sort(function(a, b) {
         let nameA = a.name.toUpperCase();
         let nameB = b.name.toUpperCase();
         return (nameA < nameB) ? -1 : (nameA > nameB) ? 1 : 0;
         });
-        setUserPokemon(sorted)
+        setUserPokemon(sortedByName)
         setSortedPokemon(true)
     }
-
+    //Two fncs. that iterate through an array of objects
+    //then uses obj property to return obj with new condition applied.
     const handleSortCreated = () => {
-        const sorted = userPokemon.sort(function(a, b) {
-        let nameA = a.created_at;
-        let nameB = b.created_at;
-        return (nameA < nameB) ? -1 : (nameA > nameB) ? 1 : 0;
+        const sortedByCreated = userPokemon.sort(function(a, b) {
+        let createdA = a.created_at;
+        let createdB = b.created_at;
+        return (createdA < createdB) ? -1 : (createdA > createdB) ? 1 : 0;
         });
-        setUserPokemon(sorted)
+        setUserPokemon(sortedByCreated)
         setSortedPokemon(false)
     }
    

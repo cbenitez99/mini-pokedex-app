@@ -33,7 +33,7 @@ const EditPokemon = ({userPokemon, setUserPokemon, setClicked, setHidden}) => {
     };
 
     return (
-        <div>
+        <div className='name-change-form'>
             <form onSubmit={handleSubmit}>
                 <input onChange={(e) => setNickname(e.target.value)} placeholder="Enter nickname..."/>
                 <br/>
