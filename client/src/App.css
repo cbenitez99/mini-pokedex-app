@@ -79,6 +79,8 @@
 
   .pokemon-form {
     width: fit-content;
+    margin: auto;
+    margin-top: 20px;
     background-color: rgb(255, 0, 0);
     padding: 30px;
     border: solid;
@@ -91,7 +93,7 @@
   } 
   .circle {
     float: left;
-    position:absolute; left:120px; top:+186px; bottom:-30px;
+    position:absolute; left:26.2rem; top:+210px; bottom:-30px;
     height: 60px;
     width: 60px;
     border-radius: 50%;
