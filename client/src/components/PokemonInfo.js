@@ -46,7 +46,9 @@ const PokemonInfo = ({user}) => {
             {/* {<PokemonStats userPokemon={userPokemon}/>} */}
             {hidden ?  <button className="button-82-pushable" onClick={handleClick}><span className="button-82-front text">Rename {userPokemon.name}</span></button> : false }
             {clicked ? <EditPokemon setUserPokemon={setUserPokemon} userPokemon={userPokemon} setHidden={setHidden} setClicked={setClicked}/> : null}
-            {<MoveInfo clickedForm={clickedForm} setClickedForm={setClickedForm} setClicked={setClicked} setHiddenForm={setHiddenForm} userPokemon={userPokemon} setUserPokemon={setUserPokemon} hiddenForm={hiddenForm} handleDelete={handleDelete} user={user}/>}
+            {<MoveInfo clickedForm={clickedForm} setClickedForm={setClickedForm} setClicked={setClicked} 
+            setHiddenForm={setHiddenForm} userPokemon={userPokemon} setUserPokemon={setUserPokemon} hiddenForm={hiddenForm} 
+            handleDelete={handleDelete} user={user}/>}
         </div> 
         );
     } else {

@@ -38,8 +38,8 @@ const TrainerProfile = ({user}) => {
 
     const handleSortByName = () => {
         const sorted = userPokemon.sort(function(a, b) {
-        let nameA = a.name;
-        let nameB = b.name;
+        let nameA = a.name.toUpperCase();
+        let nameB = b.name.toUpperCase();
         return (nameA < nameB) ? -1 : (nameA > nameB) ? 1 : 0;
         });
         setUserPokemon(sorted)
