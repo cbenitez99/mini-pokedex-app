@@ -78,11 +78,11 @@
   } 
 
   .pokemon-form {
-    display: flex;
+    width: fit-content;
     background-color: rgb(255, 0, 0);
     padding: 30px;
     border: solid;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-between;
     flex-wrap: wrap;
     align-content: space-around;
@@ -90,39 +90,15 @@
     border-bottom-right-radius: 50px;
   } 
   .circle {
-    height: 50px;
-    width: 50px;
-    background-color: black;
+    float: left;
+    position:absolute; left:120px; top:+186px; bottom:-30px;
+    height: 60px;
+    width: 60px;
     border-radius: 50%;
+    background: radial-gradient(circle at center, 
+    cyan, rgb(77, 136, 212), blue),100% ;
   }
-  .triangle-up {
-    width: 0;
-    height: 0;
-    border-left: 25px solid transparent;
-    border-right: 25px solid transparent;
-    border-bottom: 50px solid black;
-  }
-  .triangle-down {
-    width: 0;
-    height: 0;
-    border-left: 25px solid transparent;
-    border-right: 25px solid transparent;
-    border-top: 50px solid black;
-  }
-  .triangle-left {
-    width: 0;
-    height: 0;
-    border-top: 25px solid transparent;
-    border-right: 50px solid black;
-    border-bottom: 25px solid transparent;
-  }
-  .triangle-right {
-    width: 0;
-    height: 0;
-    border-top: 25px solid transparent;
-    border-left: 50px solid black;
-    border-bottom: 25px solid transparent;
-  }
+  
   .mini-pokemon-form {
     display: flex;
     background-color: rgb(255, 0, 0);
@@ -549,5 +525,3 @@
     margin-top: 25px;
     font-size: 16px;
   }
-
-  

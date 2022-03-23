@@ -16,6 +16,11 @@ const TrainerProfile = ({user}) => {
         })
     }, [user.id])
 
+    const handleClick = () => {
+        navigate(`/find-pokemon`)
+        setUserPokemon(userPokemon)
+    };
+
     const handleDelete = (id) => {
         let removedPokemon = userPokemon.filter((pokemon) => pokemon.id !== id)
         setUserPokemon(removedPokemon)
@@ -34,11 +39,8 @@ const TrainerProfile = ({user}) => {
         })
     };
 
-    const handleClick = () => {
-        navigate(`/find-pokemon`)
-        setUserPokemon(userPokemon)
-    }
-
+    //Two fncs. that iterate through an array of objects
+    //then uses obj property to return obj with new condition applied.
     const handleSortByName = () => {
         const sortedByName = userPokemon.sort(function(a, b) {
         let nameA = a.name.toUpperCase();
@@ -47,9 +49,7 @@ const TrainerProfile = ({user}) => {
         });
         setUserPokemon(sortedByName)
         setSortedPokemon(true)
-    }
-    //Two fncs. that iterate through an array of objects
-    //then uses obj property to return obj with new condition applied.
+    };
     const handleSortCreated = () => {
         const sortedByCreated = userPokemon.sort(function(a, b) {
         let createdA = a.created_at;
@@ -58,7 +58,7 @@ const TrainerProfile = ({user}) => {
         });
         setUserPokemon(sortedByCreated)
         setSortedPokemon(false)
-    }
+    };
    
     return (
         <div className='trainer'>

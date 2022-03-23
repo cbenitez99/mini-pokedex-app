@@ -84,16 +84,9 @@ const FindPokemon = ({user}) => {
                     Search
                 </span>
             </button>
-        </form> 
-        <div class="circle"></div><div class="circle"></div>
-        <div class="triangle-left"></div>
-        <div class="triangle-up"></div>
-        <div class="triangle-right"></div>
-        <div class="triangle-down"></div>
-
-
-        {<PokemonStats pokemonData={pokemonData} errors={errors} handleCaptureClick={handleCaptureClick}/>}
-
+        <div class="circle"></div>
+        </form>
+        {<PokemonStats pokemonData={pokemonData} handleCaptureClick={handleCaptureClick} errors={errors}/>}
         <br/>
     </div>
     
