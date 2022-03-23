@@ -1,8 +1,6 @@
   body {
     background-image: url("https://i.pinimg.com/originals/26/b5/55/26b5551ba10f013a335e91b98f530d51.png");
-    /* font-family: 'Comfortaa', cursive; */
-    font-family: 'pokemon-red';
-
+    font-family: 'Comfortaa', cursive;
     background-position: top center;
     background-repeat: no-repeat;
   }
@@ -55,7 +53,7 @@
     border: solid;
     border-width: thick;
   }
-
+  
   p {
     font-size: larger;
   }
@@ -84,6 +82,53 @@
     background-color: rgb(255, 0, 0);
     padding: 30px;
     border: solid;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-content: space-around;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+  } 
+  .circle {
+    height: 50px;
+    width: 50px;
+    background-color: black;
+    border-radius: 50%;
+  }
+  .triangle-up {
+    width: 0;
+    height: 0;
+    border-left: 25px solid transparent;
+    border-right: 25px solid transparent;
+    border-bottom: 50px solid black;
+  }
+  .triangle-down {
+    width: 0;
+    height: 0;
+    border-left: 25px solid transparent;
+    border-right: 25px solid transparent;
+    border-top: 50px solid black;
+  }
+  .triangle-left {
+    width: 0;
+    height: 0;
+    border-top: 25px solid transparent;
+    border-right: 50px solid black;
+    border-bottom: 25px solid transparent;
+  }
+  .triangle-right {
+    width: 0;
+    height: 0;
+    border-top: 25px solid transparent;
+    border-left: 50px solid black;
+    border-bottom: 25px solid transparent;
+  }
+  .mini-pokemon-form {
+    display: flex;
+    background-color: rgb(255, 0, 0);
+    padding: 30px;
+    border: solid;
+    border-width: 20px;
     flex-direction: column;
     justify-content: space-between;
     flex-wrap: wrap;
@@ -505,4 +550,4 @@
     font-size: 16px;
   }
 
-  .name-change-form {}
+  
