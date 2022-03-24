@@ -4,9 +4,9 @@ import { NavLink, useNavigate } from 'react-router-dom';
 const Navbar = ({user, setUser}) => {
   let navigate = useNavigate()
   return ( 
-      <div>
+      <div className='navbar-master'>
         {!!user.id ? 
-          <div className='navbar-container'>
+          <div>
             <NavLink className="navlinks" to="/">Home</NavLink>
             <NavLink className="navlinks" to={`/users/${user.id}`}>Trainer Profile</NavLink>
             <NavLink className="navlinks" to="/find-pokemon">Pokédex</NavLink>    
@@ -25,7 +25,7 @@ const Navbar = ({user, setUser}) => {
             } }>Logout</NavLink>
           </div>
           :
-          <div className='navbar-container-two'>
+          <div>
             <NavLink className="navlinks" to="/">Home</NavLink>
             <NavLink className="navlinks" to="/signup">Signup</NavLink>
             <NavLink className="navlinks" to="/login">Login</NavLink>

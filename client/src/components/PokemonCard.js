@@ -11,7 +11,7 @@ const PokemonCard = ({handleDelete, userPokemon}) => {
           <h5 className='pokemon-name'>{pokemon.name} ◓</h5>
           <img className="party-sprites" src={pokemon.image} alt={pokemon.name}/>
           <button className='release-button' onClick={() => handleDelete(pokemon.id)}>Release</button>
-          <button className='stats-button' onClick={() => navigate(`/pokemons/${pokemon.id}/info`)}>More Info</button>
+          <button className='stats-button' onClick={() => navigate(`/pokemons/${pokemon.id}/info`)}>See Moves</button>
         </div>
       ))}
     </div>

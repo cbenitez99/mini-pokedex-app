@@ -49,6 +49,7 @@ const TrainerProfile = ({user}) => {
         });
         setUserPokemon(sortedByName)
         setSortedPokemon(true)
+        console.log(sortedPokemon)
     };
     const handleSortCreated = () => {
         const sortedByCreated = userPokemon.sort(function(a, b) {
@@ -58,6 +59,7 @@ const TrainerProfile = ({user}) => {
         });
         setUserPokemon(sortedByCreated)
         setSortedPokemon(false)
+        console.log(sortedPokemon)
     };
    
     return (

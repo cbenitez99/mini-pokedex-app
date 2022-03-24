@@ -10,6 +10,7 @@ const FindPokemon = ({user}) => {
     const [pokemonData, setPokemonData] = useState([]);
     const [errors, setErrors] = useState([]);
     const [formData, setFormData] = useState({});
+    const [errorMsg, setErrorMsg] = useState([]);
 
     const handleChange = (e) => {
         setCurrentPokemon(e.target.value.toLowerCase());
@@ -31,13 +32,14 @@ const FindPokemon = ({user}) => {
             toArray.push(res.data);
             setPokemonData(toArray)
         } catch (e) {
-            alert("Invalid Name/ID");
+            setErrorMsg(`Invalid Name or ID!`)
         }
     };  
 
     const handleSubmit = (e) => {
         e.preventDefault();
         getPokemon();
+        setErrorMsg("")
     };
 
     const handleCaptureClick = (e) => {
@@ -72,9 +74,10 @@ const FindPokemon = ({user}) => {
     return (
     <div className="pokemon-form">
         <form className="pokemon-search" onSubmit={handleSubmit}>
-            <p>Find a Pokemon by name or it's National Pokedex number!</p>
+            <h3>Find a Pokemon by Name / Number<strong> between 1 and 898</strong> </h3>            
+
             <label>
-                <input type="text" placeholder="Find Pokemon by: Name/ID" onChange={handleChange}/>
+                <input type="text" placeholder="Name or  ' ### '" onChange={handleChange}/>
             </label>
             <br/>
             <button className="button-82-pushable" onClick={handleSubmit}>
@@ -84,9 +87,9 @@ const FindPokemon = ({user}) => {
                     Search
                 </span>
             </button>
-        <div class="circle"></div> <div class="circle-two"></div>
-
+        <div className="circle"></div> <div className="circle-two"></div>
         </form>
+        <p className="invalid-search">{errorMsg}</p>
         {<PokemonStats pokemonData={pokemonData} handleCaptureClick={handleCaptureClick} errors={errors}/>}
         <br/>
     </div>

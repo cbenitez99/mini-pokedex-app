@@ -15,10 +15,10 @@ const MoveInfo = ({userPokemon, setUserPokemon, clickedForm, setClickedForm, hid
                 <h1 style={{color: "red"}}>Your Moves:</h1>
                 {userPokemon.moves.map((move) => 
                 <div className="move-list" key={move.id}>
-                    <h2><strong>{move.name}</strong></h2> 
-                    <li>
+                    <p><strong>{move.name}</strong></p> 
+                    <p>
                         {move.description}
-                    </li>
+                    </p>
                     <a id="x-button" href="#/" onClick={()=>handleDelete(move.id)}>Forget Move</a>
                 </div>)}
                 <br/>

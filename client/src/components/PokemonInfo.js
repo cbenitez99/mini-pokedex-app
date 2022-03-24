@@ -39,7 +39,7 @@ const PokemonInfo = ({user}) => {
     if(userPokemon.name) {
         return (
         <div className="info-container" key={userPokemon.id}>
-            <div><h1>Name: {userPokemon.name}</h1>
+            <div className='info-specs'><h1>Name: {userPokemon.name}</h1>
                 <p>Type: {userPokemon.poke_type}</p>     
                 <img className="image-poke" src={userPokemon.image} alt={`No pic of ${userPokemon.name}!`}/>
             </div>

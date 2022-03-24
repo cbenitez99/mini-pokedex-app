@@ -4,13 +4,13 @@ const PokemonStats = ({pokemonData, errors, handleCaptureClick}) => {
 
     return (
         <div className="mini-pokemon-form">
-            {pokemonData.map((data) => {
+            {pokemonData.map((data, index) => {
         return (
             <>
-            <div key={data.id} className="container">
+            <div className="container">
                 <div className="divTable">
                 <img className="sprite" src={data.sprites["front_default"]} alt="poke-sprite"/>
-                <div className="divTableBody">
+                <div className="divTableBody" key={index}>
                 <p style={{color: "red"}}>{errors}</p> 
                     <div className="divTableRow">
                         <div className="divTableCell">ID</div>
