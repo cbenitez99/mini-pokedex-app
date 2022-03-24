@@ -39,11 +39,11 @@ const PokemonInfo = ({user}) => {
     if(userPokemon.name) {
         return (
         <div className="info-container" key={userPokemon.id}>
-            <h1>Name: {userPokemon.name}</h1>
-            <p>Type: {userPokemon.poke_type}</p>     
-            <img className='pokemon-card' src={userPokemon.image} alt={`No pic of ${userPokemon.name}!`}/>
-            <br/>
-            {hidden ?  <button className="button-82-pushable" onClick={handleClick}><span className="button-82-front text">Rename {userPokemon.name}</span></button> : false }
+            <div><h1>Name: {userPokemon.name}</h1>
+                <p>Type: {userPokemon.poke_type}</p>     
+                <img className="image-poke" src={userPokemon.image} alt={`No pic of ${userPokemon.name}!`}/>
+            </div>
+            {hidden ?  <button className="sort-button" onClick={handleClick}><span >Rename {userPokemon.name}</span></button> : false }
             {clicked ? <EditPokemon setUserPokemon={setUserPokemon} userPokemon={userPokemon} setHidden={setHidden} setClicked={setClicked}/> : null}
             {<MoveInfo clickedForm={clickedForm} setClickedForm={setClickedForm} setClicked={setClicked} 
             setHiddenForm={setHiddenForm} userPokemon={userPokemon} setUserPokemon={setUserPokemon} hiddenForm={hiddenForm} 

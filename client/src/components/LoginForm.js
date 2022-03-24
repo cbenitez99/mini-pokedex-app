@@ -60,10 +60,9 @@ const LoginForm = ({setUser}) => {
                     <br/>
                     <button type="submit" className='login-button'>Log in</button>
                     <p style={{color: "black"}}>{errors}</p>
-                    <p>Dont have an account? <a href='/signup'>Sign-Up!</a></p>
-                    <p onClick={handleWindow}><a href='/signup'>Forgot Password?</a></p>
                 </form>
-                <br/>
+                <p>Dont have an account? <a href='/signup'>Sign-Up!</a></p>
+                <p className='forgot-pass' onClick={handleWindow}><a href='/signup'>Forgot Password?</a></p>
             </div>
         </div>
     )

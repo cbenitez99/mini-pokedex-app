@@ -84,29 +84,47 @@
     background-color: rgb(255, 0, 0);
     padding: 30px;
     border: solid;
+    border-width: 12px;
     flex-direction: row;
     justify-content: space-between;
     flex-wrap: wrap;
     align-content: space-around;
-    border-bottom-left-radius: 50px;
-    border-bottom-right-radius: 50px;
+    border-radius: 50px;
   } 
   .circle {
     float: left;
-    position:absolute; left:26.2rem; top:+210px; bottom:-30px;
-    height: 60px;
-    width: 60px;
+    position:absolute; left:26.2rem; top:+300px; bottom:-30px;
+    height: 30px;
+    width: 30px;
     border-radius: 50%;
+    border: solid black;
+    border-style: groove;
     background: radial-gradient(circle at center, 
-    cyan, rgb(77, 136, 212), blue),100% ;
+     rgb(48, 106, 182),rgb(2, 255, 255), blue),100% ;
+  }
+  .circle-two {
+    position:absolute; right:26.2rem; top:+300px; bottom:-30px;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    border: solid black;
+    border-style: groove;
+    background: radial-gradient(circle at center, 
+     rgb(48, 106, 182),rgb(2, 255, 255), blue),100% ;
+  }
+
+  .image-poke {
+    height: 110px;
+  }
+
+  form.move-form{
+    background-color: black;
   }
   
   .mini-pokemon-form {
     display: flex;
     background-color: rgb(255, 0, 0);
     padding: 30px;
-    border: solid;
-    border-width: 20px;
     flex-direction: column;
     justify-content: space-between;
     flex-wrap: wrap;
@@ -399,6 +417,7 @@
 
   .creator-text {
     text-align: center;
+    padding-top: 50px;
   }
 
   .login-form {
@@ -409,7 +428,6 @@
     text-align: center;
     width: 50%;
     margin-left: 25%;
-    
   }
 
   .signup-form {
@@ -417,37 +435,41 @@
   }
 
   .login-page {
+    margin-top: 80px;
     background-color: white;
-    padding:10px;
     border: solid black;
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
+    border-radius: 20px;
+    margin-left: 200px;
+    margin-right: 200px;
+  }
+
+  .forgot-pass {
+    font-size: smaller;
   }
 
   .signup-page {
+    margin-top: 80px;
     background-color: white;
     border: solid black;
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
+    border-radius: 20px;
+    margin-left: 200px;
+    margin-right: 200px;
   }
 
   .home-page {
     text-align: center;
-    margin: auto;
-    padding-top: 150px;
+    margin-top: 80px;
     background-color: whitesmoke;
     border: solid black;
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
+    border-radius: 50px;
   }
 
   .home-page-logout{
     text-align: center;
-    padding-top: 150px;
+    margin-top: 80px;
+    border-radius: 50px;
     background-color: whitesmoke;
     border: solid black;
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
   }
 
   .navbar-container {

@@ -60,6 +60,7 @@ const SignupForm = ({setUser}) => {
                     <p style={{color: "black"}}> {errors.join(", and ")}</p>
                 </form>
                 <p>Already have an account? <a href='/login'>Log-In!</a></p>
+                <br/>
             </div>
         </div>
     )

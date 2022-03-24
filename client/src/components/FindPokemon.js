@@ -84,7 +84,8 @@ const FindPokemon = ({user}) => {
                     Search
                 </span>
             </button>
-        <div class="circle"></div>
+        <div class="circle"></div> <div class="circle-two"></div>
+
         </form>
         {<PokemonStats pokemonData={pokemonData} handleCaptureClick={handleCaptureClick} errors={errors}/>}
         <br/>
