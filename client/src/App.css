@@ -41,6 +41,7 @@
 
   .divTableBody {
     display: table-row-group;
+    padding-right: 75px;
   }
   
   .divTableCell:nth-child(odd) {
@@ -413,6 +414,18 @@
     padding-top: 20px;
     margin-left: 80px;
     margin-right: 80px;
+  }
+
+  .move-desc-area {
+    background-color: aquamarine;
+    font-family: 'Comfortaa', cursive;
+    height: 50px;
+  }
+
+  .text-area-search {
+    background-color: aquamarine;
+    width: 300px;
+    /* height: 0px; */
   }
 
   .creator-text {
