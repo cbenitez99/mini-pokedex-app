@@ -92,27 +92,6 @@
     align-content: space-around;
     border-radius: 50px;
   } 
-  /* .circle {
-    float: left;
-    position:absolute; left:26.2rem; top:+300px; bottom:-30px;
-    height: 30px;
-    width: 30px;
-    border-radius: 50%;
-    border: solid black;
-    border-style: groove;
-    background: radial-gradient(circle at center, 
-     rgb(48, 106, 182),rgb(2, 255, 255), blue),100% ;
-  }
-  .circle-two {
-    position:absolute; right:26.2rem; top:+300px; bottom:-30px;
-    height: 30px;
-    width: 30px;
-    border-radius: 50%;
-    border: solid black;
-    border-style: groove;
-    background: radial-gradient(circle at center, 
-     rgb(48, 106, 182),rgb(2, 255, 255), blue),100% ;
-  } */
 
   .image-poke {
     height: 110px;
