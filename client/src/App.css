@@ -576,3 +576,14 @@
     margin-top: 25px;
     font-size: 16px;
   }
+
+  .sort-button3 {
+    color: black;
+    background-color: #f00;
+    border-radius: 10px;
+    /* margin-right: 50px; */
+    /* margin-left: 50px; */
+    margin-bottom: 10px;
+    margin-top: 25px;
+    font-size: 16px;
+  }
