@@ -6,7 +6,6 @@ const TrainerProfile = ({user}) => {
     let navigate = useNavigate();
     const [userPokemon, setUserPokemon] = useState([]);
     const [sortedPokemon, setSortedPokemon] = useState(false);
-    const [goodBye, setGoodBye] = useState("");
 
     useEffect(() => {
         fetch(`/users/${user.id}`)
@@ -24,14 +23,12 @@ const TrainerProfile = ({user}) => {
     const handleDelete = (id) => {
         let removedPokemon = userPokemon.filter((pokemon) => pokemon.id !== id)
         setUserPokemon(removedPokemon)
-        setGoodBye(`Bye-bye`)
         fetch(`/pokemons/${id}`, {
           method: "DELETE",
           headers: {"Content-Type":"application/json"}
         })
         .then(resp => {
             if(resp.ok){
-                console.log(goodBye)  
                 navigate(`/users/${user.id}`)
             } else {
                 alert(`Oh no! It'll follow you forever!`)

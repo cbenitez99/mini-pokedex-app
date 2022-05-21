@@ -12,7 +12,7 @@ const MoveInfo = ({userPokemon, setUserPokemon, clickedForm, setClickedForm, hid
         return (
         <div className='move-container'>
                 <br/>
-                <h1 style={{color: "red"}}>Your Moves:</h1>
+                <h1 style={{color: "red"}}>{userPokemon.name}'s Moves:</h1>
                 {userPokemon.moves.map((move) => 
                 <div className="move-list" key={move.id}>
                     <p><strong>{move.name}</strong></p> 

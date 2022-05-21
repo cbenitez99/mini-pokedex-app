@@ -5,6 +5,7 @@ const EditPokemon = ({userPokemon, setUserPokemon, setClicked, setHidden}) => {
 
     const {id} = useParams();
     const [nickname, setNickname] = useState("");
+    
     const handleSubmit = (e) => {
         e.preventDefault()
         let params = {
