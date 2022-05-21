@@ -1,13 +1,13 @@
 import React, { useState } from "react"
 import { Routes, Route } from "react-router-dom";
-import LoginForm from "./components/LoginForm";
-import SignupForm from "./components/SignupForm";
+import LoginForm from "./components/UserForms/LoginForm";
+import SignupForm from "./components/UserForms/SignupForm";
 import Home from "./components/Home";
 import Navbar from "./components/Navbar";
 import PokemonInfo from "./components/PokemonInfo";
-import FindPokemon from "./components/FindPokemon"
+import FindPokemon from "./components/PokemonForms/FindPokemon"
 import TrainerProfile from "./components/TrainerProfile";
-import EditPokemon from "./components/EditPokemon";
+import EditPokemon from "./components/PokemonForms/EditPokemon";
 
 const App = () => {
   const [user, setUser] = useState({});

@@ -37,8 +37,8 @@ const EditPokemon = ({userPokemon, setUserPokemon, setClicked, setHidden}) => {
             <form onSubmit={handleSubmit}>
                 <input onChange={(e) => setNickname(e.target.value)} placeholder="Enter nickname..."/>
                 <br/>
-                <button type="submit">Change Name</button>
-                <button onClick={handleCancel}>Cancel</button>
+                <button className='sort-button2' type="submit">Change Name</button>
+                <button className='sort-button2' onClick={handleCancel}>Cancel</button>
             </form>
         </div>
     );

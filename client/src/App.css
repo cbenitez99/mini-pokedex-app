@@ -391,9 +391,16 @@
   }
   
   .pokedex {
-    padding-top: 20px;
+    /* padding-top: 20px;
     margin-left: 80px;
-    margin-right: 80px;
+    margin-right: 80px; */
+
+    padding-top: 20px;
+    /* margin-left: 80px; */
+    margin: auto;
+    /* margin-right: 80px; */
+    max-height: 75%;
+    max-width: 75%;
   }
 
   .move-desc-area {
@@ -428,12 +435,20 @@
   }
 
   .login-page {
-    margin-top: 80px;
+    /* margin-top: 80px;
     background-color: white;
     border: solid black;
     border-radius: 20px;
     margin-left: 200px;
-    margin-right: 200px;
+    margin-right: 200px; */
+
+
+    margin-top: 10%;
+    background-color: white;
+    border: solid black;
+    border-radius: 20px;
+    /* margin-left: 200px; */
+    /* margin-right: 200px; */
   }
 
   .forgot-pass {
@@ -441,12 +456,17 @@
   }
 
   .signup-page {
-    margin-top: 80px;
+    /* margin-top: 80px;
     background-color: white;
     border: solid black;
     border-radius: 20px;
     margin-left: 200px;
-    margin-right: 200px;
+    margin-right: 200px; */
+
+    margin-top: 10%;
+    background-color: white;
+    border: solid black;
+    border-radius: 20px;
   }
 
   .home-page {
@@ -541,6 +561,17 @@
     border-radius: 10px;
     margin-right: 50px;
     margin-left: 50px;
+    margin-bottom: 10px;
+    margin-top: 25px;
+    font-size: 16px;
+  }
+
+  .sort-button2 {
+    color: white;
+    background-color: #222;
+    border-radius: 10px;
+    /* margin-right: 50px; */
+    /* margin-left: 50px; */
     margin-bottom: 10px;
     margin-top: 25px;
     font-size: 16px;

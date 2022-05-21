@@ -1,6 +1,6 @@
 import React , {useEffect, useState} from 'react'
 import { useParams } from 'react-router-dom';
-import EditPokemon from './EditPokemon';
+import EditPokemon from './PokemonForms/EditPokemon';
 import MoveInfo from './MoveInfo';
 
 const PokemonInfo = ({user}) => {

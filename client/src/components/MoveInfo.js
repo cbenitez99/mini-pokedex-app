@@ -1,5 +1,5 @@
 import React from 'react'
-import EditMoves from "./EditMoves"
+import EditMoves from "./PokemonForms/EditMoves"
 
 const MoveInfo = ({userPokemon, setUserPokemon, clickedForm, setClickedForm, hiddenForm, setHiddenForm, handleDelete, user}) => {
     

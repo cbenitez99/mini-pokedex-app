@@ -1,8 +1,8 @@
-import "../App.css"
+import "../../App.css"
 import React, {useState} from "react"
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import PokemonStats from "./PokemonStats";
+import PokemonStats from "../PokemonStats";
 
 const FindPokemon = ({user}) => {
     let navigate = useNavigate();
