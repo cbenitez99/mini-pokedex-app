@@ -45,7 +45,7 @@ const LoginForm = ({setUser}) => {
     }
 
     const handleWindow = () => {
-        window.open();
+        window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
        
     }; 
     
