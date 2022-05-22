@@ -1,2 +1,2 @@
 web: rails s -p $PORT
-release: rails db:migrate db:seed 
+release: rails db:migrate 
