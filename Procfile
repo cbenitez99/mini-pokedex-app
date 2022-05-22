@@ -1,2 +1,2 @@
-web: rails s -p $PORT
+web: rails start -p $PORT
 release: rails db:migrate 
