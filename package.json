@@ -5,14 +5,16 @@
     "node": "16.x"
   },
   "scripts": {
+    "build": "npm install --prefix client && npm run build --prefix client",
+    "clean": "rm -rf public",
+    "deploy": "cp -a client/build/. public/",
+    "heroku-postbuild": "npm run clean && npm run build && npm run deploy",
     "dev": "react-scripts start",
     "start": "serve -s build",
-    "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-    "heroku-postbuild": "npm run build"
+    "eject": "react-scripts eject"
   },
-
+  
   "dependencies": {
     "axios": "^0.25.0",
     "materialize-css": "^1.0.0-rc.2"
