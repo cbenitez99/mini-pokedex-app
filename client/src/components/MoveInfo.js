@@ -3,7 +3,7 @@ import EditMoves from "./PokemonForms/EditMoves"
 //deconstructed props stem from PokemonInfo prop-drilling, prevent this with useContext() somehow.
 
 const MoveInfo = ({userPokemon, setUserPokemon, clickedForm, setClickedForm, hiddenForm, setHiddenForm, handleDelete, user}) => {
-    
+
     const handleMoves = () => {
         setClickedForm(true)
         setHiddenForm(false)

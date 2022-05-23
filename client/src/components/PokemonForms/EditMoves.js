@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import { useNavigate } from 'react-router-dom';
-//deconstructed props stem from PokemonInfo prop-drilling, prevent this with useContext() somehow.
+
 const EditMoves = ({setHiddenForm, setClickedForm, user, userPokemon}) => {
     let navigate = useNavigate();
     const [moveName, setMoveName] = useState("");
