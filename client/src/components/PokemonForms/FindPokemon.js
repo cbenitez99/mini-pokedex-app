@@ -74,7 +74,9 @@ const FindPokemon = ({user}) => {
     return (
     <div className="pokemon-form">
         <form className="pokemon-search" onSubmit={handleSubmit}>
-            <h3>Find a Pokemon by Name / Number<strong> between 1 and 898</strong> </h3>            
+            <h3>Find a Pokemon by Name</h3>
+            OR
+            <h3>Number between 1 and 898 </h3>            
             <label>
                 <input type="text" className="text-area-search" placeholder="Find a Pokemon by Name / Number" onChange={handleChange}/>
             </label>
