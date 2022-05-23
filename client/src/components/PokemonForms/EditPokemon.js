@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import { useParams } from 'react-router-dom'
 
+//deconstructed props stem from PokemonInfo prop-drilling, prevent this with useContext() somehow.
 const EditPokemon = ({userPokemon, setUserPokemon, setClicked, setHidden}) => {
 
     const {id} = useParams();
@@ -27,7 +28,7 @@ const EditPokemon = ({userPokemon, setUserPokemon, setClicked, setHidden}) => {
             setClicked(false)
         });
     };
-//heroku
+    
     const handleCancel = () => {
         setClicked(false);
         setHidden(true);

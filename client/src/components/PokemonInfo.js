@@ -39,9 +39,10 @@ const PokemonInfo = ({user}) => {
     if(userPokemon.name) {
         return (
         <div className="info-container" key={userPokemon.id}>
-            <div className='info-specs'><h1>Name: {userPokemon.name}</h1>
-                <p>Type: {userPokemon.poke_type}</p>     
+            <div className='info-specs'>
+                <h2>{userPokemon.name}</h2>
                 <img className="image-poke" src={userPokemon.image} alt={`No pic of ${userPokemon.name}!`}/>
+                <h2>{userPokemon.poke_type}</h2>     
             </div>
             {hidden ?  <button className="sort-button" onClick={handleClick}><span >Rename {userPokemon.name}</span></button> : false }
             {clicked ? <EditPokemon setUserPokemon={setUserPokemon} userPokemon={userPokemon} setHidden={setHidden} setClicked={setClicked}/> : null}
@@ -50,13 +51,13 @@ const PokemonInfo = ({user}) => {
             handleDelete={handleDelete} user={user}/>}
         </div> 
         );
-    } else {
+    } 
         return (
         <div className="info-container">
             <h1>No data to show!</h1>
         </div>   
     );
-    }
+    
 }
 
 export default PokemonInfo;

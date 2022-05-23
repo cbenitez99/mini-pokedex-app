@@ -492,7 +492,7 @@
     justify-content: space-between;
     background: repeating-radial-gradient(#ffffd8, transparent 900px);
     border-radius: 10px;
-  }
+  };
 
   .move-list {
     background-color: #ffffd8;

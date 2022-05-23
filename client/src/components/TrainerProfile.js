@@ -58,7 +58,7 @@ const TrainerProfile = ({user}) => {
         setSortedPokemon(false)
         console.log(sortedPokemon)
     };
-   
+
     return (
         <div className='trainer'>
             <div className='trainer-content'>
