@@ -36,9 +36,9 @@ const EditMoves = ({setHiddenForm, setClickedForm, user, userPokemon}) => {
     return (
         <div>
             <form className='move-form' onSubmit={handleSubmit}>
-                    <input onChange={(e) => setMoveName(e.target.value)} placeholder="Enter move Name..."/>
-                    <br/>
-                    <textarea className="move-desc-area" onChange={(e) => setDescription(e.target.value)} placeholder="Enter move Description..."/>
+                <input onChange={(e) => setMoveName(e.target.value)} placeholder="Enter move Name..."/>
+                <br/>
+                <textarea className="move-desc-area" onChange={(e) => setDescription(e.target.value)} placeholder="Enter move Description..."/>
                 <br/>
                 <button className='sort-button3' type="submit">Learn Move</button>
                 <button className='sort-button3' onClick={handleCancel}>Cancel</button>

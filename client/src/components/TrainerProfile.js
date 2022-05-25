@@ -35,7 +35,6 @@ const TrainerProfile = ({user}) => {
             }
         })
     };
-
     //Two fncs. that iterate through an array of objects
     //then uses obj property to return obj with new condition applied.
     const handleSortByName = () => {
@@ -46,8 +45,8 @@ const TrainerProfile = ({user}) => {
         });
         setUserPokemon(sortedByName)
         setSortedPokemon(true)
-        console.log(sortedPokemon)
     };
+
     const handleSortCreated = () => {
         const sortedByCreated = userPokemon.sort(function(a, b) {
         let createdA = a.created_at;
@@ -56,7 +55,6 @@ const TrainerProfile = ({user}) => {
         });
         setUserPokemon(sortedByCreated)
         setSortedPokemon(false)
-        console.log(sortedPokemon)
     };
 
     return (

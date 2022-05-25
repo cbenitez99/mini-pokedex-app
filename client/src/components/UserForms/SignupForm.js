@@ -25,7 +25,6 @@ const SignupForm = ({setUser}) => {
         fetch("/users", {
             method: "POST",
             headers: {
-                "Accept": "application/json",
                 "Content-Type": "application/json"
             },
             body: JSON.stringify(params)
@@ -59,7 +58,7 @@ const SignupForm = ({setUser}) => {
                     <button type="submit" className='signup-button'>Sign-Up</button>
                     <p style={{color: "black"}}> {errors.join(", and ")}</p>
                 </form>
-                <p>Already have an account? <a href='/login'>Log-In!</a></p>
+                <p>Already have an account? <a href='/login'>Log-In</a></p>
                 <br/>
             </div>
         </div>

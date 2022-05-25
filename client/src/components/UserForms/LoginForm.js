@@ -23,7 +23,6 @@ const LoginForm = ({setUser}) => {
         fetch("/login", {
             method: "POST",
             headers: {
-                "Accept": "application/json",
                 "Content-Type": "application/json"
             },
             body: JSON.stringify(params)
@@ -62,7 +61,7 @@ const LoginForm = ({setUser}) => {
                     <button type="submit" className='login-button'>Log in</button>
                     <p style={{color: "black"}}>{errors}</p>
                 </form>
-                <p>Dont have an account? <a href='/signup'>Sign-Up!</a></p>
+                <p>Dont have an account? <a href='/signup'>Sign-Up</a></p>
                 <p className='forgot-pass' onClick={handleWindow}><a href='/signup'>Forgot Password?</a></p>
             </div>
         </div>
