@@ -494,16 +494,6 @@
     border-radius: 10px;
   };
 
-  .move-list {
-    background-color: #ffffd8;
-    margin: auto;
-    max-height: fit-content;
-    max-width: fit-content;
-    overflow: scroll;
-    border-radius: 50px;
-    margin-bottom: 10px;
-  }
-
   #x-button{
     color: red;
     padding-left: 10px;
@@ -523,6 +513,14 @@
     overflow-y: auto;
     margin: 10px;
     border-radius: 50px;
+  }
+  .move-list {
+    background-color: #ffffd8;
+    margin: auto;
+    max-width: 75%;
+    overflow: scroll;
+    border-radius: 50px;
+    margin-bottom: 10px;
   }
 
   .stats-table {
