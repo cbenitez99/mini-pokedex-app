@@ -82,12 +82,11 @@
   .pokemon-form {
     width: fit-content;
     margin: auto;
-    margin-top: 5%;
-
+    margin-top: 2%;
     background-color: rgb(255, 0, 0);
     padding: 30px;
     border: solid;
-    border-width: 12px;
+    border-width: 5px;
     flex-direction: row;
     justify-content: space-between;
     flex-wrap: wrap;
