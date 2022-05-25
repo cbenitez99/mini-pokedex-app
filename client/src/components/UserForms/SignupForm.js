@@ -2,26 +2,18 @@ import React, {useState} from 'react'
 import { useNavigate } from 'react-router-dom';
 const SignupForm = ({setUser}) => {
     let navigate = useNavigate()
-    const [formData, setFormData] = useState({
-        username: "",
-        password: "",
-    });
+    const [formData, setFormData] = useState({ username: "", password: "" });
     const [errors, setErrors] = useState([]);
 
     const handleChange = (e) => {
         setFormData(prev => {
-            return {
-                ...prev, 
-                [e.target.name]: e.target.value
-            }
+            return { ...prev, [e.target.name]: e.target.value }
         });
     };
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        let params = {
-          ...formData  
-        }
+        let params = { ...formData }
         fetch("/users", {
             method: "POST",
             headers: {
