@@ -22,8 +22,8 @@ const EditPokemon = ({userPokemon, setUserPokemon, setClicked, setHidden}) => {
         })
         .then((resp)=>(resp.json()))
         .then((data)=> {
-            alert("Name changed!")
-            setUserPokemon(data)   
+            setUserPokemon(data)
+            alert("Name changed!")   
             setHidden(true)        
             setClicked(false)
         });
