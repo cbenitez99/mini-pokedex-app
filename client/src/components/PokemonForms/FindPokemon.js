@@ -24,7 +24,7 @@ const FindPokemon = ({user}) => {
             setFormData(
                 {
                     name: res.data.name.toUpperCase(),
-                    poke_type: res.data.types.map((type)=>type.type.name.toUpperCase()).join(" / "),
+                    poke_type: res.data.types.map((type)=>type.type.name.toUpperCase()).join(" & "),
                     image: res.data.sprites["front_default"],
                     user_id: user.id,
                 }
@@ -64,7 +64,6 @@ const FindPokemon = ({user}) => {
             } else {
                 resp.json()
                 .then((json) => {
-                    console.log(json.errors)
                     setErrors(json.errors)
                 });
             }
