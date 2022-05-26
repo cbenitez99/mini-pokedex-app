@@ -1,7 +1,10 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import { useNavigate } from 'react-router-dom';
+import { AppContext } from '../App';
 
-const Home = ({user}) => {  
+const Home = () => {  
+  const {user} = useContext(AppContext)
+
   let navigate = useNavigate();
 
   const handleClick = () => {

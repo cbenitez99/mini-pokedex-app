@@ -20,12 +20,12 @@ const App = () => {
       <main>
         <Routes>
           <Route exact path="/pokemons/:id/edit" element={<EditPokemon/>}/>
-          <Route exact path="/pokemons/:id/info" element={<PokemonInfo user={user}/>}/>
-          <Route exact path="/find-pokemon" element={<FindPokemon user={user}/>}/>
+          <Route exact path="/pokemons/:id/info" element={<PokemonInfo/>}/>
+          <Route exact path="/find-pokemon" element={<FindPokemon/>}/>
           <Route exact path="/login" element={<LoginForm/>}/>
           <Route exact path="/signup" element={<SignupForm/>}/>
-          <Route exact path="/" element={<Home user={user}/>}/>
-          <Route exact path={`/users/${user.id}`} element={<TrainerProfile user={user}/>}/>
+          <Route exact path="/" element={<Home/>}/>
+          <Route exact path={`/users/${user.id}`} element={<TrainerProfile/>}/>
         </Routes>
       </main>
     </AppContext.Provider>

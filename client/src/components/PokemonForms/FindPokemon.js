@@ -1,10 +1,13 @@
 import "../../App.css"
-import React, {useState} from "react"
+import React, {useState, useContext} from "react"
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import PokemonStats from "../PokemonStats";
+import { AppContext } from "../../App";
 
-const FindPokemon = ({user}) => {
+const FindPokemon = () => {
+    const {user} = useContext(AppContext)
+
     let navigate = useNavigate();
     const [currentPokemon, setCurrentPokemon] = useState("");
     const [pokemonData, setPokemonData] = useState([]);

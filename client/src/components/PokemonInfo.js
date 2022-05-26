@@ -1,9 +1,11 @@
-import React , {useEffect, useState} from 'react'
+import React , {useEffect, useState, useContext} from 'react'
 import { useParams } from 'react-router-dom';
 import EditPokemon from './PokemonForms/EditPokemon';
 import MoveInfo from './MoveInfo';
+import { AppContext } from '../App';
 
-const PokemonInfo = ({user}) => {
+const PokemonInfo = () => {
+    const {user} = useContext(AppContext)
     const {id} = useParams();
     const [userPokemon, setUserPokemon] = useState([]);
     const [clicked, setClicked] = useState(false);

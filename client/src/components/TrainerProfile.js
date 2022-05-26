@@ -1,8 +1,10 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import PokemonCard from './PokemonCard';
 import { useNavigate } from 'react-router-dom';
+import { AppContext } from '../App';
 
-const TrainerProfile = ({user}) => {
+const TrainerProfile = () => {
+    const {user} = useContext(AppContext);
     let navigate = useNavigate();
     const [userPokemon, setUserPokemon] = useState([]);
     const [sortedPokemon, setSortedPokemon] = useState(false);
