@@ -1,7 +1,9 @@
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
 import { useNavigate } from 'react-router-dom';
+import { AppContext } from '../../App';
 
-const LoginForm = ({setUser}) => {
+const LoginForm = () => {
+    const {setUser} = useContext(AppContext)
   
     const [formData, setFormData] = useState({
         username: "",
