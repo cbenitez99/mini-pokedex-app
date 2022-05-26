@@ -1,6 +1,9 @@
 import { NavLink, useNavigate } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { AppContext } from '../App';
+const Navbar = () => {
+  const {user, setUser} = useContext(AppContext)
 
-const Navbar = ({user, setUser}) => {
   let navigate = useNavigate()
   return ( 
       <div className='navbar-master'>

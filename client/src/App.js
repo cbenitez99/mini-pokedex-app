@@ -16,7 +16,7 @@ const App = () => {
 
   return (
     <AppContext.Provider value={{user, setUser}} className="pokedex">
-      <Navbar user={user} setUser={setUser}/>
+      <Navbar/>
       <main>
         <Routes>
           <Route exact path="/pokemons/:id/edit" element={<EditPokemon/>}/>
