@@ -1,9 +1,10 @@
-import React, {useState} from 'react'
+import React, {useContext, useState} from 'react'
 import { useParams } from 'react-router-dom'
+import { MethodsContext } from '../PokemonInfo';
 
 //deconstructed props stem from PokemonInfo prop-drilling, prevent this with useContext() somehow.
-const EditPokemon = ({userPokemon, setUserPokemon, setClicked, setHidden}) => {
-
+const EditPokemon = ({setHidden}) => {
+    const {setUserPokemon, userPokemon, setClicked} = useContext(MethodsContext)
     const {id} = useParams();
     const [nickname, setNickname] = useState("");
     

@@ -1,7 +1,10 @@
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
 import { useNavigate } from 'react-router-dom';
+import { AppContext } from '../../App';
 
-const EditMoves = ({setHiddenForm, setClickedForm, user, userPokemon}) => {
+const EditMoves = ({setHiddenForm, setClickedForm, userPokemon}) => {
+    const {user} = useContext(AppContext);
+
     let navigate = useNavigate();
     const [moveName, setMoveName] = useState("");
     const [moveDescription, setDescription] = useState("");
