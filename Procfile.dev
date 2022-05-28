@@ -1,2 +1,2 @@
-web: npm start --prefix client bundle exec rails server -p $PORT
-api: rails db:migrate
+web: npm start --prefix client 
+api: bundle exec rails server -p $PORT
