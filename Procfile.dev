@@ -1,2 +1,2 @@
 web: npm start --prefix client
-api: rails start
+api: rails start -p $PORT
