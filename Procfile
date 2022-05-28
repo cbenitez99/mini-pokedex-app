@@ -1,2 +1,2 @@
-web: rails s -p $PORT
+web: rails s -p $PORT npm start --prefix client
 release: rails db:migrate 
