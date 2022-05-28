@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import EditMoves from "./PokemonForms/EditMoves"
+import { MethodsContext } from './PokemonInfo';
 //deconstructed props stem from PokemonInfo prop-drilling, prevent this with useContext() somehow.
 
-const MoveInfo = ({userPokemon, setUserPokemon, clickedForm, setClickedForm, hiddenForm, setHiddenForm, handleDelete, user}) => {
+const MoveInfo = ({ clickedForm, hiddenForm, handleDelete}) => {
+const {userPokemon, setUserPokemon, setClickedForm, setHiddenForm} = useContext(MethodsContext);
+const {user} = useContext(AppContext);
 
     const handleMoves = () => {
         setClickedForm(true)

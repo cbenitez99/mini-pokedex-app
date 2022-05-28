@@ -64,7 +64,7 @@ const TrainerProfile = () => {
         <div className='trainer'>
             <div className='trainer-content'>
                 <h1>{user.username}'s Party</h1>
-                { userPokemon.length > 0 ? <><PokemonCard user={user} userPokemon={userPokemon} handleDelete={handleDelete}/>
+                { userPokemon.length > 0 ? <><PokemonCard userPokemon={userPokemon} handleDelete={handleDelete}/>
                 <button className="sort-button" onClick={handleSortByName}>Sort By: Name</button> 
                 <button className="sort-button" onClick={handleSortCreated}>Sort By: Captured</button></>
                 : 
