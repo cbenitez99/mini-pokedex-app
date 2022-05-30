@@ -34,7 +34,6 @@ const LoginForm = () => {
             if(resp.ok){
                 resp.json()
                 .then((json) => {
-                    localStorage.setItem('user', json.username)
                     setUser(json)
                     navigate(`/`)
                 })
