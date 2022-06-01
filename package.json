@@ -13,6 +13,5 @@
   "dependencies": {
     "axios": "^0.25.0",
     "materialize-css": "^1.0.0-rc.2"
-  },
-  "heroku-run-build-script": true
+  }
 }
