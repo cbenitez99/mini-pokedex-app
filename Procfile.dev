@@ -1,2 +1,2 @@
 web: bundle exec rails server -p $PORT
-api: npm start --prefix client
+release: npm start --ignore client
